@@ -4,10 +4,71 @@
     url("Archivo-VariableFont_wdth,wght.ttf") format("ttf");
 }
 
+$black: #000;
+$beige: #C9C6B9;
+$brown: #857A1E;
+$pink: #E585BF;
+$green: #1D775C;
+
+$h1: 64px;
+$h2: 48px;
+$h3: 36px;
+$h4: 24px;
+$pbig: 24px;
+$pmed: 18px;
+$psmall: 14px;
+
 body{
 	margin: 0;
 	padding: 0;
 	font-family: "Archivo";
+	background-color: $beige;
+	font-size: $pbig;
+	.wrapper-zwermers{
+		min-height: 100vh;
+		background-color: $beige;
+	}
+	.wrapper-pan-catwalk{
+		min-height: 100vh;
+		background-color: $brown;
+	}
+	.wrapper-kalender{
+		min-height: 100vh;
+		background-color: $pink;
+	}
+	.wrapper-over-ons{
+		min-height: 100vh;
+		background-color: $green;
+	}
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.menu{
+	display: flex;
+	justify-content: end;
+	background-color: $beige;
+	a{
+		text-decoration: none;
+		color: $black;
+		padding: 14px 2vw;
+		cursor: pointer;
+		font-size: $pbig;
+		&.zwermers{
+			background-color: $beige;
+		}
+		&.pan-catwalk{
+			background-color: $brown;
+		}
+		&.kalender{
+			background-color: $pink;
+		}
+		&.over-ons{
+			background-color: $green;
+		}
+	}
 }
 
 .logo-center{
@@ -20,7 +81,7 @@ body{
 
 .logo {
 	font-weight: 100;
-	font-size: 11vw;
+	font-size: 10vw;
 	font-variation-settings: 'wght' 100;
   font-family: "Archivo";
   text-align: center;
@@ -45,7 +106,7 @@ body{
 @keyframes breathe {
 	0% {
 		font-variation-settings: 'wght' 100;
-		font-size: 11vw;
+		font-size: 10vw;
 	}
 	50% {
 		// font-variation-settings: 'wght' var(--random);
@@ -56,7 +117,7 @@ body{
 	
 	100% {
 		font-variation-settings: 'wght' 100;
-		font-size: 11vw;
+		font-size: 10vw;
 	}
 }
 

@@ -4,6 +4,36 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type MenuDocumentDataSlicesSlice = NavItemSlice;
+
+/**
+ * Content for Menu documents
+ */
+interface MenuDocumentData {
+  /**
+   * Slice Zone field in *Menu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MenuDocumentDataSlicesSlice>;
+}
+
+/**
+ * Menu document from Prismic
+ *
+ * - **API ID**: `menu`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
+
 type PageDocumentDataSlicesSlice = RichTextSlice;
 
 /**
@@ -77,7 +107,62 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = PageDocument;
+export type AllDocumentTypes = MenuDocument | PageDocument;
+
+/**
+ * Primary content in *NavItem → Primary*
+ */
+export interface NavItemSliceDefaultPrimary {
+  /**
+   * Link field in *NavItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_item.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Title field in *NavItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: nav_item.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for NavItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<NavItemSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *NavItem*
+ */
+type NavItemSliceVariation = NavItemSliceDefault;
+
+/**
+ * NavItem Shared Slice
+ *
+ * - **API ID**: `nav_item`
+ * - **Description**: NavItem
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type NavItemSlice = prismic.SharedSlice<
+  "nav_item",
+  NavItemSliceVariation
+>;
 
 /**
  * Primary content in *RichText → Primary*
@@ -134,10 +219,19 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      MenuDocument,
+      MenuDocumentData,
+      MenuDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
+      PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      NavItemSlice,
+      NavItemSliceDefaultPrimary,
+      NavItemSliceVariation,
+      NavItemSliceDefault,
       RichTextSlice,
+      RichTextSliceDefaultPrimary,
       RichTextSliceVariation,
       RichTextSliceDefault,
     };

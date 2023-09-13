@@ -6,6 +6,9 @@ import * as prismic from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import Type from "@/components/type"
+import Menu from "@/components/menu"
+
 
 type Params = { uid: string };
 
@@ -43,17 +46,16 @@ export default async function Page({ params }: { params: Params }) {
     .getByUID("page", params.uid)
     .catch(() => notFound());
 
+  const menu = await client
+    .getSingle("menu")
+
+
   const letters = page.data.title?.[0]?.text.split('')
 
   return (
-    <div>
-      <h1 className="logo chars splitting">
-        {letters?.map((letter, i) => {
-          return(
-            <span className={`char ${letter}space`} data-char={letter} style={{'--char-index': (Math.floor(Math.random() * letters.length - 1)), '--random': (Math.floor(Math.random() * 9) * 100 + 100)}}>{letter}</span>
-          )
-        })}
-      </h1>
+    <div className={`wrapper-${params.uid}`}>
+      <Menu navItems={menu.data.slices}/>
+      <Type letters={letters}/>
       <SliceZone slices={page.data.slices} components={components} />
     </div>
   )
