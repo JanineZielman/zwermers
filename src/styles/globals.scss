@@ -27,7 +27,7 @@ body{
 	.wrapper-zwermers{
 		min-height: 100vh;
 		background-color: $beige;
-		padding-top: 14vw;
+		padding-top: calc(11.5vw + 48px);
 		.logo{
 			background-color: $beige;
 		}
@@ -35,7 +35,7 @@ body{
 	.wrapper-pan-catwalk{
 		min-height: 100vh;
 		background-color: $brown;
-		padding-top: 14vw;
+		padding-top: calc(11.5vw + 48px);
 		.logo{
 			background-color: $brown;
 		}
@@ -43,7 +43,7 @@ body{
 	.wrapper-kalender{
 		min-height: 100vh;
 		background-color: $pink;
-		padding-top: 14vw;
+		padding-top: calc(11.5vw + 48px);
 		.logo{
 			background-color: $pink;
 		}
@@ -51,7 +51,7 @@ body{
 	.wrapper-over-ons{
 		min-height: 100vh;
 		background-color: $green;
-		padding-top: 14vw;
+		padding-top: calc(11.5vw + 48px);
 		.logo{
 			background-color: $green;
 		}
