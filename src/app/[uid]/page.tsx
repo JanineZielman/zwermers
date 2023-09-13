@@ -48,6 +48,7 @@ export default async function Page({ params }: { params: Params }) {
 
   const menu = await client
     .getSingle("menu")
+    .catch(() => notFound());
 
 
   const letters = page.data.title?.[0]?.text.split('')

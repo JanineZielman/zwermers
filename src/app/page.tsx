@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 import { SliceZone } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
@@ -31,9 +32,12 @@ export default async function Index() {
    * The client queries content from the Prismic API
    */
   const client = createClient();
-  const home = await client.getByUID("page", "zwermers");
+  const home = await client
+    .getByUID("page", "zwermers")
+    .catch(() => notFound());
   const menu = await client
     .getSingle("menu")
+    .catch(() => notFound());
 
   const letters = home.data.title?.[0]?.text.split('')
 
