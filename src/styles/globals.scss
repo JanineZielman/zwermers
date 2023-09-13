@@ -27,18 +27,34 @@ body{
 	.wrapper-zwermers{
 		min-height: 100vh;
 		background-color: $beige;
+		padding-top: 14vw;
+		.logo{
+			background-color: $beige;
+		}
 	}
 	.wrapper-pan-catwalk{
 		min-height: 100vh;
 		background-color: $brown;
+		padding-top: 14vw;
+		.logo{
+			background-color: $brown;
+		}
 	}
 	.wrapper-kalender{
 		min-height: 100vh;
 		background-color: $pink;
+		padding-top: 14vw;
+		.logo{
+			background-color: $pink;
+		}
 	}
 	.wrapper-over-ons{
 		min-height: 100vh;
 		background-color: $green;
+		padding-top: 14vw;
+		.logo{
+			background-color: $green;
+		}
 	}
 }
 
@@ -50,6 +66,10 @@ body{
 	display: flex;
 	justify-content: end;
 	background-color: $beige;
+	position: fixed;
+	width: 100vw;
+	z-index: 9;
+	top: 0;
 	a{
 		text-decoration: none;
 		color: $black;
@@ -80,6 +100,9 @@ body{
 }
 
 .logo {
+	position: fixed;
+	width: 100vw;
+	top: 48px;
 	font-weight: 100;
 	font-size: 10vw;
 	font-variation-settings: 'wght' 100;
