@@ -1,0 +1,57 @@
+{
+  "id": "archief_item",
+  "label": "ArchiefItem",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {
+            "width": 1080,
+            "height": 1350
+          },
+          "thumbnails": [
+            {
+              "name": "landscape",
+              "width": 1080,
+              "height": 675
+            }
+          ]
+        }
+      },
+      "size": {
+        "type": "Select",
+        "config": {
+          "label": "Size",
+          "placeholder": "",
+          "options": ["Big", "Middle", "Small"]
+        }
+      },
+      "orientation": {
+        "type": "Select",
+        "config": {
+          "label": "Orientation",
+          "placeholder": "",
+          "options": ["Portrait", "Landscape"]
+        }
+      }
+    }
+  }
+}

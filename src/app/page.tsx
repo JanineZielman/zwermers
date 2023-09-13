@@ -8,6 +8,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import Type from "@/components/type"
 import Menu from "@/components/menu"
+import ArchiefItem from "@/components/archiefItem"
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -38,14 +39,18 @@ export default async function Index() {
   const menu = await client
     .getSingle("menu")
     .catch(() => notFound());
+  const items = await client
+    .getAllByType("archief_item")
+    .catch(() => notFound());
 
-  const letters = home.data.title?.[0]?.text.split('')
+  const letters = home.data.title?.[0]?.text.split('');
 
   return (
     <div className="wrapper-zwermers">
       <Menu navItems={menu.data.slices}/>
       <Type letters={letters}/>
       <SliceZone slices={home.data.slices} components={components} />
+      <ArchiefItem items={items}/>
     </div>
   );
 }

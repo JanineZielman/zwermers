@@ -122,6 +122,30 @@ body{
 }
 
 
+.archief{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	.archief-item{
+		margin-bottom: 1.5vw;
+		img{
+			width: auto;
+			height: 100%;
+		}
+	}
+	.Small{
+		height: 15vw;
+	}
+	.Middle{
+		height: 24vw;
+	}
+	.Big{
+		height: 41vw;
+	}
+}
+
+
+
 .tags{
 	display: flex;
 	flex-wrap: wrap;

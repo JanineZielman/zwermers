@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+/**
+ * Content for ArchiefItem documents
+ */
+interface ArchiefItemDocumentData {
+  /**
+   * Title field in *ArchiefItem*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Image field in *ArchiefItem*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<"landscape">;
+
+  /**
+   * Size field in *ArchiefItem*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.size
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  size: prismic.SelectField<"Big" | "Middle" | "Small">;
+
+  /**
+   * Orientation field in *ArchiefItem*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.orientation
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  orientation: prismic.SelectField<"Portrait" | "Landscape">;
+}
+
+/**
+ * ArchiefItem document from Prismic
+ *
+ * - **API ID**: `archief_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ArchiefItemDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<ArchiefItemDocumentData>,
+    "archief_item",
+    Lang
+  >;
+
 type MenuDocumentDataSlicesSlice = NavItemSlice;
 
 /**
@@ -107,7 +172,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = MenuDocument | PageDocument;
+export type AllDocumentTypes =
+  | ArchiefItemDocument
+  | MenuDocument
+  | PageDocument;
 
 /**
  * Primary content in *NavItem → Primary*
@@ -219,6 +287,8 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      ArchiefItemDocument,
+      ArchiefItemDocumentData,
       MenuDocument,
       MenuDocumentData,
       MenuDocumentDataSlicesSlice,
