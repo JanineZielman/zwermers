@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Params }) {
   const letters = page.data.title?.[0]?.text.split('')
 
   return (
-    <div className={`wrapper-${params.uid}`}>
+    <div className={`wrapper-${params.uid} wrapper`}>
       <Menu navItems={menu.data.slices}/>
       <Type letters={letters}/>
       <SliceZone slices={page.data.slices} components={components} />

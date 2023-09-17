@@ -24,38 +24,36 @@ body{
 	font-family: "Archivo";
 	background-color: $beige;
 	font-size: $pbig;
-	.wrapper-zwermers{
-		min-height: 100vh;
+}
+
+.wrapper-zwermers{
+	background-color: $beige;
+	.logo{
 		background-color: $beige;
-		padding-top: calc(11.5vw + 48px);
-		.logo{
-			background-color: $beige;
-		}
 	}
-	.wrapper-pan-catwalk{
-		min-height: 100vh;
+}
+.wrapper-pan-catwalk{
+	background-color: $brown;
+	.logo{
 		background-color: $brown;
-		padding-top: calc(11.5vw + 48px);
-		.logo{
-			background-color: $brown;
-		}
 	}
-	.wrapper-kalender{
-		min-height: 100vh;
+}
+.wrapper-kalender{
+	background-color: $pink;
+	.logo{
 		background-color: $pink;
-		padding-top: calc(11.5vw + 48px);
-		.logo{
-			background-color: $pink;
-		}
 	}
-	.wrapper-over-ons{
-		min-height: 100vh;
+}
+.wrapper-over-ons{
+	background-color: $green;
+	.logo{
 		background-color: $green;
-		padding-top: calc(11.5vw + 48px);
-		.logo{
-			background-color: $green;
-		}
 	}
+}
+
+.wrapper{
+	min-height: 100vh;
+	padding-top: calc(11.5vw + 48px);
 }
 
 *{

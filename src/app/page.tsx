@@ -46,7 +46,7 @@ export default async function Index() {
   const letters = home.data.title?.[0]?.text.split('');
 
   return (
-    <div className="wrapper-zwermers">
+    <div className="wrapper-zwermers wrapper">
       <Menu navItems={menu.data.slices}/>
       <Type letters={letters}/>
       <SliceZone slices={home.data.slices} components={components} />

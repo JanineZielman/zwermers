@@ -1,16 +1,16 @@
 @media only screen and (max-width: 900px) {
-  $h1: 64px;
-  $h2: 48px;
-  $h3: 36px;
-  $h4: 24px;
-  $pbig: 18px;
-  $pmed: 16px;
-  $psmall: 14px;
   body{
-    font-size: $pbig;
+    font-size: 16px;
   }
   .menu a{
-    font-size: $pmed;
+    font-size: 16px;
+    padding: 10px;
+  }
+  .logo{
+    top: 37px;
+  }
+  .wrapper{
+    padding-top: calc(11.5vw + 37px);
   }
   .archief{
     .archief-item{
