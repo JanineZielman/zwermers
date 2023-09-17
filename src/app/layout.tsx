@@ -1,8 +1,8 @@
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "@/prismicio";
 
-import '../styles/globals.scss';
 import '../styles/breakpoints.scss';
+import '../styles/globals.scss';
 
 export default function RootLayout({
   children,
