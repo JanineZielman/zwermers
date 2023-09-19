@@ -26,6 +26,8 @@ export const linkResolver = (doc) => {
       return `/kalender`;
     } else if (doc.uid === "over-ons") {
       return `/over-ons`;
+    } else if (doc.uid === "pan-catwalk") {
+      return `/pan-catwalk`;
     } else {
       return `/page/${doc.uid}`;
     }
