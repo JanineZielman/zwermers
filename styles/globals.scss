@@ -326,7 +326,7 @@ body{
 	.content{
 		max-width: 900px;
 		margin: 80px auto 0 auto;
-		padding: 1px 0 14px 0;
+		padding: 1px 14px 14px 14px;
 		position: relative;
 		.category{
 			text-transform: capitalize;
@@ -403,13 +403,14 @@ body{
 		}
 		h1{
 			margin: 10px 0;
-			padding: 0 14px;
+			// padding: 0 14px;
 			font-weight: 300;
 		}
 		p{
-			padding: 0 14px;
+			// padding: 0 14px;
 		}
 		.main-image{
+			// padding: 0 14px;
 			img{
 				width: 100%;
 			}
