@@ -1,0 +1,39 @@
+@media only screen and (max-width: 900px) {
+  body{
+    font-size: 16px;
+  }
+  .menu a{
+    font-size: 16px;
+    padding: 10px;
+  }
+  .logo{
+    top: 37px;
+    padding: 10px 0;
+  }
+  .wrapper{
+    padding-top: calc(11.5vw + 37px);
+  }
+  .archief{
+    width: 100%;
+    .archief-item{
+      margin-bottom: 1.5vw;
+      width: 100%;
+      img{
+        width: 100vw;
+        height: 100%;
+      }
+    }
+    .Small{
+      width: 100%;
+      height: auto;
+    }
+    .Middle{
+      width: 100%;
+      height: auto;
+    }
+    .Big{
+      width: 100%;
+      height: auto;
+    }
+  }
+}

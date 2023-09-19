@@ -1,0 +1,82 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "changing"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Invented"
+        }
+      }
+    ]
+  },
+  "date": {
+    "__TYPE__": "FieldContent",
+    "type": "Date",
+    "value": "2015-02-23"
+  },
+  "end_date": {
+    "__TYPE__": "FieldContent",
+    "type": "Date",
+    "value": "2017-06-04"
+  },
+  "time": {
+    "__TYPE__": "FieldContent",
+    "value": "slow",
+    "type": "Text"
+  },
+  "location": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
+    }
+  },
+  "category": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
+    }
+  },
+  "tags": {
+    "__TYPE__": "GroupContentType",
+    "value": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "tag",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "ticket_link": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "https://prismic.io"
+    }
+  },
+  "ticket_link_text": {
+    "__TYPE__": "FieldContent",
+    "value": "if",
+    "type": "Text"
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}

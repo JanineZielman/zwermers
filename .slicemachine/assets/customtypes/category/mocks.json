@@ -1,0 +1,15 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "throughout"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "wash",
+    "type": "Text"
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}

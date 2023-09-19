@@ -1,0 +1,28 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "flow"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Those"
+        }
+      }
+    ]
+  },
+  "text": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Irure pariatur ipsum enim Lorem voluptate enim et. Mollit et nisi commodo ad. Velit minim esse dolor do adipisicing veniam veniam dolor laboris ipsum ad occaecat nulla Lorem nulla."
+        }
+      }
+    ]
+  }
+}

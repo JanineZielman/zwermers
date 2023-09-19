@@ -1,0 +1,32 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "stay"
+  },
+  "title": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "heading1",
+        "content": {
+          "text": "Structure"
+        }
+      }
+    ]
+  },
+  "text": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Deserunt minim ipsum eiusmod veniam duis Lorem exercitation incididunt exercitation excepteur minim culpa. Officia dolor ullamco sit."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": []
+  }
+}
