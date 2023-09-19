@@ -7,7 +7,7 @@ const AgendaItem = ({items}) => {
     <div className='agenda'>
       {items.map((item, i) => {
         return(
-          <div className={`agenda-item ${item.data.category?.uid}`}>
+          <div className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
             <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span>
             <h2>{item.data.title}</h2>
             <p>

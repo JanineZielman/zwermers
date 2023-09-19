@@ -239,25 +239,25 @@ body{
 		&.installation{
 			color:  $yellow;
 			&:after{
-				background-color: $yellow;
+				background-color: $blue;
 			}
 		}
 		&.workshop{
 			color: $mustard;
 			&:after{
-				background-color: $mustard;
+				background-color: $red;
 			}
 		}
 		&.short-performance{
 			color: $green;
 			&:after{
-				background-color: $green;
+				background-color: $pink;
 			}
 		}
 		&.long-performance{
 			color: $lgreen;
 			&:after{
-				background-color: $lgreen;
+				background-color: $dred;
 			}
 		}
 	}
@@ -340,27 +340,29 @@ body{
 			top: 0;
 			right: 0;
 			z-index: 2;
-			width: 200px;
+			width: 300px;
 			padding-right: 10px;
 			text-align: right;
 			transition: all 0.4s ease;
 		}
 		&:before{
-			width: 200px;
-			height: 220px;
+			width: 300px;
+			height: 330px;
 			content: "";
 			position: absolute;
 			z-index: 9;
 			top: 0;
 			right: 0;
-			background-image: url(./flap2-bg.svg);
-			background-repeat: no-repeat;
+			mask-image: url(./flap2-bg.svg);
+			mask-repeat: no-repeat;
+			mask-size: 100%;
+			background-color: $beige;
 			z-index: 0;
 			transition: opacity 0.4s ease;
 		}
 		&:after{
-			width: 200px;
-			height: 220px;
+			width: 300px;
+			height: 320px;
 			content: "";
 			position: absolute;
 			z-index: 9;
@@ -374,7 +376,7 @@ body{
 		&.installation{
 			background-color:  $yellow;
 			&:after{
-				background-color: $yellow;
+				background-color: $blue;
 			}
 			.category{
 				color: $yellow;
@@ -383,7 +385,7 @@ body{
 		&.workshop{
 			background-color: $mustard;
 			&:after{
-				background-color: $mustard;
+				background-color: $red;
 			}
 			.category{
 				color: $mustard;
@@ -392,7 +394,7 @@ body{
 		&.short-performance{
 			background-color: $green;
 			&:after{
-				background-color: $green;
+				background-color: $pink;
 			}
 			.category{
 				color: $green;
@@ -401,7 +403,7 @@ body{
 		&.long-performance{
 			background-color: $lgreen;
 			&:after{
-				background-color: $lgreen;
+				background-color: $dred;
 			}
 			.category{
 				color: $lgreen;
