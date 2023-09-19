@@ -1,15 +1,11 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
-/**
- * Props for `NavItem`.
- */
-export type NavItemProps = SliceComponentProps<Content.NavItemSlice>;
 
 /**
  * Component for "NavItem" Slices.
  */
-const NavItem = ({ slice }: NavItemProps): JSX.Element => {
+const NavItem = ({ slice }) => {
   return (
     <section
       data-slice-type={slice.slice_type}

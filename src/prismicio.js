@@ -11,7 +11,7 @@ export const { repositoryName } = sm;
 /**
  * The project's Prismic Route Resolvers. This list determines a Prismic document's URL.
  */
-const routes: prismic.ClientConfig["routes"] = [
+const routes = [
   {
     type: "page",
     path: "/:uid",
@@ -29,12 +29,8 @@ const routes: prismic.ClientConfig["routes"] = [
  *
  * @param config - Configuration for the Prismic client.
  */
-export const createClient = ({
-  previewData,
-  req,
-  ...config
-}: prismicNext.CreateClientConfig = {}) => {
-  const client = prismic.createClient(sm.repositoryName, {
+export const createClient = ({ previewData, req, ...config } = {}) => {
+  const client = prismic.createClient(repositoryName, {
     routes,
     fetchOptions:
       process.env.NODE_ENV === "production"

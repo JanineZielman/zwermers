@@ -9,18 +9,11 @@ import { components } from "@/slices";
 import Type from "@/components/type"
 import Menu from "@/components/menu"
 
-
-type Params = { uid: string };
-
 /**
  * This page renders a Prismic Document dynamically based on the URL.
  */
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata> {
+export async function generateMetadata({params}) {
   const client = createClient();
   const page = await client
     .getByUID("page", params.uid)
@@ -40,7 +33,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }) {
   const client = createClient();
   const page = await client
     .getByUID("page", params.uid)

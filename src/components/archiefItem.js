@@ -9,8 +9,8 @@ const ArchiefItem = ({items}) => {
         console.log(item)
         return(
           <a href={`zwermers/${item.uid}`}>
-          <div className={`archief-item ${item.data.size} ${item.data.category}`}>
-            {/* <span className='category'>{item.data.category.uid.replaceAll('-', ' ')}</span> */}
+          <div className={`archief-item ${item.data.size} ${item.data.category.uid}`}>
+            <span className='category'>{item.data.category.uid.replaceAll('-', ' ')}</span>
             {item.data.orientation == 'Landscape' ?
               <PrismicImage field={item.data.image.landscape} />
             :

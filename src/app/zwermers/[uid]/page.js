@@ -9,23 +9,14 @@ import { components } from "@/slices";
 import Menu from "@/components/menu"
 import { PrismicImage, PrismicLink } from '@prismicio/react'
 
-
-type Params = { uid: string };
-
 /**
  * This page renders a Prismic Document dynamically based on the URL.
  */
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Params;
-}): Promise<Metadata> {
+export async function generateMetadata({params}) {
   const client = createClient();
   const page = await client
-  .getByUID("archief_item", params.uid, {
-    fetchLinks: ['category.uid', 'category.title'],
-  })
+  .getByUID("archief_item", params.uid)
   .catch(() => notFound());
 
   return {
@@ -42,13 +33,11 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({ params }) {
   const client = createClient();
 
   const page = await client
-  .getByUID("archief_item", params.uid, {
-    fetchLinks: ['category.uid', 'category.title'],
-  })
+  .getByUID("archief_item", params.uid)
   .catch(() => notFound());
 
   const menu = await client
@@ -59,8 +48,8 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <div className={`wrapper-${params.uid} page-wrapper`}>
       <Menu navItems={menu.data.slices}/>
-      <div className={`content ${page.data.category}`}>
-        {/* <span className='category'>{page.data.category.uid.replaceAll('-', ' ')}</span> */}
+      <div className={`content ${page.data.category.uid}`}>
+        <span className='category'>{page.data.category.uid.replaceAll('-', ' ')}</span>
         <h1>{page.data.title}</h1>
         <div className="main-image">
           {page.data.orientation == 'Landscape' ?
