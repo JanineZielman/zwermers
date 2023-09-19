@@ -10,7 +10,7 @@ import Type from "@/components/type"
 import Menu from "@/components/menu"
 import ArchiefItem from "@/components/archiefItem"
 
-export async function generateMetadata(){
+export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const home = await client.getByUID("page", "home");
 
