@@ -18,9 +18,16 @@ export async function generateMetadata({
   params
 }){
   const client = createClient();
+  // const page = await client
+  //   .getByUID("archief_item", params.uid)
+  //   .catch(() => notFound());
+
   const page = await client
-    .getByUID("archief_item", params.uid)
-    .catch(() => notFound());
+    .getByUID("archief_item", params.uid, {
+      fetchLinks: "category.uid",
+    })
+    .catch(() => notFound())
+
 
   return {
     title: page.data.title,
@@ -79,7 +86,12 @@ export async function generateStaticParams() {
   /**
    * Query all Documents from the API, except the homepage.
    */
-  const pages = await client.getAllByType("archief_item");
+  // const pages = await client.getAllByType("archief_item");
+
+  const pages = await client
+  .getAllByType("archief_item", {
+    fetchLinks: "category.uid",
+  })
 
   /**
    * Define a path for every Document.

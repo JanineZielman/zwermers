@@ -39,9 +39,15 @@ export default async function Index() {
   const menu = await client
     .getSingle("menu")
     .catch(() => notFound());
+  // const items = await client
+  //   .getAllByType("archief_item")
+  //   .catch(() => notFound());
+
   const items = await client
-    .getAllByType("archief_item")
-    .catch(() => notFound());
+    .getAllByType("archief_item", {
+      fetchLinks: "category.uid",
+    })
+    .catch(() => notFound())
 
   const letters = home.data.title?.[0]?.text.split('');
 
