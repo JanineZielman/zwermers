@@ -48,8 +48,8 @@ export default async function Page({ params }) {
   return (
     <div className={`wrapper-${params.uid} page-wrapper`}>
       <Menu navItems={menu.data.slices}/>
-      <div className={`content ${page.data.category.uid}`}>
-        <span className='category'>{page.data.category.uid.replaceAll('-', ' ')}</span>
+      <div className={`content ${page.data.category?.uid}`}>
+        <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
         <h1>{page.data.title}</h1>
         <div className="main-image">
           {page.data.orientation == 'Landscape' ?
