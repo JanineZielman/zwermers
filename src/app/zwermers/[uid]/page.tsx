@@ -10,24 +10,23 @@ import Menu from "@/components/menu"
 import { PrismicImage, PrismicLink } from '@prismicio/react'
 
 
+type Params = { uid: string };
+
 /**
  * This page renders a Prismic Document dynamically based on the URL.
  */
 
 export async function generateMetadata({
-  params
-}){
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
   const client = createClient();
-  // const page = await client
-  //   .getByUID("archief_item", params.uid)
-  //   .catch(() => notFound());
-
   const page = await client
-    .getByUID("archief_item", params.uid, {
-      fetchLinks: "category.uid",
-    })
-    .catch(() => notFound())
-
+  .getByUID("archief_item", params.uid, {
+    fetchLinks: ['category.uid', 'category.title'],
+  })
+  .catch(() => notFound());
 
   return {
     title: page.data.title,
@@ -43,18 +42,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: Params }) {
   const client = createClient();
 
   const page = await client
   .getByUID("archief_item", params.uid, {
-    fetchLinks: ['category.uid'],
+    fetchLinks: ['category.uid', 'category.title'],
   })
   .catch(() => notFound());
-
-  // const page = await client
-  //   .getByUID("archief_item", params.uid)
-  //   .catch(() => notFound());
 
   const menu = await client
     .getSingle("menu")
@@ -64,8 +59,8 @@ export default async function Page({ params }) {
   return (
     <div className={`wrapper-${params.uid} page-wrapper`}>
       <Menu navItems={menu.data.slices}/>
-      <div className={`content ${page.data.category.uid}`}>
-        <span className='category'>{page.data.category.uid.replaceAll('-', ' ')}</span>
+      <div className={`content ${page.data.category}`}>
+        {/* <span className='category'>{page.data.category.uid.replaceAll('-', ' ')}</span> */}
         <h1>{page.data.title}</h1>
         <div className="main-image">
           {page.data.orientation == 'Landscape' ?
@@ -86,12 +81,7 @@ export async function generateStaticParams() {
   /**
    * Query all Documents from the API, except the homepage.
    */
-  // const pages = await client.getAllByType("archief_item");
-
-  const pages = await client
-  .getAllByType("archief_item", {
-    fetchLinks: "category.uid",
-  })
+  const pages = await client.getAllByType("archief_item");
 
   /**
    * Define a path for every Document.
