@@ -9,6 +9,9 @@ $beige: #C9C6B9;
 $brown: #857A1E;
 $pink: #E585BF;
 $green: #1D775C;
+$yellow: #FFF39A;
+$mustard: #857A1E;
+$lgreen: #42BB65;
 
 $h1: 64px;
 $h2: 48px;
@@ -53,7 +56,7 @@ body{
 
 .wrapper{
 	min-height: 100vh;
-	padding-top: calc(11.5vw + 48px);
+	padding-top: calc(10vw + 48px);
 }
 
 *{
@@ -66,7 +69,7 @@ body{
 	background-color: $beige;
 	position: fixed;
 	width: 100vw;
-	z-index: 9;
+	z-index: 999;
 	top: 0;
 	a{
 		text-decoration: none;
@@ -113,14 +116,30 @@ body{
   margin-top: 0;
 	margin-bottom: 0;
 	transition: all 0.4s ease-in-out;
+	text-transform: uppercase;
+	padding-top: 24px;
+	padding-bottom: 20px;
+	z-index: 999;
 	.char {
 		--delay: calc((var(--char-index) + 1) * 300ms);
-		animation: breathe 4000ms infinite both;
+		animation: breathe 5000ms infinite both;
 		animation-delay: var(--delay);
 		animation-timing-function: ease-in-out;
+		// width: 7vw;
+		height: 6.2vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		padding-top: 2px;
+		// border: 1px solid red;
 	}
 	.space{
 		margin-left: 4vw;
+		width: auto;
+	}
+	.\/space, .\~space{
+		width: auto;
 	}
 }
 
@@ -149,9 +168,88 @@ body{
 	justify-content: space-between;
 	.archief-item{
 		margin-bottom: 1.5vw;
+		position: relative;
 		img{
 			width: auto;
 			height: 100%;
+		}
+		&:before, &:after{
+			transition: all 0.4s ease;
+		}
+		.category{
+			text-transform: capitalize;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			width: 200px;
+			padding-right: 10px;
+			text-align: right;
+			opacity: 0;
+			transition: all 0.4s ease;
+		}
+		&:before{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			background-image: url(./flap2-bg.svg);
+			background-repeat: no-repeat;
+			z-index: 0;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+		&:after{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			mask-image: url(./flap2.svg);
+			mask-size: 100%;
+			mask-repeat: no-repeat;
+			opacity: 0;
+			transition: opacity 0.4s ease;
+		}
+		&:hover{
+			.category{
+				opacity: 1;
+			}
+			&:before{
+				opacity: 1;
+			}
+			&:after{
+				opacity: 1;
+			}
+		}
+		&.installation{
+			color:  $yellow;
+			&:after{
+				background-color: $yellow;
+			}
+		}
+		&.workshop{
+			color: $mustard;
+			&:after{
+				background-color: $mustard;
+			}
+		}
+		&.short-performance{
+			color: $green;
+			&:after{
+				background-color: $green;
+			}
+		}
+		&.long-performance{
+			color: $lgreen;
+			&:after{
+				background-color: $lgreen;
+			}
 		}
 	}
 	.Small{
@@ -213,6 +311,102 @@ body{
 			margin-left: 48px;
 			font-weight: 100;
 			cursor: pointer;
+		}
+	}
+}
+
+
+//page 
+
+.page-wrapper{
+	padding-bottom: 50px;
+	.content{
+		max-width: 900px;
+		margin: 80px auto 0 auto;
+		padding: 1px 0 14px 0;
+		position: relative;
+		.category{
+			text-transform: capitalize;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 2;
+			width: 200px;
+			padding-right: 10px;
+			text-align: right;
+			transition: all 0.4s ease;
+		}
+		&:before{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			background-image: url(./flap2-bg.svg);
+			background-repeat: no-repeat;
+			z-index: 0;
+			transition: opacity 0.4s ease;
+		}
+		&:after{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			mask-image: url(./flap2.svg);
+			mask-size: 100%;
+			mask-repeat: no-repeat;
+			transition: opacity 0.4s ease;
+		}
+		&.installation{
+			background-color:  $yellow;
+			&:after{
+				background-color: $yellow;
+			}
+			.category{
+				color: $yellow;
+			}
+		}
+		&.workshop{
+			background-color: $mustard;
+			&:after{
+				background-color: $mustard;
+			}
+			.category{
+				color: $mustard;
+			}
+		}
+		&.short-performance{
+			background-color: $green;
+			&:after{
+				background-color: $green;
+			}
+			.category{
+				color: $green;
+			}
+		}
+		&.long-performance{
+			background-color: $lgreen;
+			&:after{
+				background-color: $lgreen;
+			}
+			.category{
+				color: $lgreen;
+			}
+		}
+		h1{
+			margin: 10px 0;
+			padding: 0 14px;
+			font-weight: 300;
+		}
+		.main-image{
+			img{
+				width: 100%;
+			}
 		}
 	}
 }

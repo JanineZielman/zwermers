@@ -7,6 +7,7 @@ const Type = ({letters}) => {
     for (let i = 0; i < letters.length; i++) { 
       document.getElementById(`char${i}`).style.setProperty('--char-index', (Math.floor(Math.random() * letters.length - 1)));
       document.getElementById(`char${i}`).style.setProperty('--random', (Math.floor(Math.random() * 9) * 100 + 100));
+      document.getElementById(`char${i}`).style.setProperty('--font-size', (Math.floor(Math.random() * 3) + 10 + 'vw'));
     }
   }, [])
 

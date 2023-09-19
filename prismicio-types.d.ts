@@ -4,6 +4,8 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type ArchiefItemDocumentDataSlicesSlice = RichTextSlice;
+
 /**
  * Content for ArchiefItem documents
  */
@@ -51,6 +53,60 @@ interface ArchiefItemDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   orientation: prismic.SelectField<"Portrait" | "Landscape">;
+
+  /**
+   * Category field in *ArchiefItem*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  category: prismic.ContentRelationshipField<"category">;
+
+  /**
+   * Slice Zone field in *ArchiefItem*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ArchiefItemDocumentDataSlicesSlice>
+  /**
+   * Meta Title field in *ArchiefItem*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *ArchiefItem*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *ArchiefItem*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: archief_item.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
@@ -66,6 +122,38 @@ export type ArchiefItemDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<
     Simplify<ArchiefItemDocumentData>,
     "archief_item",
+    Lang
+  >;
+
+/**
+ * Content for Category documents
+ */
+interface CategoryDocumentData {
+  /**
+   * Title field in *Category*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: category.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Category document from Prismic
+ *
+ * - **API ID**: `category`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CategoryDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CategoryDocumentData>,
+    "category",
     Lang
   >;
 
@@ -174,6 +262,7 @@ export type PageDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | ArchiefItemDocument
+  | CategoryDocument
   | MenuDocument
   | PageDocument;
 
@@ -289,6 +378,9 @@ declare module "@prismicio/client" {
     export type {
       ArchiefItemDocument,
       ArchiefItemDocumentData,
+      ArchiefItemDocumentDataSlicesSlice,
+      CategoryDocument,
+      CategoryDocumentData,
       MenuDocument,
       MenuDocumentData,
       MenuDocumentDataSlicesSlice,
