@@ -5,41 +5,33 @@ import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 
 import Type from "../components/type"
-import AgendaItems from "../components/agendaItems"
 
-const Kalender = ({ items, menu, page }) => {
+const OverOns = ({ menu, page }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
     <Layout navItems={menu.data.slices}>
-      <div className="wrapper-kalender wrapper">
+      <div className="wrapper-over-ons wrapper">
         <Type letters={letters}/>
-        <SliceZone slices={page.data.slices} components={components} />
-        <AgendaItems items={items}/>
+        <div className="content">
+          <SliceZone slices={page.data.slices} components={components} />
+        </div>
       </div>
     </Layout>
   );
 };
 
-export default Kalender;
+export default OverOns;
 
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  const items = await client.getAllByType("agendaitem", { 
-    orderings: {
-			field: 'my.agendaitem.date',
-			direction: 'desc',
-		},
-    fetchLinks: 'category.title'
-  });
   const menu = await client.getSingle("menu");
-  const page = await client.getByUID("page", "kalender");
+  const page = await client.getByUID("page", "over-ons");
 
 
   return {
     props: {
-      items,
       menu,
       page
     },

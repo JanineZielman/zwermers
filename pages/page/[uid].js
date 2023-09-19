@@ -2,10 +2,10 @@ import Head from "next/head";
 import { SliceZone } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
-import { createClient } from "../prismicio";
-import { components } from "../slices";
-import { Layout } from "../components/Layout";
-import Type from "../components/type"
+import { createClient } from "../../prismicio";
+import { components } from "../../slices";
+import { Layout } from "../../components/Layout";
+import Type from "../../components/type"
 
 const Page = ({ page, menu }) => {
   const letters = page.data.title?.[0]?.text.split('');

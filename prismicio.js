@@ -22,12 +22,16 @@ export const linkResolver = (doc) => {
   if (doc.type === "page") {
     if (doc.uid === "zwermers") {
       return `/`;
+    }  else if (doc.uid === "kalender") {
+      return `/kalender`;
+    } else if (doc.uid === "over-ons") {
+      return `/over-ons`;
     } else {
-      return `/${doc.uid}`;
+      return `/page/${doc.uid}`;
     }
   }
   if (doc.type === "archief_item") {
-    return `/zwermers.${doc.uid}`;
+    return `/zwermers/${doc.uid}`;
   }
   return `/`;
 };
