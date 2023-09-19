@@ -13,7 +13,9 @@ const Page = ({ page, menu }) => {
     <Layout navItems={menu.data.slices}>
       <div className={`wrapper-${page.uid} wrapper`}>
         <Type letters={letters}/>
-        <SliceZone slices={page.data.slices} components={components} />
+        <div className="content">
+          <SliceZone slices={page.data.slices} components={components} />
+        </div>
       </div>
     </Layout>
   );

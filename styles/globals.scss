@@ -5,6 +5,7 @@
 }
 
 $black: #000;
+$grey: #B8C6BC;
 $beige: #C9C6B9;
 $brown: #857A1E;
 $pink: #E585BF;
@@ -12,6 +13,11 @@ $green: #1D775C;
 $yellow: #FFF39A;
 $mustard: #857A1E;
 $lgreen: #42BB65;
+$dred: #630A1B;
+$red: #FF4832;
+$purple: #957193;
+$blue: #0B98CD;
+
 
 $h1: 64px;
 $h2: 48px;
@@ -42,9 +48,9 @@ body{
 	}
 }
 .wrapper-kalender{
-	background-color: $pink;
+	background-color: $grey;
 	.logo{
-		background-color: $pink;
+		background-color: $grey;
 	}
 }
 .wrapper-over-ons{
@@ -84,7 +90,7 @@ body{
 			background-color: $brown;
 		}
 		&.kalender{
-			background-color: $pink;
+			background-color: $grey;
 		}
 		&.over-ons{
 			background-color: $green;
@@ -403,16 +409,112 @@ body{
 		}
 		h1{
 			margin: 10px 0;
-			// padding: 0 14px;
 			font-weight: 300;
 		}
-		p{
-			// padding: 0 14px;
-		}
 		.main-image{
-			// padding: 0 14px;
 			img{
 				width: 100%;
+			}
+		}
+	}
+}
+
+.wrapper .content{
+	max-width: 900px;
+	margin: auto;
+}
+
+//agenda
+
+.agenda{
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	padding-top: 48px;
+	padding-bottom: 48px;
+	.agenda-item{
+		width: 25%;
+		min-height: 50vh;
+		background-color: $dred;
+		padding: 14px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		padding-top: 180px;
+		.category{
+			text-transform: capitalize;
+			position: absolute;
+			top: 5px;
+			right: 0;
+			z-index: 2;
+			width: 200px;
+			padding-right: 10px;
+			text-align: right;
+			transition: all 0.4s ease;
+		}
+		&:before{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			mask-image: url(./flap2-bg.svg);
+			mask-repeat: no-repeat;
+			background-color: $grey;
+			z-index: 0;
+			transition: opacity 0.4s ease;
+		}
+		&:after{
+			width: 200px;
+			height: 220px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: 0;
+			mask-image: url(./flap2.svg);
+			mask-size: 100%;
+			mask-repeat: no-repeat;
+			transition: opacity 0.4s ease;
+		}
+		&.installation{
+			background-color:  $yellow;
+			&:after{
+				background-color: $blue;
+			}
+			.category{
+				color: $yellow;
+			}
+		}
+		&.workshop{
+			background-color: $mustard;
+			&:after{
+				background-color: $red;
+			}
+			.category{
+				color: $mustard;
+			}
+		}
+		&.short-performance{
+			background-color: $green;
+			&:after{
+				background-color: $pink;
+			}
+			.category{
+				color: $green;
+			}
+		}
+		&.long-performance{
+			background-color: $lgreen;
+			&:after{
+				background-color: $dred;
+			}
+			.category{
+				color: $lgreen;
 			}
 		}
 	}

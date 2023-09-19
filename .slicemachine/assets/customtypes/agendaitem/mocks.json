@@ -1,0 +1,28 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "mighty"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "screen",
+    "type": "Text"
+  },
+  "date": {
+    "__TYPE__": "FieldContent",
+    "type": "Timestamp",
+    "value": "2020-05-07T23:23:11Z"
+  },
+  "location": {
+    "__TYPE__": "FieldContent",
+    "value": "every",
+    "type": "Text"
+  },
+  "category": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "DocumentLink",
+      "id": "mock_document_id"
+    }
+  }
+}

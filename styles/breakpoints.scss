@@ -2,6 +2,9 @@
   body{
     font-size: 16px;
   }
+  h2{
+    font-size: 36px;
+  }
   .menu a{
     font-size: 16px;
     padding: 10px;
@@ -34,6 +37,11 @@
     .Big{
       width: 100%;
       height: auto;
+    }
+  }
+  .agenda{
+    .agenda-item{
+      width: 100%;
     }
   }
 }
