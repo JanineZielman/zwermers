@@ -399,20 +399,18 @@ body{
 
 .agenda{
 	display: flex;
-	justify-content: space-evenly;
 	flex-wrap: wrap;
 	box-sizing: border-box;
 	padding-top: 48px;
 	padding-bottom: 48px;
 	.agenda-item{
 		width: 25%;
-		min-height: 50vh;
-		padding: 14px;
+		height: auto;
+		min-height: 500px;
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		justify-content: end;
-		padding-top: 180px;
+		justify-content: center;
 		.category{
 			text-transform: capitalize;
 			position: absolute;
@@ -424,36 +422,37 @@ body{
 			text-align: right;
 			transition: all 0.4s ease;
 		}
-		&:before{
-			width: 200px;
-			height: 220px;
-			content: "";
-			position: absolute;
-			z-index: 9;
-			top: 0;
-			right: 0;
-			mask-image: url(./flap2-bg.svg);
+		.mask{
+			width: 100%;
+			height: 100%;
+			mask-size: cover;
 			mask-repeat: no-repeat;
-			background-color: $bg3;
-			z-index: 0;
-			transition: opacity 0.4s ease;
+			// padding-top: 180px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			padding: 14px;
 		}
 		&:after{
-			width: 200px;
-			height: 220px;
+			width: 100%;
+			height: 100%;
 			content: "";
 			position: absolute;
 			z-index: 9;
 			top: 0;
 			right: 0;
-			mask-image: url(./flap2.svg);
-			mask-size: 100%;
+			mask-size: cover;
 			mask-repeat: no-repeat;
 			transition: opacity 0.4s ease;
 		}
 		&.installation{
-			background-color:  $orange;
+			.mask{
+				mask-image: url(./installation.svg);
+				background-color:  $orange;
+			}
 			&:after{
+				mask-image: url(./installation-flaps.svg);
 				background-color: $purple;
 			}
 			.category{
@@ -461,8 +460,12 @@ body{
 			}
 		}
 		&.workshop{
-			background-color: $mustard;
+			.mask{
+				background-color: $mustard;
+				mask-image: url(./workshop.svg);
+			}
 			&:after{
+				mask-image: url(./workshop-flaps.svg);
 				background-color: $purple;
 			}
 			.category{
@@ -470,8 +473,12 @@ body{
 			}
 		}
 		&.short-performance{
-			background-color: $lgreen;
+			.mask{
+				background-color: $lgreen;
+				mask-image: url(./short.svg);
+			}
 			&:after{
+				mask-image: url(./short-flaps.svg);
 				background-color: $green;
 			}
 			.category{
@@ -479,8 +486,12 @@ body{
 			}
 		}
 		&.long-performance{
-			background-color: $dgreen;
+			.mask{
+				mask-image: url(./long.svg);
+				background-color: $dgreen;
+			}
 			&:after{
+				mask-image: url(./long-flaps.svg);
 				background-color: $blue;
 			}
 			.category{

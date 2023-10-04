@@ -8,12 +8,15 @@ const AgendaItem = ({items}) => {
       {items.map((item, i) => {
         return(
           <div className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
-            <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span>
-            <h2>{item.data.title}</h2>
-            <p>
-              {item.data.location}<br/>
-              {Moment(item.data.date).format("DD.MM.Y")}
-            </p>
+            {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
+            <div className='mask'>
+              <h2>{item.data.title}</h2>
+              <p>
+                {item.data.location}<br/>
+                {Moment(item.data.date).format("DD.MM.Y")}
+              </p>
+            </div>
+            
           </div>
         )
       })}
