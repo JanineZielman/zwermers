@@ -17,42 +17,42 @@ const PanCatwalk = ({ menu, page }) => {
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <div className="tags">
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag70"></a>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag70"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag60"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <Link href="/pan-catwalk/test" className="tag tag60"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
-           <a href="/pan-catwalk/test" className="tag tag70"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag70"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
 
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag90"></a>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag90"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag30"></a>
-           <a href="/pan-catwalk/test" className="tag tag40"></a>
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <Link href="/pan-catwalk/test" className="tag tag30"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag40"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag80"></a>
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <Link href="/pan-catwalk/test" className="tag tag80"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
            
-           <a href="/pan-catwalk/test" className="tag tag50"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag40"></a>
+           <Link href="/pan-catwalk/test" className="tag tag50"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag40"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag60"></a>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag60"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag20"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
-           <a href="/pan-catwalk/test" className="tag tag70"></a>
+           <Link href="/pan-catwalk/test" className="tag tag20"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
+           <Link href="/pan-catwalk/test" className="tag tag70"></Link>
 
-           <a href="/pan-catwalk/test" className="tag tag60"></a>
-           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <Link href="/pan-catwalk/test" className="tag tag60"></Link>
+           <Link href="/pan-catwalk/test2" className="tag tag10"></Link>
         </div>
         <SliceZone slices={page.data.slices} components={components} />
       </div>

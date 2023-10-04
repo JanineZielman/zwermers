@@ -524,6 +524,9 @@ body{
 		margin-right: 70px;
 		transition: all 0.4s ease;
 		cursor: pointer;
+		border: 1px solid black;
+		margin-top: -1px;
+		box-sizing: border-box;
 		&:hover{
 			background-color: $orange!important;
 			&:before{
@@ -542,6 +545,9 @@ body{
 			mask-repeat: no-repeat;
 			mask-image: url(./tag.svg);
 			mask-position: top right;
+			border-bottom: 1px solid black;
+			box-sizing: border-box;
+			margin-top: -1px;
 		}
 		&:after{
 			width: 180px;
