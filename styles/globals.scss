@@ -7,16 +7,23 @@
 $black: #000;
 $grey: #B8C6BC;
 $beige: #C9C6B9;
-$brown: #857A1E;
-$pink: #E585BF;
-$green: #1D775C;
-$yellow: #FFF39A;
-$mustard: #857A1E;
-$lgreen: #42BB65;
-$dred: #630A1B;
-$red: #FF4832;
-$purple: #957193;
-$blue: #0B98CD;
+
+$bg1: #bfbfbf;
+$bg2: #a5acb0;
+$bg3: #989f9a;
+$bg4: #97938f;
+
+$mustard: #8a8107;
+$purple: #6970dd;
+
+$dgreen: #007158;
+$blue: #87cdff;
+
+$lgreen: #c9e9a1;
+$green: #009222;
+
+$orange: #f96e36;
+$lila: #bdbae1;
 
 
 $h1: 64px;
@@ -31,32 +38,32 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family: "Archivo";
-	background-color: $beige;
+	background-color: $bg1;
 	font-size: $pbig;
 }
 
 .wrapper-zwermers{
-	background-color: $beige;
+	background-color: $bg1;
 	.logo{
-		background-color: $beige;
+		background-color: $bg1;
 	}
 }
 .wrapper-pan-catwalk{
-	background-color: $brown;
+	background-color: $bg2;
 	.logo{
-		background-color: $brown;
+		background-color: $bg2;
 	}
 }
 .wrapper-kalender{
-	background-color: $grey;
+	background-color: $bg3;
 	.logo{
-		background-color: $grey;
+		background-color: $bg3;
 	}
 }
 .wrapper-over-ons{
-	background-color: $green;
+	background-color: $bg4;
 	.logo{
-		background-color: $green;
+		background-color: $bg4;
 	}
 }
 
@@ -72,7 +79,7 @@ body{
 .menu{
 	display: flex;
 	justify-content: end;
-	background-color: $beige;
+	background-color: $bg1;
 	position: fixed;
 	width: 100vw;
 	z-index: 999;
@@ -84,16 +91,16 @@ body{
 		cursor: pointer;
 		font-size: $pbig;
 		&.zwermers{
-			background-color: $beige;
+			background-color: $bg1;
 		}
 		&.pan-catwalk{
-			background-color: $brown;
+			background-color: $bg2;
 		}
 		&.kalender{
-			background-color: $grey;
+			background-color: $bg3;
 		}
 		&.over-ons{
-			background-color: $green;
+			background-color: $bg4;
 		}
 	}
 }
@@ -172,15 +179,20 @@ body{
 
 
 .archief{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	// display: flex;
+	// flex-wrap: wrap;
+	// flex-direction: column;
+	// justify-content: space-between;
+	column-count: 4;
 	.archief-item{
 		margin-bottom: 1.5vw;
 		position: relative;
 		img{
-			width: auto;
+			width: 100%;
 			height: 100%;
+			mask-size: cover;
+			mask-repeat: no-repeat;
+			object-fit: contain;
 		}
 		&:before, &:after{
 			transition: all 0.4s ease;
@@ -197,30 +209,15 @@ body{
 			opacity: 0;
 			transition: all 0.4s ease;
 		}
-		&:before{
-			width: 200px;
-			height: 220px;
-			content: "";
-			position: absolute;
-			z-index: 9;
-			top: 0;
-			right: 0;
-			background-image: url(./flap2-bg.svg);
-			background-repeat: no-repeat;
-			z-index: 0;
-			opacity: 0;
-			transition: opacity 0.4s ease;
-		}
 		&:after{
-			width: 200px;
-			height: 220px;
+			width: 100%;
+			height: 100%;
 			content: "";
 			position: absolute;
 			z-index: 9;
 			top: 0;
 			right: 0;
-			mask-image: url(./flap2.svg);
-			mask-size: 100%;
+			mask-size: cover;
 			mask-repeat: no-repeat;
 			opacity: 0;
 			transition: opacity 0.4s ease;
@@ -235,93 +232,65 @@ body{
 			&:after{
 				opacity: 1;
 			}
+			&.installation{
+				img{
+					mask-image: url(./installation.svg);
+				}
+			}
+			&.workshop{
+				img{
+					mask-image: url(./workshop.svg);
+				}
+			}
+			&.short-performance{
+				img{
+					mask-image: url(./short.svg);
+				}
+			}
+			&.long-performance{
+				img{
+					mask-image: url(./long.svg);
+				}
+			}
 		}
 		&.installation{
-			color:  $yellow;
+			color:  $orange;
 			&:after{
-				background-color: $blue;
+				mask-image: url(./installation-flaps.svg);
+				background-color: $purple;
 			}
 		}
 		&.workshop{
 			color: $mustard;
 			&:after{
-				background-color: $red;
+				mask-image: url(./workshop-flaps.svg);
+				background-color: $purple;
 			}
 		}
 		&.short-performance{
-			color: $green;
+			color: $lgreen;
 			&:after{
-				background-color: $pink;
+				mask-image: url(./short-flaps.svg);
+				background-color: $green;
 			}
 		}
 		&.long-performance{
-			color: $lgreen;
+			color: $dgreen;
 			&:after{
-				background-color: $dred;
+				mask-image: url(./long-flaps.svg);
+				background-color: $blue;
 			}
 		}
 	}
-	.Small{
-		height: 15vw;
-	}
-	.Middle{
-		height: 24vw;
-	}
-	.Big{
-		height: 41vw;
-	}
-}
-
-
-
-.tags{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-	.color{
-		width: 75px;
-		height: 75px;
-		border-radius: 50%;
-		margin: 10px 10px 10px 10px;
-		border: 2px solid black;
-		&.red{
-			background-color: red;
-		}
-		&.yellow{
-			background-color: yellow;
-		}
-		&.blue{
-			background-color: blue;
-		}
-		&.pink{
-			background-color: pink;
-		}
-		&.orange{
-			background-color: orange;
-		}
-		&.black{
-			background-color: black;
-		}
-	}
-	.tag{
-		padding: 20px 50px;
-		border: 2px solid black;
-		margin: 10px 10px 10px 10px;
-		border-radius: 100px;
-		font-size: 36px;
-		cursor: pointer;
-		&:hover{
-			background-color: black;
-			color: white;
-		}
-		&:after{
-			content: "X";
-			margin-left: 48px;
-			font-weight: 100;
-			cursor: pointer;
-		}
-	}
+	// .Small{
+	// 	height: 15vw;
+	// }
+	// .Middle{
+	// 	height: 24vw;
+	// }
+	// .Big{
+	// 	height: 41vw;
+	// }
 }
 
 
@@ -356,7 +325,7 @@ body{
 			mask-image: url(./flap2-bg.svg);
 			mask-repeat: no-repeat;
 			mask-size: 100%;
-			background-color: $beige;
+			background-color: $bg1;
 			z-index: 0;
 			transition: opacity 0.4s ease;
 		}
@@ -374,39 +343,39 @@ body{
 			transition: opacity 0.4s ease;
 		}
 		&.installation{
-			background-color:  $yellow;
+			background-color:  $orange;
 			&:after{
-				background-color: $blue;
+				background-color: $purple;
 			}
 			.category{
-				color: $yellow;
+				color: $orange;
 			}
 		}
 		&.workshop{
 			background-color: $mustard;
 			&:after{
-				background-color: $red;
+				background-color: $purple;
 			}
 			.category{
 				color: $mustard;
 			}
 		}
 		&.short-performance{
-			background-color: $green;
-			&:after{
-				background-color: $pink;
-			}
-			.category{
-				color: $green;
-			}
-		}
-		&.long-performance{
 			background-color: $lgreen;
 			&:after{
-				background-color: $dred;
+				background-color: $green;
 			}
 			.category{
 				color: $lgreen;
+			}
+		}
+		&.long-performance{
+			background-color: $dgreen;
+			&:after{
+				background-color: $blue;
+			}
+			.category{
+				color: $dgreen;
 			}
 		}
 		h1{
@@ -438,7 +407,6 @@ body{
 	.agenda-item{
 		width: 25%;
 		min-height: 50vh;
-		background-color: $dred;
 		padding: 14px;
 		position: relative;
 		display: flex;
@@ -466,7 +434,7 @@ body{
 			right: 0;
 			mask-image: url(./flap2-bg.svg);
 			mask-repeat: no-repeat;
-			background-color: $grey;
+			background-color: $bg3;
 			z-index: 0;
 			transition: opacity 0.4s ease;
 		}
@@ -484,39 +452,39 @@ body{
 			transition: opacity 0.4s ease;
 		}
 		&.installation{
-			background-color:  $yellow;
+			background-color:  $orange;
 			&:after{
-				background-color: $blue;
+				background-color: $purple;
 			}
 			.category{
-				color: $yellow;
+				color: $orange;
 			}
 		}
 		&.workshop{
 			background-color: $mustard;
 			&:after{
-				background-color: $red;
+				background-color: $purple;
 			}
 			.category{
 				color: $mustard;
 			}
 		}
 		&.short-performance{
-			background-color: $green;
-			&:after{
-				background-color: $pink;
-			}
-			.category{
-				color: $green;
-			}
-		}
-		&.long-performance{
 			background-color: $lgreen;
 			&:after{
-				background-color: $dred;
+				background-color: $green;
 			}
 			.category{
 				color: $lgreen;
+			}
+		}
+		&.long-performance{
+			background-color: $dgreen;
+			&:after{
+				background-color: $blue;
+			}
+			.category{
+				color: $dgreen;
 			}
 		}
 	}

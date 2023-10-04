@@ -8,12 +8,18 @@ const ArchiefItem = ({items}) => {
         return(
           <a href={`zwermers/${item.uid}`} key={`archief${i}`}>
           <div className={`archief-item ${item.data.size} ${item.data.category?.uid}`}>
-            <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span>
-            {item.data.orientation == 'Landscape' ?
-              <PrismicImage field={item.data.image.landscape} />
-            :
-              <PrismicImage field={item.data.image} />
-            }
+            {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
+            <PrismicImage field={item.data.image} />
+          </div>
+          </a>
+        )
+      })}
+      {items.reverse().map((item, i) => {
+        return(
+          <a href={`zwermers/${item.uid}`} key={`archief${i}`}>
+          <div className={`archief-item ${item.data.size} ${item.data.category?.uid}`}>
+            {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
+            <PrismicImage field={item.data.image} />
           </div>
           </a>
         )

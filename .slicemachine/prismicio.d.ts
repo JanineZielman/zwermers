@@ -91,7 +91,7 @@ interface ArchiefItemDocumentData {
 	 * - **Tab**: Main
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
-	image: prismic.ImageField<"landscape">;
+	image: prismic.ImageField<never>;
 	
 	/**
 	 * Size field in *ArchiefItem*
@@ -103,17 +103,6 @@ interface ArchiefItemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#select
 	 */
 	size: prismic.SelectField<"Big" | "Middle" | "Small">;
-	
-	/**
-	 * Orientation field in *ArchiefItem*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: archief_item.orientation
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#select
-	 */
-	orientation: prismic.SelectField<"Portrait" | "Landscape">;
 	
 	/**
 	 * Category field in *ArchiefItem*

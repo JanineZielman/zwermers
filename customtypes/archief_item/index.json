@@ -1,7 +1,6 @@
 {
   "id": "archief_item",
   "label": "ArchiefItem",
-  "format": "custom",
   "repeatable": true,
   "status": true,
   "json": {
@@ -24,16 +23,9 @@
         "config": {
           "label": "Image",
           "constraint": {
-            "width": 1080,
-            "height": 1350
+            "width": 1080
           },
-          "thumbnails": [
-            {
-              "name": "landscape",
-              "width": 1080,
-              "height": 675
-            }
-          ]
+          "thumbnails": []
         }
       },
       "size": {
@@ -41,15 +33,11 @@
         "config": {
           "label": "Size",
           "placeholder": "",
-          "options": ["Big", "Middle", "Small"]
-        }
-      },
-      "orientation": {
-        "type": "Select",
-        "config": {
-          "label": "Orientation",
-          "placeholder": "",
-          "options": ["Portrait", "Landscape"]
+          "options": [
+            "Big",
+            "Middle",
+            "Small"
+          ]
         }
       },
       "category": {
@@ -57,7 +45,9 @@
         "config": {
           "label": "Category",
           "select": "document",
-          "customtypes": ["category"]
+          "customtypes": [
+            "category"
+          ]
         }
       },
       "slices": {
