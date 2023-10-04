@@ -420,14 +420,12 @@ body{
 			width: 200px;
 			padding-right: 10px;
 			text-align: right;
-			transition: all 0.4s ease;
 		}
 		.mask{
 			width: 100%;
 			height: 100%;
 			mask-size: cover;
 			mask-repeat: no-repeat;
-			// padding-top: 180px;
 			position: relative;
 			display: flex;
 			flex-direction: column;
@@ -445,6 +443,16 @@ body{
 			mask-size: cover;
 			mask-repeat: no-repeat;
 			transition: opacity 0.4s ease;
+		}
+		&:hover{
+			cursor: pointer;
+			.mask{
+				mask-image: none!important;
+			}
+			&:after{
+				mask-image: none!important;
+				background-color: transparent!important;
+			}
 		}
 		&.installation{
 			.mask{
@@ -502,133 +510,122 @@ body{
 }
 
 
-// .tags{
-// 	display: flex;
-// 	flex-direction: column;
-// 	// transform: scaleY(-1);
-// 	flex-wrap: wrap;
-// 	justify-content: center;
-// 	// position: fixed;
-// 	// bottom: 0;
-// 	// max-width: 900px;
-// 	margin: auto;
-// 	// transform: scale(2);
-// 	box-sizing: border-box;
-// 	.tag{
-// 		position: relative;
-// 		height: 50px;
-// 		width: 200px;
-// 		background-color: white;
-// 		margin: -1px;
-// 		box-sizing: border-box;
-// 		// mask-image: url(./workshop.svg);
-// 		mask-size: cover;
-// 		display: flex;
-// 		justify-content: center;
-// 		align-items: center;
-// 		text-align: center;
-// 		border: 2px solid black;
-// 		// animation: move1 5000ms infinite both;
-// 		// animation-timing-function: ease-in-out;
-// 		// animation-delay: calc((var(--delay) + 1) * 300ms);
-		
-// 		// &:after{
-// 		// 	content: "";
-// 		// 	width: 90%;
-// 		// 	height: 90%;
-// 		// 	position: absolute;
-// 		// 	top: 5%;
-// 		// 	left: 5%;
-// 		// 	mask-image: url(./workshop.svg);
-// 		// 	mask-size: cover;
-// 		// 	mask-repeat: no-repeat;
-// 		// 	// background-color: lightgray;
-// 		// 	z-index: -1;
-			
-// 		// }
-// 		&:nth-child(8n){
-// 			&:after{
-// 				background-color: $bg1;
-// 			}
-// 		}
-// 		&:nth-child(8n+1){
-// 			&:after{
-// 				background-color: $bg3;
-// 			}
-// 		}
-// 		&:nth-child(8n+2){
-// 			&:after{
-// 				background-color: $bg4;
-// 			}
-// 		}
-// 		&:nth-child(8n+3){
-// 			&:after{
-// 				background-color: $bg1;
-// 			}
-// 		}
-// 		&:nth-child(8n+4){
-// 			&:after{
-// 				background-color: $bg3;
-// 			}
-// 		}
-// 		&:nth-child(8n+5){
-// 		  &:after{
-// 				background-color: $bg4;
-// 			}
-// 		}
-// 		&:nth-child(8n+6){
-// 			&:after{
-// 				background-color: $bg3;
-// 			}
-// 		}
-// 		&:nth-child(8n+7){
-// 			&:after{
-// 				background-color: $bg1;
-// 			}
-// 		}
-// 	}
-// }
 
+// tags
 .tags{
 	display: flex;
-	height: 80vh;
+	flex-wrap: wrap;
+	justify-content: center;
 	.tag{
-		width: calc(100vw / 9);
-		height: 100%;
-		font-size: $pbig;
-		// background-color: $bg1;
-		border: 1px solid black;
-		transition: all 1s ease-in-out;
+		height: 70px;
+		width: 50px;
 		position: relative;
+		margin: 0;
+		margin-right: 70px;
+		transition: all 0.4s ease;
 		cursor: pointer;
-		overflow-x: hidden;
-		overflow-y: scroll;
-		img{
-			width: 100%;
-			height: auto;
-		}
 		&:hover{
-			width: calc(100vw * 9);
-			img{
-				width: 100%;
-				height: auto;
+			background-color: $orange!important;
+			&:before{
+				background-color: $orange!important;
+			}
+		}
+		&:before{
+			width: 70px;
+			height: 70px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: -70px;
+			mask-size: cover;
+			mask-repeat: no-repeat;
+			mask-image: url(./tag.svg);
+			mask-position: top right;
+		}
+		&:after{
+			width: 180px;
+			height: 70px;
+			content: "";
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			right: -70px;
+			mask-size: cover;
+			mask-repeat: no-repeat;
+			mask-image: url(./tag-flap.svg);
+			background-color: $orange;
+			mask-position: top right;
+		}
+		&.tag10{
+			width: calc(10vw - 70px);
+			background-color: #F0F0F0;
+			&:before{
+				background-color: #F0F0F0;
+			}
+		}
+		&.tag20{
+			width: calc(20vw - 70px);
+			background-color: #E0E0E0;
+			&:before{
+				background-color: #E0E0E0;
+			}
+		}
+		&.tag30{
+			width: calc(30vw - 70px);
+			background-color: #D8D8D8;
+			&:before{
+				background-color: #D8D8D8;
+			}
+		}
+		&.tag40{
+			width: calc(40vw - 70px);
+			background-color: #D0D0D0;
+			&:before{
+				background-color: #D0D0D0;
+			}
+		}
+		&.tag50{
+			width: calc(50vw - 70px);
+			background-color: #C0C0C0;
+			&:before{
+				background-color: #C0C0C0;
+			}
+		}
+		&.tag60{
+			width: calc(60vw - 70px);
+			background-color: #B8B8B8;
+			&:before{
+				background-color: #B8B8B8;
+			}
+		}
+		&.tag70{
+			width: calc(70vw - 70px);
+			background-color: #A9A9A9;
+			&:before{
+				background-color: #A9A9A9;
+			}
+		}
+		&.tag80{
+			width: calc(80vw - 70px);
+			background-color: #A0A0A0;
+			&:before{
+				background-color: #A0A0A0;
+			}
+		}
+		&.tag90{
+			width: calc(90vw - 70px);
+			background-color: #909090;
+			&:before{
+				background-color: #909090;
 			}
 		}
 	}
 }
 
-
-@keyframes move1 {
-	0% {
-		// z-index: 0;
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.5);
-		// z-index: 99;
-	}
-	100% {
-		transform: scale(1);
-		// z-index: 0;
-	}
+.test{
+	width: 100%;
+	animation: fade 2000ms 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
 }

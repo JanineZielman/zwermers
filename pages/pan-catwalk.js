@@ -12,67 +12,47 @@ import Type from "../components/type"
 const PanCatwalk = ({ menu, page }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
-  let tags = [];
-  for (let i = 0; i < 9; i++) {
-    tags.push(i);
-  }
-
-  // useEffect(() => {
-  //   for (let i = 0; i < tags.length; i++) { 
-  //     document.getElementById(`tag${i}`).style.setProperty('--delay', (Math.floor(Math.random() * tags.length - 1)));
-  //   }
-  // }, [])
-
   return (
     <Layout navItems={menu.data.slices}>
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <div className="tags">
-          {/* {tags.map((item, i) => {
-            return(
-              <>
-              <div id={`tag${i}`} key={`tag${i}`} className="tag">
-                <img src="test2.png"/>
-              </div>
-              </>
-            )
-          })}  */}
-          <div className="tag">
-            <img src="test2.png"/>
-            <img src="test3.png"/>
-          </div>
-          <div className="tag">
-            <img src="test3.png"/>
-            <img src="test4.png"/>
-          </div>
-          <div className="tag">
-            <img src="test4.png"/>
-            <img src="test2.png"/>
-          </div>
-          <div className="tag">
-            <img src="test2.png"/>
-            <img src="test3.png"/>
-          </div>
-          <div className="tag">
-            <img src="test3.png"/>
-            <img src="test4.png"/>
-          </div>
-          <div className="tag">
-            <img src="test4.png"/>
-            <img src="test2.png"/>
-          </div>
-          <div className="tag">
-            <img src="test2.png"/>
-            <img src="test3.png"/>
-          </div>
-          <div className="tag">
-            <img src="test3.png"/>
-            <img src="test4.png"/>
-          </div>
-          <div className="tag">
-            <img src="test4.png"/>
-            <img src="test2.png"/>
-          </div>
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag70"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag60"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <a href="/pan-catwalk/test" className="tag tag70"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag90"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag30"></a>
+           <a href="/pan-catwalk/test" className="tag tag40"></a>
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag80"></a>
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           
+           <a href="/pan-catwalk/test" className="tag tag50"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag40"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag60"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag20"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
+           <a href="/pan-catwalk/test" className="tag tag70"></a>
+
+           <a href="/pan-catwalk/test" className="tag tag60"></a>
+           <a href="/pan-catwalk/test2" className="tag tag10"></a>
         </div>
         <SliceZone slices={page.data.slices} components={components} />
       </div>
