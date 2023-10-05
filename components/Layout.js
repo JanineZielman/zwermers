@@ -1,4 +1,5 @@
 import { PrismicImage, PrismicLink } from '@prismicio/react'
+import Link from 'next/link';
 
 export const Layout = ({
   navItems,
@@ -18,6 +19,11 @@ export const Layout = ({
       <main>
         {children}
       </main>
+      <footer>
+        <Link href="#">contact</Link>
+        <Link href="#">newsletter</Link>
+        <Link href="#">privacy statement</Link>
+      </footer>
     </>
   );
 };
