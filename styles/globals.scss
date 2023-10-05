@@ -282,15 +282,6 @@ body{
 			}
 		}
 	}
-	// .Small{
-	// 	height: 15vw;
-	// }
-	// .Middle{
-	// 	height: 24vw;
-	// }
-	// .Big{
-	// 	height: 41vw;
-	// }
 }
 
 
@@ -521,18 +512,12 @@ body{
 		width: 50px;
 		position: relative;
 		margin: 0;
-		margin-right: 70px;
+		margin-right: 68px;
 		transition: all 0.4s ease;
 		cursor: pointer;
 		border: 1px solid black;
 		margin-top: -1px;
 		box-sizing: border-box;
-		&:hover{
-			background-color: $orange!important;
-			&:before{
-				background-color: $orange!important;
-			}
-		}
 		&:before{
 			width: 70px;
 			height: 70px;
@@ -543,25 +528,45 @@ body{
 			right: -70px;
 			mask-size: cover;
 			mask-repeat: no-repeat;
-			mask-image: url(./tag.svg);
 			mask-position: top right;
 			border-bottom: 1px solid black;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
 			box-sizing: border-box;
 			margin-top: -1px;
+			margin-left: -1px;
 		}
-		&:after{
-			width: 180px;
-			height: 70px;
-			content: "";
-			position: absolute;
-			z-index: 9;
-			top: 0;
-			right: -70px;
-			mask-size: cover;
-			mask-repeat: no-repeat;
-			mask-image: url(./tag-flap.svg);
-			background-color: $orange;
-			mask-position: top right;
+		&:hover{
+			&:before{
+				width: 70px;
+				height: 70px;
+				content: "";
+				position: absolute;
+				z-index: 9;
+				top: 0;
+				right: -70px;
+				mask-size: cover;
+				mask-repeat: no-repeat;
+				mask-image: url(./tag.svg);
+				mask-position: top right;
+				border-bottom: 1px solid black;
+				box-sizing: border-box;
+				margin-top: -1px;
+			}
+			&:after{
+					width: 180px;
+					height: 70px;
+					content: "";
+					position: absolute;
+					z-index: 9;
+					top: 0;
+					right: -70px;
+					mask-size: cover;
+					mask-repeat: no-repeat;
+					mask-image: url(./tag-flap.svg);
+					background-color: $lila;
+					mask-position: top right;
+			}
 		}
 		&.tag10{
 			width: calc(10vw - 70px);
