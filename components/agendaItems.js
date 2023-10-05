@@ -7,7 +7,7 @@ const AgendaItem = ({items}) => {
     <div className='agenda'>
       {items.map((item, i) => {
         return(
-          <div className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
+          <a href={`/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
             {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
             <div className='mask'>
               <h2>{item.data.title}</h2>
@@ -17,7 +17,7 @@ const AgendaItem = ({items}) => {
               </p>
             </div>
             
-          </div>
+          </a>
         )
       })}
     </div>

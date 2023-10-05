@@ -35,6 +35,9 @@ export const linkResolver = (doc) => {
   if (doc.type === "archief_item") {
     return `/zwermers/${doc.uid}`;
   }
+  if (doc.type === "agendaitem") {
+    return `/kalender/${doc.uid}`;
+  }
   return `/`;
 };
 
