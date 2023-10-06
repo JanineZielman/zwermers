@@ -1,6 +1,10 @@
 {
   "_cts": {
     "agendaitem": {},
-    "archief_item": {}
+    "archief_item": {},
+    "pan_catwalk_item": {
+      "labels": {}
+    },
+    "label": {}
   }
 }

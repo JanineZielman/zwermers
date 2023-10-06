@@ -38,6 +38,9 @@ export const linkResolver = (doc) => {
   if (doc.type === "agendaitem") {
     return `/kalender/${doc.uid}`;
   }
+  if (doc.type === "label") {
+    return `/pan-catwalk/${doc.uid}`;
+  }
   return `/`;
 };
 

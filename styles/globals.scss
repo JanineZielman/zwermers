@@ -505,147 +505,6 @@ body{
 	}
 }
 
-
-
-// tags
-.tags{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	.tag{
-		height: 70px;
-		width: 50px;
-		position: relative;
-		margin: 0;
-		margin-right: 68px;
-		transition: all 0.4s ease;
-		cursor: pointer;
-		border: 1px solid black;
-		margin-top: -1px;
-		box-sizing: border-box;
-		&:before{
-			width: 70px;
-			height: 70px;
-			content: "";
-			position: absolute;
-			z-index: 9;
-			top: 0;
-			right: -70px;
-			mask-size: cover;
-			mask-repeat: no-repeat;
-			mask-position: top right;
-			border-bottom: 1px solid black;
-			border-top: 1px solid black;
-			border-right: 1px solid black;
-			box-sizing: border-box;
-			margin-top: -1px;
-			margin-left: -1px;
-		}
-		&:hover{
-			&:before{
-				width: 70px;
-				height: 70px;
-				content: "";
-				position: absolute;
-				z-index: 9;
-				top: 0;
-				right: -70px;
-				mask-size: cover;
-				mask-repeat: no-repeat;
-				mask-image: url(./tag.svg);
-				mask-position: top right;
-				border-bottom: 1px solid black;
-				box-sizing: border-box;
-				margin-top: -1px;
-			}
-			&:after{
-					width: 180px;
-					height: 70px;
-					content: "";
-					position: absolute;
-					z-index: 9;
-					top: 0;
-					right: -70px;
-					mask-size: cover;
-					mask-repeat: no-repeat;
-					mask-image: url(./tag-flap.svg);
-					background-color: $lila;
-					mask-position: top right;
-			}
-		}
-		&.tag10{
-			width: calc(10vw - 70px);
-			background-color: #F0F0F0;
-			&:before{
-				background-color: #F0F0F0;
-			}
-		}
-		&.tag20{
-			width: calc(20vw - 70px);
-			background-color: #E0E0E0;
-			&:before{
-				background-color: #E0E0E0;
-			}
-		}
-		&.tag30{
-			width: calc(30vw - 70px);
-			background-color: #D8D8D8;
-			&:before{
-				background-color: #D8D8D8;
-			}
-		}
-		&.tag40{
-			width: calc(40vw - 70px);
-			background-color: #D0D0D0;
-			&:before{
-				background-color: #D0D0D0;
-			}
-		}
-		&.tag50{
-			width: calc(50vw - 70px);
-			background-color: #C0C0C0;
-			&:before{
-				background-color: #C0C0C0;
-			}
-		}
-		&.tag60{
-			width: calc(60vw - 70px);
-			background-color: #B8B8B8;
-			&:before{
-				background-color: #B8B8B8;
-			}
-		}
-		&.tag70{
-			width: calc(70vw - 70px);
-			background-color: #A9A9A9;
-			&:before{
-				background-color: #A9A9A9;
-			}
-		}
-		&.tag80{
-			width: calc(80vw - 70px);
-			background-color: #A0A0A0;
-			&:before{
-				background-color: #A0A0A0;
-			}
-		}
-		&.tag90{
-			width: calc(90vw - 70px);
-			background-color: #909090;
-			&:before{
-				background-color: #909090;
-			}
-		}
-	}
-}
-
-.test{
-	width: 100%;
-	animation: fade 2000ms 1;
-	animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
-}
-
 footer{
 	display: flex;
 	justify-content: center;
@@ -682,5 +541,105 @@ footer{
 		padding: 8px;
 		width: 100%;
 		height: 100%;
+	}
+}
+
+.pan-catwalk-items{
+	display: flex;
+	flex-wrap: wrap;
+	.pan-catwalk-item{
+		width: 20vw;
+		position: relative;
+		.item-wrapper{
+			width: 100%;
+			height: 100%;
+			position: relative;;
+		}
+		.label{
+			position: absolute;
+			z-index: 9;
+			height: 50%;
+			width: 50%;
+			display: flex;
+			flex-direction: column;
+			&:after {
+				background-size: cover;
+				background-repeat: no-repeat;
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			&.label0{
+				top: 0;
+				left: 0;
+				&:after{
+					margin-top: -1px;
+				}
+				&.visible{
+					&:after {
+						background-image: url('./big-fold-left.svg');
+					}
+				}
+				&:hover{
+					&:after {
+						background-image: url('./big-fold-left.svg');
+					}
+				}
+			}
+			&.label1{
+				top: 0;
+				right: 0;
+				&:after{
+					margin-top: -1px;
+				}
+				&.visible{
+					&:after {
+						background-image: url('./big-fold.svg');
+					}
+				}
+				&:hover{
+					&:after{
+						background-image: url('./big-fold.svg');
+					}
+				}
+			}
+			&.label2{
+				bottom: 0;
+				left: 0;
+				justify-content: end;
+				&.visible{
+					&:after {
+						background-image: url('./big-fold-bleft.svg');
+					}
+				}
+				&:hover{
+					&:after{
+						background-image: url('./big-fold-bleft.svg');
+					}
+				}
+			}
+			&.label3{
+				bottom: 0;
+				right: 0;
+				justify-content: end;
+				&.visible{
+					&:after {
+						background-image: url('./big-fold-bright.svg');
+					}
+				}
+				&:hover{
+					&:after{
+						background-image: url('./big-fold-bright.svg');
+					}
+				}
+			}
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			aspect-ratio: 3/4;
+			position: relative;
+		}
 	}
 }

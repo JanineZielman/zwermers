@@ -196,6 +196,19 @@ interface CategoryDocumentData {
  */
 export type CategoryDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
 
+interface LabelDocumentData {}
+
+/**
+ * Label document from Prismic
+ *
+ * - **API ID**: `label`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type LabelDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<LabelDocumentData>, "label", Lang>;
+
 type MenuDocumentDataSlicesSlice = NavItemSlice
 
 /**
@@ -296,7 +309,71 @@ interface PageDocumentData {
  */
 export type PageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | MenuDocument | PageDocument;
+/**
+ * Item in *Pan Catwalk Item → Labels*
+ */
+export interface PanCatwalkItemDocumentDataLabelsItem {
+	/**
+	 * Label field in *Pan Catwalk Item → Labels*
+	 *
+	 * - **Field Type**: Content Relationship
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: pan_catwalk_item.labels[].label
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	label: prismic.ContentRelationshipField<"label">;
+}
+
+/**
+ * Content for Pan Catwalk Item documents
+ */
+interface PanCatwalkItemDocumentData {
+	/**
+	 * Image field in *Pan Catwalk Item*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: pan_catwalk_item.image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Labels field in *Pan Catwalk Item*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: pan_catwalk_item.labels[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	labels: prismic.GroupField<Simplify<PanCatwalkItemDocumentDataLabelsItem>>;
+	
+	/**
+	 * labelText field in *Pan Catwalk Item*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: pan_catwalk_item.labeltext
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	labeltext: prismic.RichTextField;
+}
+
+/**
+ * Pan Catwalk Item document from Prismic
+ *
+ * - **API ID**: `pan_catwalk_item`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
+
+export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument;
 
 /**
  * Primary content in *NavItem → Primary*
@@ -398,12 +475,17 @@ declare module "@prismicio/client" {
 			ArchiefItemDocumentDataSlicesSlice,
 			CategoryDocument,
 			CategoryDocumentData,
+			LabelDocument,
+			LabelDocumentData,
 			MenuDocument,
 			MenuDocumentData,
 			MenuDocumentDataSlicesSlice,
 			PageDocument,
 			PageDocumentData,
 			PageDocumentDataSlicesSlice,
+			PanCatwalkItemDocument,
+			PanCatwalkItemDocumentData,
+			PanCatwalkItemDocumentDataLabelsItem,
 			AllDocumentTypes,
 			NavItemSlice,
 			NavItemSliceDefaultPrimary,
