@@ -349,17 +349,6 @@ interface PanCatwalkItemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
 	labels: prismic.GroupField<Simplify<PanCatwalkItemDocumentDataLabelsItem>>;
-	
-	/**
-	 * labelText field in *Pan Catwalk Item*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: pan_catwalk_item.labeltext
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-	 */
-	labeltext: prismic.RichTextField;
 }
 
 /**
