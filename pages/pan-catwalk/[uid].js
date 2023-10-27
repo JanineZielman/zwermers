@@ -24,19 +24,18 @@ export async function getStaticProps({ params, previewData }) {
   // const prismic = require("@prismicio/client");
   const client = createClient({ previewData });
 
+  const page = await client.getByUID("label", params.uid);
+  const menu = await client.getSingle("menu");
+
   // const items = await client.getAllByType('pan_catwalk_item')
   const items = await client.getAllByType('pan_catwalk_item', {
     predicates: [
-      prismic.predicate.fulltext(
-        'document',
-        params.uid
+      prismic.predicate.at(
+        'my.pan_catwalk_item.labels.label',
+        page.id
       ),
     ],
   })
-  
-
-  const page = await client.getByUID("label", params.uid);
-  const menu = await client.getSingle("menu");
 
   return {
     props: {

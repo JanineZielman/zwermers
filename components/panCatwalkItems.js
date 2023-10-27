@@ -6,21 +6,20 @@ const PanCatwalkItems = ({items, page}) => {
   return (
     <div className='pan-catwalk-items'>
       {items.map((item, i) => {
-        let list = [];
-        for (let i = 0; i < item.data.labels.length; i++) {
-          list += "fold" + i + " ";
-        }
         return(
           <div key={`pci${i}`} className={`pan-catwalk-item`}>
-            <div className={`item-wrapper ${list}`}>
-              <PrismicImage field={item.data.image} className={`${list}`}/>
-            </div>
             {item.data.labels.map((label, j) => {
-              return(
-                <a key={`label${j}`} className={`label label${j} ${page.uid == label.label.uid && 'visible'}`} href={`/pan-catwalk/${label.label.uid}`}>
-                </a>
-              )
-            })}
+                return(
+                  <a key={`label${j}`} className={`label label${j} ${page.uid == label.label.uid && 'visible'}`} href={`/pan-catwalk/${label.label.uid}`}>
+                    {label.label.uid}<br></br>
+                  </a>
+                )
+              })}
+            <div className={`item-wrapper`}>
+              <PrismicImage field={item.data.image}/>
+              
+            </div>
+            
           </div>
         )
       })}
