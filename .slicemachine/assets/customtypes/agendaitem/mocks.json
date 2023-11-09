@@ -1,21 +1,21 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "mighty"
+    "value": "although"
   },
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "screen",
+    "value": "exactly",
     "type": "Text"
   },
   "date": {
     "__TYPE__": "FieldContent",
     "type": "Timestamp",
-    "value": "2020-05-07T23:23:11Z"
+    "value": "2015-04-01T19:40:07Z"
   },
   "location": {
     "__TYPE__": "FieldContent",
-    "value": "every",
+    "value": "want",
     "type": "Text"
   },
   "category": {
@@ -24,5 +24,58 @@
       "__TYPE__": "DocumentLink",
       "id": "mock_document_id"
     }
+  },
+  "image": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+      "width": 3168,
+      "height": 4752
+    },
+    "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+    "width": 3168,
+    "height": 4752,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "rich_text$d96c73c2-4da6-47af-9597-881c07a546fa",
+        "name": "rich_text",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "content": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Duis cillum consectetur enim ipsum sint aliqua officia excepteur nisi nostrud consequat sint nisi Lorem."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
   }
 }

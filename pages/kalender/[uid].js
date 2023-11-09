@@ -13,13 +13,13 @@ const AgendaItem = ({ page, menu }) => {
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
-          {/* <div className="main-image">
+          <div className="main-image">
             {page.data.orientation == 'Landscape' ?
               <PrismicImage field={page.data.image.landscape} />
             :
               <PrismicImage field={page.data.image} />
             }
-          </div> */}
+          </div>
           <SliceZone slices={page.data.slices} components={components} />
         </div>
       </div>

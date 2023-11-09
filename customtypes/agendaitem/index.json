@@ -42,6 +42,25 @@
             "category"
           ]
         }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "rich_text": {
+              "type": "SharedSlice"
+            }
+          }
+        }
       }
     }
   }

@@ -5,6 +5,8 @@ import type * as prismicClient from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type AgendaitemDocumentDataSlicesSlice = RichTextSlice
+
 /**
  * Content for AgendaItem documents
  */
@@ -52,6 +54,28 @@ interface AgendaitemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
 	 */
 	category: prismic.ContentRelationshipField<"category">;
+	
+	/**
+	 * Image field in *AgendaItem*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: agendaitem.image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Slice Zone field in *AgendaItem*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: agendaitem.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<AgendaitemDocumentDataSlicesSlice>;
 }
 
 /**
@@ -92,17 +116,6 @@ interface ArchiefItemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
 	image: prismic.ImageField<never>;
-	
-	/**
-	 * Size field in *ArchiefItem*
-	 *
-	 * - **Field Type**: Select
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: archief_item.size
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#select
-	 */
-	size: prismic.SelectField<"Big" | "Middle" | "Small">;
 	
 	/**
 	 * Category field in *ArchiefItem*
@@ -196,7 +209,21 @@ interface CategoryDocumentData {
  */
 export type CategoryDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<CategoryDocumentData>, "category", Lang>;
 
-interface LabelDocumentData {}
+/**
+ * Content for Label documents
+ */
+interface LabelDocumentData {
+	/**
+	 * Category field in *Label*
+	 *
+	 * - **Field Type**: Select
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: label.category
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#select
+	 */
+	category: prismic.SelectField<"persoon" | "basics" | "dominante kleur" | "textiel" | "kledingcategorie" | "locatie" | "attributen">;
+}
 
 /**
  * Label document from Prismic
@@ -459,6 +486,7 @@ declare module "@prismicio/client" {
 		export type {
 			AgendaitemDocument,
 			AgendaitemDocumentData,
+			AgendaitemDocumentDataSlicesSlice,
 			ArchiefItemDocument,
 			ArchiefItemDocumentData,
 			ArchiefItemDocumentDataSlicesSlice,

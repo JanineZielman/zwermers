@@ -11,6 +11,22 @@
           "label": "UID",
           "placeholder": ""
         }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "",
+          "options": [
+            "persoon",
+            "basics",
+            "dominante kleur",
+            "textiel",
+            "kledingcategorie",
+            "locatie",
+            "attributen"
+          ]
+        }
       }
     }
   }
