@@ -4,6 +4,7 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
+import Moment from "moment";
 
 const AgendaItem = ({ page, menu }) => {
 
@@ -13,6 +14,10 @@ const AgendaItem = ({ page, menu }) => {
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
+          <p>
+            {page.data.location}<br/>
+            {Moment(page.data.date).format("DD.MM.Y")}
+          </p>
           <div className="main-image">
             {page.data.orientation == 'Landscape' ?
               <PrismicImage field={page.data.image.landscape} />
