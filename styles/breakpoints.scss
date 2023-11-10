@@ -15,8 +15,12 @@
   }
   .wrapper{
     padding-top: calc(11.5vw + 37px);
+    .content{
+      padding: 0 14px 24px 14px;
+    }
   }
   .archief{
+    column-count: 1;
     width: 100%;
     .archief-item{
       margin-bottom: 1.5vw;
