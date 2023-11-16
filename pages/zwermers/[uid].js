@@ -13,9 +13,7 @@ const ArchiveItem = ({ page, menu }) => {
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
-          <p>
-            {Moment(page.data.date).format("DD.MM.Y")}
-          </p>
+          {page.data.date && <p>{Moment(page.data.date).format("DD.MM.Y")}</p>}
           <div className="main-image">
             {page.data.embed.embed_url ?
               <iframe src={page.data.embed.embed_url}/>
