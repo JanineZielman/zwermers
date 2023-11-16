@@ -5,8 +5,6 @@
 }
 
 $black: #000;
-$grey: #B8C6BC;
-$beige: #C9C6B9;
 
 $bg1: #bfbfbf;
 $bg2: #a5acb0;
@@ -24,6 +22,12 @@ $green: #009222;
 
 $orange: #f96e36;
 $lila: #bdbae1;
+
+$red: #E53D2D;
+$brown: #5E2124;
+
+$grey: #CAC8BC;
+$yellow: #F0F8CA;
 
 
 $h1: 64px;
@@ -180,11 +184,14 @@ body{
 
 .archief{
 	column-count: 4;
+	a{
+		text-decoration: none;
+	}
 	.archief-item{
 		margin-bottom: 1.5vw;
 		position: relative;
 		height: fit-content;
-		img{
+		img, .news-item{
 			width: 100%;
 			height: 100%;
 			mask-size: cover;
@@ -229,6 +236,19 @@ body{
 			&:after{
 				opacity: 1;
 			}
+			&.news{
+				.news-item{
+					mask-image: none;
+				}
+				&:after{
+					opacity: 0;
+				}
+			}
+			&.co-creation{
+				img{
+					mask-image: url(./installation.svg);
+				}
+			}
 			&.installation{
 				img{
 					mask-image: url(./installation.svg);
@@ -248,6 +268,43 @@ body{
 				img{
 					mask-image: url(./long.svg);
 				}
+			}
+		}
+		&.news{
+			color: $black;
+			h2{
+				margin: 0;
+				padding: 0;
+				text-align: left;
+				margin-top: 40%;
+				margin-left: 14px;
+				font-size: $h3;
+				span{
+					font-weight: 300;
+				}
+			}
+			p{
+				text-align: left;
+				margin-left: 14px;
+				font-size: $pbig;
+			}
+			.news-item{
+				background-color: $grey;
+				height: 400px;
+				display: flex;
+				flex-direction: column;
+				justify-content: end;
+				mask-image: url(./long.svg);
+			}
+			&:after{
+				mask-image: url(./long-flaps.svg);
+				background-color: $yellow;
+				opacity: 1;
+			}
+		}
+		&.co-creation{
+			img{
+				mask-image: url(./installation.svg);
 			}
 		}
 		&.installation{
@@ -330,6 +387,24 @@ body{
 			mask-size: 100%;
 			mask-repeat: no-repeat;
 			transition: opacity 0.4s ease;
+		}
+		&.news{
+			background-color:  $grey;
+			&:after{
+				background-color: $yellow;
+			}
+			.category{
+				color: $yellow;
+			}
+		}
+		&.co-creation{
+			background-color:  $brown;
+			&:after{
+				background-color: $red;
+			}
+			.category{
+				color: $red;
+			}
 		}
 		&.installation{
 			background-color:  $orange;
@@ -455,6 +530,19 @@ iframe{
 			&:after{
 				mask-image: none!important;
 				background-color: transparent!important;
+			}
+		}
+		&.co-creation{
+			.mask{
+				mask-image: url(./installation.svg);
+				background-color:  $brown;
+			}
+			&:after{
+				mask-image: url(./installation-flaps.svg);
+				background-color: $red;
+			}
+			.category{
+				color: $brown;
 			}
 		}
 		&.installation{

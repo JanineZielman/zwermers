@@ -2,7 +2,6 @@ import React from 'react';
 import { PrismicImage, PrismicLink } from '@prismicio/react'
 
 const PanCatwalkItems = ({items, page}) => {
-  console.log(page.uid)
   return (
     <div className='pan-catwalk-items'>
       {items.map((item, i) => {

@@ -140,6 +140,17 @@ interface ArchiefItemDocumentData {
 	category: prismic.ContentRelationshipField<"category">;
 	
 	/**
+	 * Date field in *ArchiefItem*
+	 *
+	 * - **Field Type**: Date
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: archief_item.date
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#date
+	 */
+	date: prismic.DateField;
+	
+	/**
 	 * Slice Zone field in *ArchiefItem*
 	 *
 	 * - **Field Type**: Slice Zone

@@ -4,15 +4,18 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
+import Moment from "moment";
 
 const ArchiveItem = ({ page, menu }) => {
-  console.log(page)
   return (
     <Layout navItems={menu.data.slices}>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
+          <p>
+            {Moment(page.data.date).format("DD.MM.Y")}
+          </p>
           <div className="main-image">
             {page.data.embed.embed_url ?
               <iframe src={page.data.embed.embed_url}/>
