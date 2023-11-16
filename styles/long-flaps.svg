@@ -1,12 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="393.733" height="394.43" viewBox="0 0 393.733 394.43">
-  <g id="Group_60" data-name="Group 60" transform="translate(-16220.237 -3460.293)">
-    <g id="Group_49" data-name="Group 49" transform="translate(16374.521 3487.446)">
-      <path id="Path_45" data-name="Path 45" d="M89.615,29.434-57.619,367.277,182.756,120.227Z" transform="translate(56.693)" fill="#86cdff"/>
-    </g>
-    <g id="Group_59" data-name="Group 59" transform="translate(15777 3460.293)">
-      <g id="Group_55" data-name="Group 55" transform="translate(444.234 0.001)">
-        <path id="Path_51" data-name="Path 51" d="M-1,32.31s105.426,79.544,108.381,78.543S178.935-29.409,178.935-29.409Z" transform="translate(0 29.409)" fill="#86cdff"/>
-      </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.28 189.21">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <polygon points="123.31 51.59 54.85 189.21 139.28 109.42 123.31 51.59" style="fill: #8fcaee; stroke-width: 0px;"/>
+      <path d="m0,72.57s44.59,23.32,45.64,22.96c1.04-.35,90.43-95.53,90.43-95.53L0,72.57Z" style="fill: #8fcaee; stroke-width: 0px;"/>
     </g>
   </g>
 </svg>

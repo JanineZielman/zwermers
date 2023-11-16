@@ -1,10 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="391.119" height="393.096" viewBox="0 0 391.119 393.096">
-  <g id="Group_61" data-name="Group 61" transform="translate(-16657.131 -3460.2)">
-    <g id="Group_50" data-name="Group 50" transform="translate(16804.129 3717.576)">
-      <path id="Path_46" data-name="Path 46" d="M139.093,0-74.92,234.72,169.012,108.667Z" transform="translate(75.11 -99)" fill="#2cb452"/>
-    </g>
-    <g id="Group_54" data-name="Group 54" transform="translate(16657.053 3460.295)">
-      <path id="Path_50" data-name="Path 50" d="M75.344-.095l-116.65,155.98L143.408,109.46,75.347-.095Z" transform="translate(41.385)" fill="#2cb452"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.18 189.12">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <polygon points="82.2 107.9 52.02 189.12 139.18 127.89 82.2 107.9" style="fill: #cae2a1; stroke-width: 0px;"/>
+      <polygon points="0 0 15.17 61.84 139.04 84.52 0 0" style="fill: #cae2a1; stroke-width: 0px;"/>
     </g>
   </g>
 </svg>

@@ -227,36 +227,41 @@ a{
 
 
 .archief{
-	column-count: 4;
+	display: flex;
+	flex-wrap: wrap;
+
 	a{
 		text-decoration: none;
+		width: 25vw;
+		height: 100%;
+		aspect-ratio: 1/1.3608;
 	}
 	.archief-item{
-		margin-bottom: 1.5vw;
+		// margin-bottom: 1.5vw;
 		position: relative;
-		height: fit-content;
+		height: 100%;
 		img, .news-item{
 			width: 100%;
 			height: 100%;
-			mask-size: cover;
+			mask-size: 100%;
 			mask-repeat: no-repeat;
 			object-fit: cover;
 		}
 		&:before, &:after{
 			transition: all 0.4s ease;
 		}
-		.category{
-			text-transform: capitalize;
-			position: absolute;
-			top: 0;
-			right: 0;
-			z-index: 2;
-			width: 200px;
-			padding-right: 10px;
-			text-align: right;
-			opacity: 0;
-			transition: all 0.4s ease;
-		}
+		// .category{
+		// 	text-transform: capitalize;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	right: 0;
+		// 	z-index: 2;
+		// 	width: 200px;
+		// 	padding-right: 10px;
+		// 	text-align: right;
+		// 	opacity: 0;
+		// 	transition: all 0.4s ease;
+		// }
 		&:after{
 			width: 100%;
 			height: 100%;
@@ -265,10 +270,13 @@ a{
 			z-index: 9;
 			top: 0;
 			right: 0;
-			mask-size: cover;
+			mask-size: 100%;
 			mask-repeat: no-repeat;
-			opacity: 0;
+			opacity: 1;
 			transition: opacity 0.4s ease;
+		}
+		&:before{
+			opacity: 1;
 		}
 		&:hover{
 			.category{
@@ -288,29 +296,12 @@ a{
 					opacity: 0;
 				}
 			}
-			&.co-creation{
+			&.co-creation, &.installation, &.workshop, &.short-performance, &.long-performance {
 				img{
-					mask-image: url(./installation.svg);
+					mask-image: none;
 				}
-			}
-			&.installation{
-				img{
-					mask-image: url(./installation.svg);
-				}
-			}
-			&.workshop{
-				img{
-					mask-image: url(./workshop.svg);
-				}
-			}
-			&.short-performance{
-				img{
-					mask-image: url(./short.svg);
-				}
-			}
-			&.long-performance{
-				img{
-					mask-image: url(./long.svg);
+				&:after{
+					opacity: 0;
 				}
 			}
 		}
@@ -334,7 +325,7 @@ a{
 			}
 			.news-item{
 				background-color: $grey;
-				height: 400px;
+				height: 100%;
 				display: flex;
 				flex-direction: column;
 				justify-content: end;
@@ -349,10 +340,18 @@ a{
 		&.co-creation{
 			img{
 				mask-image: url(./installation.svg);
+				background-color: $brown;
+			}
+			&:after{
+				mask-image: url(./installation-flaps.svg);
+				background-color: $red;
 			}
 		}
 		&.installation{
 			color:  $orange;
+			img{
+				mask-image: url(./installation.svg);
+			}
 			&:after{
 				mask-image: url(./installation-flaps.svg);
 				background-color: $lila;
@@ -360,6 +359,9 @@ a{
 		}
 		&.workshop{
 			color: $mustard;
+			img{
+				mask-image: url(./workshop.svg);
+			}
 			&:after{
 				mask-image: url(./workshop-flaps.svg);
 				background-color: $purple;
@@ -367,6 +369,9 @@ a{
 		}
 		&.short-performance{
 			color: $lgreen;
+			img{
+				mask-image: url(./short.svg);
+			}
 			&:after{
 				mask-image: url(./short-flaps.svg);
 				background-color: $green;
@@ -374,6 +379,9 @@ a{
 		}
 		&.long-performance{
 			color: $dgreen;
+			img{
+				mask-image: url(./long.svg);
+			}
 			&:after{
 				mask-image: url(./long-flaps.svg);
 				background-color: $blue;
@@ -527,8 +535,8 @@ iframe{
 	}
 	.agenda-item{
 		width: 25%;
-		height: auto;
-		min-height: 500px;
+		height: 100%;
+		aspect-ratio: 1/1;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -546,7 +554,7 @@ iframe{
 		.mask{
 			width: 100%;
 			height: 100%;
-			mask-size: cover;
+			mask-size: 100%;
 			mask-repeat: no-repeat;
 			mask-position: center;
 			position: relative;
@@ -563,7 +571,7 @@ iframe{
 			z-index: 9;
 			top: 0;
 			right: 0;
-			mask-size: cover;
+			mask-size: 100%;
 			mask-position: center;
 			mask-repeat: no-repeat;
 			transition: opacity 0.4s ease;
@@ -580,11 +588,11 @@ iframe{
 		}
 		&.co-creation{
 			.mask{
-				mask-image: url(./installation.svg);
+				mask-image: url(./installation-small.svg);
 				background-color:  $brown;
 			}
 			&:after{
-				mask-image: url(./installation-flaps.svg);
+				mask-image: url(./installation-flaps-small.svg);
 				background-color: $red;
 			}
 			.category{
@@ -593,11 +601,11 @@ iframe{
 		}
 		&.installation{
 			.mask{
-				mask-image: url(./installation.svg);
+				mask-image: url(./installation-small.svg);
 				background-color:  $orange;
 			}
 			&:after{
-				mask-image: url(./installation-flaps.svg);
+				mask-image: url(./installation-flaps-small.svg);
 				background-color: $lila;
 			}
 			.category{
@@ -607,10 +615,10 @@ iframe{
 		&.workshop{
 			.mask{
 				background-color: $mustard;
-				mask-image: url(./workshop.svg);
+				mask-image: url(./workshop-small.svg);
 			}
 			&:after{
-				mask-image: url(./workshop-flaps.svg);
+				mask-image: url(./workshop-flaps-small.svg);
 				background-color: $purple;
 			}
 			.category{
@@ -620,10 +628,10 @@ iframe{
 		&.short-performance{
 			.mask{
 				background-color: $lgreen;
-				mask-image: url(./short.svg);
+				mask-image: url(./short-small.svg);
 			}
 			&:after{
-				mask-image: url(./short-flaps.svg);
+				mask-image: url(./short-flaps-small.svg);
 				background-color: $green;
 			}
 			.category{
@@ -632,11 +640,11 @@ iframe{
 		}
 		&.long-performance{
 			.mask{
-				mask-image: url(./long.svg);
+				mask-image: url(./long-small.svg);
 				background-color: $dgreen;
 			}
 			&:after{
-				mask-image: url(./long-flaps.svg);
+				mask-image: url(./long-flaps-small.svg);
 				background-color: $blue;
 			}
 			.category{
