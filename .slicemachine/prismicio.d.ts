@@ -287,7 +287,7 @@ interface MenuDocumentData {
  */
 export type MenuDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
-type PageDocumentDataSlicesSlice = RichTextSlice
+type PageDocumentDataSlicesSlice = RichTextSlice | CollapsibleSlice
 
 /**
  * Content for Page documents
@@ -412,6 +412,54 @@ interface PanCatwalkItemDocumentData {
 export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
 
 export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument;
+
+/**
+ * Primary content in *Collapsible → Primary*
+ */
+export interface CollapsibleSliceDefaultPrimary {
+	/**
+	 * Title field in *Collapsible → Primary*
+	 *
+	 * - **Field Type**: Title
+	 * - **Placeholder**: This is where it all begins...
+	 * - **API ID Path**: collapsible.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.TitleField;
+	
+	/**
+	 * Description field in *Collapsible → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: A nice description of your feature
+	 * - **API ID Path**: collapsible.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Collapsible Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Collapsible
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollapsibleSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CollapsibleSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Collapsible*
+ */
+type CollapsibleSliceVariation = CollapsibleSliceDefault
+
+/**
+ * Collapsible Shared Slice
+ *
+ * - **API ID**: `collapsible`
+ * - **Description**: Collapsible
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CollapsibleSlice = prismic.SharedSlice<"collapsible", CollapsibleSliceVariation>;
 
 /**
  * Primary content in *Embed → Primary*
@@ -564,6 +612,10 @@ declare module "@prismicio/client" {
 			PanCatwalkItemDocumentData,
 			PanCatwalkItemDocumentDataLabelsItem,
 			AllDocumentTypes,
+			CollapsibleSlice,
+			CollapsibleSliceDefaultPrimary,
+			CollapsibleSliceVariation,
+			CollapsibleSliceDefault,
 			EmbedSlice,
 			EmbedSliceDefaultPrimary,
 			EmbedSliceVariation,

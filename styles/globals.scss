@@ -181,6 +181,16 @@ body{
 	}
 }
 
+.Collapsible{
+	margin: 14px 0;
+	padding-bottom: 5px;
+	border-bottom: 2px solid black;
+	.Collapsible__trigger{
+		font-size: $h3;
+		cursor: pointer;
+	}
+}
+
 
 .archief{
 	column-count: 4;

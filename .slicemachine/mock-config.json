@@ -5,10 +5,16 @@
     "pan_catwalk_item": {
       "labels": {}
     },
-    "label": {}
+    "label": {},
+    "page": {}
   },
   "slices": {
     "Embed": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Collapsible": {
       "default": {
         "primary": {}
       }
