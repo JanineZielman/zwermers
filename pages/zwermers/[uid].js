@@ -6,7 +6,7 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 
 const ArchiveItem = ({ page, menu }) => {
-
+  console.log(page)
   return (
     <Layout navItems={menu.data.slices}>
       <div className="page-wrapper">
@@ -14,8 +14,8 @@ const ArchiveItem = ({ page, menu }) => {
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
           <div className="main-image">
-            {page.data.orientation == 'Landscape' ?
-              <PrismicImage field={page.data.image.landscape} />
+            {page.data.embed.embed_url ?
+              <iframe src={page.data.embed.embed_url}/>
             :
               <PrismicImage field={page.data.image} />
             }

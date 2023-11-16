@@ -9,7 +9,7 @@ const ArchiefItem = ({items}) => {
           <a href={`zwermers/${item.uid}`} key={`archief${i}`}>
           <div className={`archief-item ${item.data.category?.uid}`}>
             {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
-            <PrismicImage field={item.data.image} />
+            <img src={item.data.image.url} />
           </div>
           </a>
         )

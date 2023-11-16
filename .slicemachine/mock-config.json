@@ -6,5 +6,12 @@
       "labels": {}
     },
     "label": {}
+  },
+  "slices": {
+    "Embed": {
+      "default": {
+        "primary": {}
+      }
+    }
   }
 }

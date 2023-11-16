@@ -19,11 +19,7 @@ const AgendaItem = ({ page, menu }) => {
             {Moment(page.data.date).format("DD.MM.Y")}
           </p>
           <div className="main-image">
-            {page.data.orientation == 'Landscape' ?
-              <PrismicImage field={page.data.image.landscape} />
-            :
-              <PrismicImage field={page.data.image} />
-            }
+            <PrismicImage field={page.data.image} />
           </div>
           <SliceZone slices={page.data.slices} components={components} />
         </div>

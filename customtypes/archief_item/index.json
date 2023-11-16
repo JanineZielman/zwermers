@@ -28,6 +28,13 @@
           "thumbnails": []
         }
       },
+      "embed": {
+        "type": "Embed",
+        "config": {
+          "label": "Embed",
+          "placeholder": ""
+        }
+      },
       "category": {
         "type": "Link",
         "config": {
@@ -44,6 +51,9 @@
         "config": {
           "choices": {
             "rich_text": {
+              "type": "SharedSlice"
+            },
+            "embed": {
               "type": "SharedSlice"
             }
           }
