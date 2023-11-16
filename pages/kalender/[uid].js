@@ -10,7 +10,7 @@ const AgendaItem = ({ page, menu }) => {
 
   return (
     <Layout navItems={menu.data.slices}>
-      <div className="page-wrapper">
+      <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>

@@ -20,9 +20,6 @@ export const Layout = ({
         {children}
         <div className='extra'>
           <div>en / nl</div>
-          <div className="read-button">
-            <img src="/read.svg"/>
-          </div>
         </div>
       </main>
       <footer>

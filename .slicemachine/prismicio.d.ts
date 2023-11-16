@@ -439,13 +439,58 @@ export interface CollapsibleSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *Collapsible → Items*
+ */
+export interface CollapsibleSliceDefaultItem {
+	/**
+	 * Title field in *Collapsible → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.items[].title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Text field in *Collapsible → Items*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.items[].text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+	
+	/**
+	 * Image field in *Collapsible → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.items[].image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * File field in *Collapsible → Items*
+	 *
+	 * - **Field Type**: Link to Media
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.items[].file
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	file: prismic.LinkToMediaField;
+}
+
+/**
  * Default variation for Collapsible Slice
  *
  * - **API ID**: `default`
  * - **Description**: Collapsible
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CollapsibleSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CollapsibleSliceDefaultPrimary>, never>;
+export type CollapsibleSliceDefault = prismic.SharedSliceVariation<"default", Simplify<CollapsibleSliceDefaultPrimary>, Simplify<CollapsibleSliceDefaultItem>>;
 
 /**
  * Slice variation for *Collapsible*
@@ -614,6 +659,7 @@ declare module "@prismicio/client" {
 			AllDocumentTypes,
 			CollapsibleSlice,
 			CollapsibleSliceDefaultPrimary,
+			CollapsibleSliceDefaultItem,
 			CollapsibleSliceVariation,
 			CollapsibleSliceDefault,
 			EmbedSlice,

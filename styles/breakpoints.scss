@@ -2,6 +2,9 @@
   .archief{
     column-count: 5;
   }
+  .page-wrapper .content, .wrapper .content{
+    max-width: 1100px;
+  }
 }
 @media only screen and (max-width: 900px) {
   body{
@@ -51,6 +54,20 @@
   .agenda{
     .agenda-item{
       width: 100%;
+    }
+  }
+  .Collapsible{
+    .Collapsible__trigger{
+      font-size: 24px;
+    }
+    .collapsible-slices{
+      flex-direction: column;
+    }
+    .collapsible-slice{
+      width: 100%;
+      p{
+        font-size: 16px;
+      }
     }
   }
 }

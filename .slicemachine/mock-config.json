@@ -16,7 +16,8 @@
     },
     "Collapsible": {
       "default": {
-        "primary": {}
+        "primary": {},
+        "items": {}
       }
     }
   }
