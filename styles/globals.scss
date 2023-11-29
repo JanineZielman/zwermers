@@ -699,6 +699,10 @@ footer{
 		position: relative;
 		box-sizing: border-box;
 		margin: 14px 14px;
+		display: none;
+		&:nth-child(-n+24){
+			display: block;
+		}
 
 		@for $i from 1 through 10 {
 			:nth-child(#{$i}).stapel{

@@ -15,7 +15,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
             label: element.data.labels.filter((subElement) => subElement.label.uid === label.uid),
             image: element.data.image
           }
-        }).filter((item) => item.label.length > 0) 
+        }).filter((item) => item.label.length > 0)
       
         let number;
         if (filtered.length > 10 ){
