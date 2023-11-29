@@ -6,9 +6,11 @@ import Type from "../../components/type"
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
-import PanCatwalkItems from "../../components/panCatwalkItems";
+import dynamic from 'next/dynamic'
+
 
 const LabelItem = ({ page, menu, items, labels }) => {
+  const PanCatwalkItems = dynamic(() => import('../../components/panCatwalkItems'), { ssr: false })
   const catwalk = "Pan~// catwalk";
   const letters = catwalk.split('');
   return (

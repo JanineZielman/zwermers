@@ -6,9 +6,10 @@ import { Layout } from "../components/Layout";
 import React, { useEffect } from 'react';
 
 import Type from "../components/type"
-import PanCatwalkItems from "../components/panCatwalkItems";
+import dynamic from 'next/dynamic'
 
 const PanCatwalk = ({ menu, page, items, labels }) => {
+  const PanCatwalkItems = dynamic(() => import('../components/panCatwalkItems'), { ssr: false })
   const letters = page.data.title?.[0]?.text.split('');
 
   return (

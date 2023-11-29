@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PrismicImage, PrismicLink } from '@prismicio/react'
+import { PrismicImage, PrismicLink } from '@prismicio/react';
 
 const PanCatwalkItems = ({items, page, labels}) => {
 
@@ -26,16 +26,13 @@ const PanCatwalkItems = ({items, page, labels}) => {
         return(
           <>
             {filtered[0]?.image && filtered.length > 1 &&
-              <div key={`pcil${i}`} className={`pan-catwalk-item stapels${number}`} style={{'marginRight': number * 5 + 'px', 'marginBottom': number * 2 + 'px'}}>
-                {filtered.map((item,i) => {
-                  return(
-                    <div key={`stapel${i}`} className='stapel'>
-                    </div>
-                  )
-                })}
-                <PrismicLink href={`/pan-catwalk/${label.uid}`}>
-                  <PrismicImage field={filtered[Math.floor(Math.random() * filtered.length)]?.image} style={{'marginLeft': number * 5 + 'px', 'marginTop': number * 2 + 'px'}}/>  
-                </PrismicLink>              
+              <div key={`pcil${i}`} className={`pan-catwalk-item stapels${number}`} style={{'marginRight': number * 5 + 'px', 'marginBottom': number * 4 + 'px'}}>
+                {filtered.map((item,i) => (
+                    <div key={`stapel${i}`} className='stapel'></div>
+                ))}
+                <a href={`/pan-catwalk/${label.uid}`}>
+                  <PrismicImage field={filtered[Math.floor(Math.random() * filtered.length)]?.image} style={{'marginLeft': number * 5 + 'px', 'marginTop': number * 4 + 'px'}}/>  
+                </a>              
               </div>
             }
           </>
