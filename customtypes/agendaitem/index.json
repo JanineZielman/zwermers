@@ -53,12 +53,27 @@
           "thumbnails": []
         }
       },
+      "extra_info": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Extra Info",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink,list-item,o-list-item,strong,em"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
             "rich_text": {
+              "type": "SharedSlice"
+            },
+            "embed": {
+              "type": "SharedSlice"
+            },
+            "image": {
               "type": "SharedSlice"
             }
           }

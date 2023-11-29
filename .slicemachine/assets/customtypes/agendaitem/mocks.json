@@ -1,21 +1,21 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "equipment"
+    "value": "variety"
   },
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "usually",
+    "value": "buried",
     "type": "Text"
   },
   "date": {
     "__TYPE__": "FieldContent",
     "type": "Timestamp",
-    "value": "2020-12-26T13:52:05Z"
+    "value": "2022-09-17T04:21:59Z"
   },
   "location": {
     "__TYPE__": "FieldContent",
-    "value": "important",
+    "value": "reader",
     "type": "Text"
   },
   "category": {
@@ -29,13 +29,13 @@
     "__TYPE__": "ImageContent",
     "origin": {
       "id": "main",
-      "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482",
-      "width": 4016,
-      "height": 6016
+      "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1",
+      "width": 5616,
+      "height": 3744
     },
-    "url": "https://images.unsplash.com/photo-1593642633279-1796119d5482?rect=0%2C0%2C4016%2C6016&w=1080&h=1618",
+    "url": "https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?rect=0%2C0%2C5616%2C3744&w=1080&h=720",
     "width": 1080,
-    "height": 1618,
+    "height": 720,
     "edit": {
       "zoom": 1,
       "crop": {
@@ -46,11 +46,22 @@
     },
     "thumbnails": {}
   },
+  "extra_info": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Ut exercitation non duis do veniam aute. Consectetur laborum quis officia nostrud laboris exercitation do veniam eu duis eiusmod."
+        }
+      }
+    ]
+  },
   "slices": {
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "rich_text$3a7ccea6-e944-4f8c-9dd9-c99df9517566",
+        "key": "rich_text$0787653c-65ba-4a60-a443-dbde056f33bc",
         "name": "rich_text",
         "widget": {
           "__TYPE__": "SharedSliceContent",
@@ -62,7 +73,96 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Eu nulla dolore culpa est dolore proident duis dolor non in irure pariatur. Ea enim officia dolore do. Sint ad laboris dolor enim."
+                    "text": "Laboris magna magna enim reprehenderit."
+                  }
+                }
+              ]
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "embed$5fae6965-f145-4ef7-80dc-1c41ba7f855d",
+        "name": "embed",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "embed": {
+              "embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+              "author_name": "Tim Benniks",
+              "author_url": "https://twitter.com/timbenniks",
+              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+              "width": 550,
+              "height": null,
+              "type": "rich",
+              "cache_age": "3153600000",
+              "provider_name": "Twitter",
+              "provider_url": "http://www.twitter.com/",
+              "version": "1.0",
+              "__TYPE__": "EmbedContent",
+              "all": {
+                "embed_url": "https://twitter.com/timbenniks/status/1304146886832594944",
+                "type": "rich",
+                "author_name": "Tim Benniks",
+                "author_url": "https://twitter.com/timbenniks",
+                "cache_age": "3153600000",
+                "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">I’ve been diving deep on <a href=\"https://twitter.com/prismicio?ref_src=twsrc%5Etfw\">@prismicio</a> <a href=\"https://twitter.com/hashtag/slicemachine?src=hash&amp;ref_src=twsrc%5Etfw\">#slicemachine</a> today. I made all my own components and I used custom slices. It works like a charm with <a href=\"https://twitter.com/nuxt_js?ref_src=twsrc%5Etfw\">@nuxt_js</a>. Also\": I’m coding with this view. <a href=\"https://t.co/F0I8X9gz39\">pic.twitter.com/F0I8X9gz39</a></p>&mdash; Tim Benniks (@timbenniks) <a href=\"https://twitter.com/timbenniks/status/1304146886832594944?ref_src=twsrc%5Etfw\">September 10, 2020</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+                "provider_name": "Twitter",
+                "provider_url": "http://www.twitter.com/",
+                "version": "1.0"
+              }
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "image$9c2ca71a-2443-4400-bb3a-7874b28b5a81",
+        "name": "image",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+                "width": 3456,
+                "height": 3456
+              },
+              "url": "https://images.unsplash.com/photo-1571126770897-2d612d1f7b89",
+              "width": 3456,
+              "height": 3456,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "caption": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Nulla sunt esse aliquip exercitation excepteur nostrud labore ea Lorem non. Ex eiusmod aute labore dolore sit adipisicing."
                   }
                 }
               ]

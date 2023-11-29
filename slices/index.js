@@ -2,12 +2,14 @@
 
 import Collapsible from './Collapsible';
 import Embed from './Embed';
+import Image from './Image';
 import NavItem from './NavItem';
 import RichText from './RichText';
 
 export {
 	Collapsible,
 	Embed,
+	Image,
 	NavItem,
 	RichText,
 };
@@ -15,6 +17,7 @@ export {
 export const components = {
 	collapsible: Collapsible,
 	embed: Embed,
+	image: Image,
 	nav_item: NavItem,
 	rich_text: RichText,
 };

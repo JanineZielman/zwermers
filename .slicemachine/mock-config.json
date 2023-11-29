@@ -20,6 +20,11 @@
         "primary": {},
         "items": {}
       }
+    },
+    "Image": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

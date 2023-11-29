@@ -5,7 +5,7 @@ import type * as prismicClient from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AgendaitemDocumentDataSlicesSlice = RichTextSlice
+type AgendaitemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice
 
 /**
  * Content for Kalender Item documents
@@ -67,6 +67,17 @@ interface AgendaitemDocumentData {
 	image: prismic.ImageField<never>;
 	
 	/**
+	 * Extra Info field in *Kalender Item*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: agendaitem.extra_info
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	extra_info: prismic.RichTextField;
+	
+	/**
 	 * Slice Zone field in *Kalender Item*
 	 *
 	 * - **Field Type**: Slice Zone
@@ -89,7 +100,7 @@ interface AgendaitemDocumentData {
  */
 export type AgendaitemDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<AgendaitemDocumentData>, "agendaitem", Lang>;
 
-type ArchiefItemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice
+type ArchiefItemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice
 
 /**
  * Content for Portfolio Item documents
@@ -616,6 +627,54 @@ type EmbedSliceVariation = EmbedSliceDefault
 export type EmbedSlice = prismic.SharedSlice<"embed", EmbedSliceVariation>;
 
 /**
+ * Primary content in *Image → Primary*
+ */
+export interface ImageSliceDefaultPrimary {
+	/**
+	 * Image field in *Image → Primary*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: image.primary.image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Caption field in *Image → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: image.primary.caption
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	caption: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Image Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceDefault = prismic.SharedSliceVariation<"default", Simplify<ImageSliceDefaultPrimary>, never>;
+
+/**
+ * Slice variation for *Image*
+ */
+type ImageSliceVariation = ImageSliceDefault
+
+/**
+ * Image Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
+/**
  * Primary content in *NavItem → Primary*
  */
 export interface NavItemSliceDefaultPrimary {
@@ -739,6 +798,10 @@ declare module "@prismicio/client" {
 			EmbedSliceDefaultPrimary,
 			EmbedSliceVariation,
 			EmbedSliceDefault,
+			ImageSlice,
+			ImageSliceDefaultPrimary,
+			ImageSliceVariation,
+			ImageSliceDefault,
 			NavItemSlice,
 			NavItemSliceDefaultPrimary,
 			NavItemSliceVariation,

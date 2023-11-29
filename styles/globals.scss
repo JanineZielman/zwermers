@@ -6,6 +6,11 @@
 
 $black: #000;
 
+// $bg1: #bfbfbf;
+// $bg2: #a5acb0;
+// $bg3: #989f9a;
+// $bg4: #97938f;
+
 $bg1: #bfbfbf;
 $bg2: #a5acb0;
 $bg3: #989f9a;
@@ -17,8 +22,8 @@ $purple: #6970dd;
 $dgreen: #007158;
 $blue: #87cdff;
 
-$lgreen: #c9e9a1;
-$green: #009222;
+$lgreen: #CAE2A1;
+$green: #00AF51;
 
 $orange: #f96e36;
 $lila: #bdbae1;
@@ -371,13 +376,13 @@ a{
 			}
 		}
 		&.short-performance{
-			color: $lgreen;
+			color: $green;
 			img{
 				mask-image: url(./short.svg);
 			}
 			&:after{
 				mask-image: url(./short-flaps.svg);
-				background-color: $green;
+				background-color: $lgreen;
 			}
 		}
 		&.long-performance{
@@ -481,12 +486,12 @@ a{
 			}
 		}
 		&.short-performance{
-			background-color: $lgreen;
+			background-color: $green;
 			&:after{
-				background-color: $green;
+				background-color: $lgreen;
 			}
 			.category{
-				color: $lgreen;
+				color: $green;
 			}
 		}
 		&.long-performance{
@@ -630,15 +635,15 @@ iframe{
 		}
 		&.short-performance{
 			.mask{
-				background-color: $lgreen;
+				background-color: $green;
 				mask-image: url(./short-small.svg);
 			}
 			&:after{
 				mask-image: url(./short-flaps-small.svg);
-				background-color: $green;
+				background-color: $lgreen;
 			}
 			.category{
-				color: $lgreen;
+				color: $green;
 			}
 		}
 		&.long-performance{
@@ -720,5 +725,16 @@ footer{
 			position: relative;
 			border: 1px solid black;
 		}
+	}
+}
+
+.image-section{
+	margin-top: 10px;
+	img{
+		width: 100%;
+		height: auto;
+	}
+	p{
+		margin-top: 5px;
 	}
 }

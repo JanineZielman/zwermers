@@ -1,4 +1,4 @@
-import { PrismicLink, SliceZone, PrismicImage } from "@prismicio/react";
+import { PrismicLink, SliceZone, PrismicImage, PrismicRichText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 
 import { createClient } from "../../prismicio";
@@ -20,6 +20,9 @@ const AgendaItem = ({ page, menu }) => {
           </p>
           <div className="main-image">
             <PrismicImage field={page.data.image} />
+          </div>
+          <div className="extra-info">
+            <PrismicRichText field={page.data.extra_info}/>
           </div>
           <SliceZone slices={page.data.slices} components={components} />
         </div>
