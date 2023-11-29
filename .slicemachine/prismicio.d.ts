@@ -409,7 +409,7 @@ interface PanCatwalkItemDocumentData {
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
+export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
 
 export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument;
 

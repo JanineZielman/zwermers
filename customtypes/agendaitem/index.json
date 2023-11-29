@@ -1,6 +1,6 @@
 {
   "id": "agendaitem",
-  "label": "AgendaItem",
+  "label": "Kalender Item",
   "repeatable": true,
   "status": true,
   "json": {

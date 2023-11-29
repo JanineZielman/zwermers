@@ -12,7 +12,7 @@ const LabelItem = ({ page, menu, items }) => {
     <Layout navItems={menu.data.slices}>
       <div className="wrapper-pan-catwalk wrapper">
         <SliceZone slices={page.data.slices} components={components} />
-        <PanCatwalkItems items={items} page={page}/>
+        {/* <PanCatwalkItems items={items} page={page}/> */}
       </div>
     </Layout>
   );

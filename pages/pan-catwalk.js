@@ -8,7 +8,7 @@ import React, { useEffect } from 'react';
 import Type from "../components/type"
 import PanCatwalkItems from "../components/panCatwalkItems";
 
-const PanCatwalk = ({ menu, page, items }) => {
+const PanCatwalk = ({ menu, page, items, labels }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
@@ -16,7 +16,7 @@ const PanCatwalk = ({ menu, page, items }) => {
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
-        <PanCatwalkItems items={items} page={page}/>
+        <PanCatwalkItems items={items} page={page} labels={labels}/>
       </div>
     </Layout>
   );
@@ -28,6 +28,7 @@ export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
   const items = await client.getAllByType("pan_catwalk_item");
+  const labels = await client.getAllByType("label");
 
   const menu = await client.getSingle("menu");
   const page = await client.getByUID("page", "pan-catwalk");
@@ -37,7 +38,8 @@ export async function getStaticProps({ previewData }) {
     props: {
       menu,
       page,
-      items
+      items,
+      labels
     },
   };
 }

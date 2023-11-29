@@ -1,6 +1,6 @@
 {
   "id": "archief_item",
-  "label": "ArchiefItem",
+  "label": "Portfolio Item",
   "repeatable": true,
   "status": true,
   "json": {

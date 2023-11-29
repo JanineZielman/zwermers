@@ -683,12 +683,26 @@ footer{
 	display: flex;
 	flex-wrap: wrap;
 	box-sizing: border-box;
+	padding-bottom: 48px;
 	.pan-catwalk-item{
-		width: 18vw;
-		height: 100%;
-		margin: 14px;
+		width: 15vw;
+		// height: 100%;
 		position: relative;
 		box-sizing: border-box;
+		margin: 14px;
+
+		@for $i from 1 through 10 {
+			:nth-child(#{$i}).stapel{
+				width: 100%;
+				height: 100%;
+				top: 0px + $i * 2;
+				left: 0px + $i * 5;
+				position: absolute;
+				background-color: white;
+				border: 1px solid black;
+				z-index: 0;
+			}
+		}
 		.item-wrapper{
 			width: 100%;
 			height: 100%;
@@ -697,7 +711,8 @@ footer{
 		img{
 			width: 100%;
 			height: 100%;
-			aspect-ratio: 3/4;
+			// aspect-ratio: 3/4;
+			object-fit: cover;
 			position: relative;
 		}
 	}
