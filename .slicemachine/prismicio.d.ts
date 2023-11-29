@@ -8,11 +8,11 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 type AgendaitemDocumentDataSlicesSlice = RichTextSlice
 
 /**
- * Content for AgendaItem documents
+ * Content for Kalender Item documents
  */
 interface AgendaitemDocumentData {
 	/**
-	 * Title field in *AgendaItem*
+	 * Title field in *Kalender Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -23,7 +23,7 @@ interface AgendaitemDocumentData {
 	title: prismic.KeyTextField;
 	
 	/**
-	 * Date field in *AgendaItem*
+	 * Date field in *Kalender Item*
 	 *
 	 * - **Field Type**: Timestamp
 	 * - **Placeholder**: *None*
@@ -34,7 +34,7 @@ interface AgendaitemDocumentData {
 	date: prismic.TimestampField;
 	
 	/**
-	 * Location field in *AgendaItem*
+	 * Location field in *Kalender Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -45,7 +45,7 @@ interface AgendaitemDocumentData {
 	location: prismic.KeyTextField;
 	
 	/**
-	 * Category field in *AgendaItem*
+	 * Category field in *Kalender Item*
 	 *
 	 * - **Field Type**: Content Relationship
 	 * - **Placeholder**: *None*
@@ -56,7 +56,7 @@ interface AgendaitemDocumentData {
 	category: prismic.ContentRelationshipField<"category">;
 	
 	/**
-	 * Image field in *AgendaItem*
+	 * Image field in *Kalender Item*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -67,7 +67,7 @@ interface AgendaitemDocumentData {
 	image: prismic.ImageField<never>;
 	
 	/**
-	 * Slice Zone field in *AgendaItem*
+	 * Slice Zone field in *Kalender Item*
 	 *
 	 * - **Field Type**: Slice Zone
 	 * - **Placeholder**: *None*
@@ -79,7 +79,7 @@ interface AgendaitemDocumentData {
 }
 
 /**
- * AgendaItem document from Prismic
+ * Kalender Item document from Prismic
  *
  * - **API ID**: `agendaitem`
  * - **Repeatable**: `true`
@@ -92,11 +92,11 @@ export type AgendaitemDocument<Lang extends string = string> = prismic.PrismicDo
 type ArchiefItemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice
 
 /**
- * Content for ArchiefItem documents
+ * Content for Portfolio Item documents
  */
 interface ArchiefItemDocumentData {
 	/**
-	 * Title field in *ArchiefItem*
+	 * Title field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -107,7 +107,7 @@ interface ArchiefItemDocumentData {
 	title: prismic.KeyTextField;
 	
 	/**
-	 * Image field in *ArchiefItem*
+	 * Image field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -118,7 +118,7 @@ interface ArchiefItemDocumentData {
 	image: prismic.ImageField<never>;
 	
 	/**
-	 * Embed field in *ArchiefItem*
+	 * Embed field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Embed
 	 * - **Placeholder**: *None*
@@ -129,7 +129,7 @@ interface ArchiefItemDocumentData {
 	embed: prismic.EmbedField
 	
 	/**
-	 * Category field in *ArchiefItem*
+	 * Category field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Content Relationship
 	 * - **Placeholder**: *None*
@@ -140,7 +140,7 @@ interface ArchiefItemDocumentData {
 	category: prismic.ContentRelationshipField<"category">;
 	
 	/**
-	 * Date field in *ArchiefItem*
+	 * Date field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Date
 	 * - **Placeholder**: *None*
@@ -151,7 +151,7 @@ interface ArchiefItemDocumentData {
 	date: prismic.DateField;
 	
 	/**
-	 * Slice Zone field in *ArchiefItem*
+	 * Slice Zone field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Slice Zone
 	 * - **Placeholder**: *None*
@@ -160,7 +160,7 @@ interface ArchiefItemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#slices
 	 */
 	slices: prismic.SliceZone<ArchiefItemDocumentDataSlicesSlice>;/**
-	 * Meta Title field in *ArchiefItem*
+	 * Meta Title field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -171,7 +171,7 @@ interface ArchiefItemDocumentData {
 	meta_title: prismic.KeyTextField;
 	
 	/**
-	 * Meta Description field in *ArchiefItem*
+	 * Meta Description field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -182,7 +182,7 @@ interface ArchiefItemDocumentData {
 	meta_description: prismic.KeyTextField;
 	
 	/**
-	 * Meta Image field in *ArchiefItem*
+	 * Meta Image field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Image
 	 * - **Placeholder**: *None*
@@ -194,7 +194,7 @@ interface ArchiefItemDocumentData {
 }
 
 /**
- * ArchiefItem document from Prismic
+ * Portfolio Item document from Prismic
  *
  * - **API ID**: `archief_item`
  * - **Repeatable**: `true`
@@ -411,7 +411,78 @@ interface PanCatwalkItemDocumentData {
  */
 export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
 
-export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument;
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+	/**
+	 * Site Title field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.site_title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	site_title: prismic.KeyTextField;
+	
+	/**
+	 * Site Description field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.site_description
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	site_description: prismic.KeyTextField;
+	
+	/**
+	 * Image field in *Settings*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.image
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+	
+	/**
+	 * Logo Text field in *Settings*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.logo_text
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	logo_text: prismic.KeyTextField;
+	
+	/**
+	 * Logo Background field in *Settings*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.logo_background
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#color
+	 */
+	logo_background: prismic.ColorField;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<SettingsDocumentData>, "settings", Lang>;
+
+export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument | SettingsDocument;
 
 /**
  * Primary content in *Collapsible → Primary*
@@ -656,6 +727,8 @@ declare module "@prismicio/client" {
 			PanCatwalkItemDocument,
 			PanCatwalkItemDocumentData,
 			PanCatwalkItemDocumentDataLabelsItem,
+			SettingsDocument,
+			SettingsDocumentData,
 			AllDocumentTypes,
 			CollapsibleSlice,
 			CollapsibleSliceDefaultPrimary,

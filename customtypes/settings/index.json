@@ -1,0 +1,46 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "Text",
+        "config": {
+          "label": "Site Title",
+          "placeholder": ""
+        }
+      },
+      "site_description": {
+        "type": "Text",
+        "config": {
+          "label": "Site Description",
+          "placeholder": ""
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_text": {
+        "type": "Text",
+        "config": {
+          "label": "Logo Text",
+          "placeholder": ""
+        }
+      },
+      "logo_background": {
+        "type": "Color",
+        "config": {
+          "label": "Logo Background",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
