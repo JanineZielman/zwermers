@@ -8,7 +8,6 @@ import CollapsibleComp from 'react-collapsible';
  * @param { CollapsibleProps }
  */
 const Collapsible = ({ slice }) => {
-  console.log(slice)
   return(
     <CollapsibleComp trigger={slice.primary.title[0].text}>
       <PrismicRichText field={slice.primary.description}/>

@@ -2,17 +2,21 @@ import { PrismicLink, SliceZone, PrismicImage } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
 import * as prismic from '@prismicio/client'
 
+import Type from "../../components/type"
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import PanCatwalkItems from "../../components/panCatwalkItems";
 
-const LabelItem = ({ page, menu, items }) => {
+const LabelItem = ({ page, menu, items, labels }) => {
+  const catwalk = "Pan~// catwalk";
+  const letters = catwalk.split('');
   return (
     <Layout navItems={menu.data.slices}>
       <div className="wrapper-pan-catwalk wrapper">
+        <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
-        {/* <PanCatwalkItems items={items} page={page}/> */}
+        <PanCatwalkItems items={items} page={page} labels={labels}/>
       </div>
     </Layout>
   );
@@ -26,8 +30,15 @@ export async function getStaticProps({ params, previewData }) {
 
   const page = await client.getByUID("label", params.uid);
   const menu = await client.getSingle("menu");
+  const labels = await client.getAllByType("label", {
+    predicates: [
+      prismic.predicate.not(
+        'my.label.uid',
+        page.uid
+      ),
+    ],
+  });
 
-  // const items = await client.getAllByType('pan_catwalk_item')
   const items = await client.getAllByType('pan_catwalk_item', {
     predicates: [
       prismic.predicate.at(
@@ -42,6 +53,7 @@ export async function getStaticProps({ params, previewData }) {
       page,
       menu,
       items,
+      labels
     },
   };
 }

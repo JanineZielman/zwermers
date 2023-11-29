@@ -684,12 +684,13 @@ footer{
 	flex-wrap: wrap;
 	box-sizing: border-box;
 	padding-bottom: 48px;
+	max-width: calc(100% - 14px);
 	.pan-catwalk-item{
 		width: 15vw;
 		// height: 100%;
 		position: relative;
 		box-sizing: border-box;
-		margin: 14px;
+		margin: 14px 14px;
 
 		@for $i from 1 through 10 {
 			:nth-child(#{$i}).stapel{
