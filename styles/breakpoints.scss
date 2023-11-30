@@ -48,6 +48,9 @@
   .archief{
     column-count: 1;
     width: 100%;
+    a{
+      width: 100%;
+    }
     .archief-item{
       margin-bottom: 1.5vw;
       width: 100%;
@@ -72,6 +75,17 @@
   .agenda{
     .agenda-item{
       width: 100%;
+    }
+  }
+  .pan-catwalk-items .pan-catwalk-item{
+    width: 35vw;
+  }
+  .page-wrapper {
+    .content:before{
+      width: 120px;
+    }
+    .content:after{
+      width: 120px;
     }
   }
   .Collapsible{

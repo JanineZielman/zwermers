@@ -9,7 +9,6 @@ const ArchiefItem = ({items}) => {
         return(
           <a href={`zwermers/${item.uid}`} key={`archief${i}`}>
           <div className={`archief-item ${item.data.category?.uid}`}>
-            {/* <span className='category'>{item.data.category?.uid.replaceAll('-', ' ')}</span> */}
             {item.data.category?.uid == 'news' ?
               <div className="news-item">
                 <h2>

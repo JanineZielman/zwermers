@@ -24,12 +24,12 @@ export const Layout = ({
           {item.alternate_languages.map((lang) => (
             <div key={lang.lang} className="lang">
               <PrismicLink href={linkResolver(lang)} locale={lang.lang}>
-                <span>{lang.lang.slice(0,2)}</span>
+                <span>{lang.lang.slice(0,2)} / </span>
               </PrismicLink>
             </div>
           ))}
           <div key={item.lang.lang} className="lang">
-            <span>/ <b>{item.lang.slice(0,2)}</b></span>
+            <span>&nbsp;&nbsp;&nbsp;<b>{item.lang.slice(0,2)}</b></span>
           </div>
         </div>
       </main>

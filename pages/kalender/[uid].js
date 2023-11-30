@@ -12,12 +12,12 @@ const AgendaItem = ({ page, menu }) => {
     <Layout navItems={menu.data.slices} item={page}>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
-          <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
           <h1>{page.data.title}</h1>
-          <p>
+          <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
+          <h2>
             {page.data.location}<br/>
             {Moment(page.data.date).format("DD.MM.Y")}
-          </p>
+          </h2>
           <div className="main-image">
             <PrismicImage field={page.data.image} />
           </div>

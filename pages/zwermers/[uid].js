@@ -11,9 +11,10 @@ const ArchiveItem = ({ page, menu }) => {
     <Layout navItems={menu.data.slices} item={page}>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
-          <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
+          {/* <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span> */}
           <h1>{page.data.title}</h1>
-          {page.data.date && <p>{Moment(page.data.date).format("DD.MM.Y")}</p>}
+          <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
+          {page.data.date && <h2>{Moment(page.data.date).format("DD.MM.Y")}</h2>}
           <div className="main-image">
             {page.data.embed.embed_url ?
               <iframe src={page.data.embed.embed_url}/>
