@@ -57,6 +57,13 @@
             "thumbnails": []
           }
         },
+        "file_title": {
+          "type": "Text",
+          "config": {
+            "label": "File Title",
+            "placeholder": ""
+          }
+        },
         "file": {
           "type": "Link",
           "config": {

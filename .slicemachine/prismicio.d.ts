@@ -555,6 +555,16 @@ export interface CollapsibleSliceDefaultItem {
 	image: prismic.ImageField<never>;
 	
 	/**
+	 * File Title field in *Collapsible → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.items[].file_title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	file_title: prismic.KeyTextField;
+	
+	/**
 	 * File field in *Collapsible → Items*
 	 *
 	 * - **Field Type**: Link to Media

@@ -55,7 +55,6 @@
           [
             "image",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
@@ -73,6 +72,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ],
@@ -88,6 +90,14 @@
                 "size": "0",
                 "__TYPE__": "FileLink"
               }
+            }
+          ],
+          [
+            "file_title",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "announced",
+              "type": "Text"
             }
           ]
         ]

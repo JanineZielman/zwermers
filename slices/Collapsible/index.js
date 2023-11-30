@@ -1,5 +1,5 @@
 import React from 'react'
-import { PrismicRichText, PrismicImage } from '@prismicio/react'
+import { PrismicRichText, PrismicImage, PrismicLink } from '@prismicio/react'
 import CollapsibleComp from 'react-collapsible';
 
 /**
@@ -13,6 +13,7 @@ const Collapsible = ({ slice }) => {
       <PrismicRichText field={slice.primary.description}/>
       <div className='collapsible-slices'>
         {slice.items.map((item, i) => {
+          console.log(item)
           return(
             <div className='collapsible-slice'>
               {item.image && <PrismicImage field={item.image}/>}
@@ -20,6 +21,7 @@ const Collapsible = ({ slice }) => {
               <p>
                 <PrismicRichText field={item.text}/>
               </p>
+              <PrismicLink target="_blank" field={item.file}>{item.file_title}</PrismicLink>
             </div>
           )
         })}
