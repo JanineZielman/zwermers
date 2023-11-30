@@ -13,7 +13,7 @@ const PanCatwalk = ({ menu, page, items, labels }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -25,14 +25,14 @@ const PanCatwalk = ({ menu, page, items, labels }) => {
 
 export default PanCatwalk;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
   const items = await client.getAllByType("pan_catwalk_item");
   const labels = await client.getAllByType("label");
 
-  const menu = await client.getSingle("menu");
-  const page = await client.getByUID("page", "pan-catwalk");
+  const menu = await client.getSingle("menu", { lang: locale });
+  const page = await client.getByUID("page", "pan-catwalk", { lang: locale });
 
 
   return {

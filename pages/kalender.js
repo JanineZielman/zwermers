@@ -11,7 +11,7 @@ const Kalender = ({ items, menu, page }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="wrapper-kalender wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -23,7 +23,7 @@ const Kalender = ({ items, menu, page }) => {
 
 export default Kalender;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
   const items = await client.getAllByType("agendaitem", { 
@@ -31,10 +31,11 @@ export async function getStaticProps({ previewData }) {
 			field: 'my.agendaitem.date',
 			direction: 'desc',
 		},
-    fetchLinks: 'category.title'
+    fetchLinks: 'category.title',
+    lang: locale
   });
-  const menu = await client.getSingle("menu");
-  const page = await client.getByUID("page", "kalender");
+  const menu = await client.getSingle("menu", { lang: locale });
+  const page = await client.getByUID("page", "kalender", { lang: locale });
 
 
   return {

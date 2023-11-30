@@ -21,27 +21,27 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
 export const linkResolver = (doc) => {
   if (doc.type === "page") {
     if (doc.uid === "zwermers") {
-      return `/`;
+      return `/${doc.lang}`;
     }  else if (doc.uid === "kalender") {
-      return `/kalender`;
+      return `/${doc.lang}/kalender`;
     } else if (doc.uid === "over-ons") {
-      return `/over-ons`;
+      return `/${doc.lang}/over-ons`;
     } else if (doc.uid === "pan-catwalk") {
-      return `/pan-catwalk`;
+      return `/${doc.lang}/pan-catwalk`;
     } else {
-      return `/page/${doc.uid}`;
+      return `/${doc.lang}/page/${doc.uid}`;
     }
   }
   if (doc.type === "archief_item") {
-    return `/zwermers/${doc.uid}`;
+    return `/${doc.lang}/zwermers/${doc.uid}`;
   }
   if (doc.type === "agendaitem") {
-    return `/kalender/${doc.uid}`;
+    return `/${doc.lang}/kalender/${doc.uid}`;
   }
   if (doc.type === "label") {
-    return `/pan-catwalk/${doc.uid}`;
+    return `/${doc.lang}/pan-catwalk/${doc.uid}`;
   }
-  return `/`;
+  return `/${doc.lang}`;
 };
 
 /**

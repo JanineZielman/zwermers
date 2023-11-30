@@ -9,7 +9,7 @@ import Moment from "moment";
 const AgendaItem = ({ page, menu }) => {
 
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
@@ -33,11 +33,11 @@ const AgendaItem = ({ page, menu }) => {
 
 export default AgendaItem;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("agendaitem", params.uid);
-  const menu = await client.getSingle("menu");
+  const page = await client.getByUID("agendaitem", params.uid, { lang: locale });
+  const menu = await client.getSingle("menu", { lang: locale });
 
   return {
     props: {

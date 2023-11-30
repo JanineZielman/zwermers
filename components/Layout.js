@@ -1,9 +1,11 @@
 import { PrismicImage, PrismicLink } from '@prismicio/react'
 import Link from 'next/link';
+import { linkResolver } from "../prismicio";
 
 export const Layout = ({
   navItems,
   children,
+  item
 }) => {
   return (
     <>
@@ -19,7 +21,16 @@ export const Layout = ({
       <main>
         {children}
         <div className='extra'>
-          <div>en / nl</div>
+          {item.alternate_languages.map((lang) => (
+            <div key={lang.lang} className="lang">
+              <PrismicLink href={linkResolver(lang)} locale={lang.lang}>
+                <span>{lang.lang.slice(0,2)}</span>
+              </PrismicLink>
+            </div>
+          ))}
+          <div key={item.lang.lang} className="lang">
+            <span>/ <b>{item.lang.slice(0,2)}</b></span>
+          </div>
         </div>
       </main>
       <footer>

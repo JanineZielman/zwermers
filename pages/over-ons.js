@@ -10,7 +10,7 @@ const OverOns = ({ menu, page }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="wrapper-over-ons wrapper">
         <Type letters={letters}/>
         <div className="content">
@@ -23,11 +23,11 @@ const OverOns = ({ menu, page }) => {
 
 export default OverOns;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
-  const menu = await client.getSingle("menu");
-  const page = await client.getByUID("page", "over-ons");
+  const menu = await client.getSingle("menu", { lang: locale });
+  const page = await client.getByUID("page", "over-ons", { lang: locale });
 
 
   return {

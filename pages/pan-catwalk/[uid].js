@@ -14,7 +14,7 @@ const LabelItem = ({ page, menu, items, labels }) => {
   const catwalk = "Pan~// catwalk";
   const letters = catwalk.split('');
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -26,12 +26,12 @@ const LabelItem = ({ page, menu, items, labels }) => {
 
 export default LabelItem;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData, locale }) {
   // const prismic = require("@prismicio/client");
   const client = createClient({ previewData });
 
   const page = await client.getByUID("label", params.uid);
-  const menu = await client.getSingle("menu");
+  const menu = await client.getSingle("menu", { lang: locale });
   const labels = await client.getAllByType("label", {
     predicates: [
       prismic.predicate.not(

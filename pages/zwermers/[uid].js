@@ -8,7 +8,7 @@ import Moment from "moment";
 
 const ArchiveItem = ({ page, menu }) => {
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
           <span className='category'>{page.data.category?.uid.replaceAll('-', ' ')}</span>
@@ -30,11 +30,11 @@ const ArchiveItem = ({ page, menu }) => {
 
 export default ArchiveItem;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ locale, params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("archief_item", params.uid);
-  const menu = await client.getSingle("menu");
+  const page = await client.getByUID("archief_item", params.uid, { lang: locale });
+  const menu = await client.getSingle("menu", { lang: locale });
 
   return {
     props: {

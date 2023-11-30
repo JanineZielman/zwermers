@@ -13,7 +13,6 @@ const Collapsible = ({ slice }) => {
       <PrismicRichText field={slice.primary.description}/>
       <div className='collapsible-slices'>
         {slice.items.map((item, i) => {
-          console.log(item)
           return(
             <div className='collapsible-slice'>
               {item.image && <PrismicImage field={item.image}/>}

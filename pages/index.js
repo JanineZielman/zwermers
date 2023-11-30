@@ -9,10 +9,11 @@ import { PrismicRichText } from "@prismicio/react";
 import Type from "../components/type"
 import ArchiefItem from "../components/archiefItem"
 
-const Index = ({ items, menu, page }) => {
+const Index = ({ items, menu, page}) => {
   const letters = page.data.title?.[0]?.text.split('');
+
   return (
-    <Layout navItems={menu.data.slices}>
+    <Layout navItems={menu.data.slices} item={page}>
       <div className="wrapper-zwermers wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -24,25 +25,26 @@ const Index = ({ items, menu, page }) => {
 
 export default Index;
 
-export async function getStaticProps({ previewData }) {
+export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
   const items = await client.getAllByType("archief_item", { 
-    // orderings: {
-		// 	field: 'my.event.date',
-		// 	direction: 'asc',
-		// },
-    fetchLinks: 'category.title'
+    orderings: {
+			field: 'my.archief_item.date',
+			direction: 'asc',
+		},
+    fetchLinks: 'category.title',
+    lang: locale
   });
-  const menu = await client.getSingle("menu");
-  const page = await client.getByUID("page", "zwermers");
+  const menu = await client.getSingle("menu", { lang: locale });
+  const page = await client.getByUID("page", "zwermers",  { lang: locale });
 
 
   return {
     props: {
       items,
       menu,
-      page
+      page,
     },
   };
 }
