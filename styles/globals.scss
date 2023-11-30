@@ -304,7 +304,7 @@ a{
 					opacity: 0;
 				}
 			}
-			&.co-creation, &.installation, &.workshop, &.short-performance, &.long-performance {
+			&.co-creation, &.installation, &.workshop, &.performance, &.zwermen {
 				img{
 					mask-image: none;
 				}
@@ -375,7 +375,7 @@ a{
 				background-color: $purple;
 			}
 		}
-		&.short-performance{
+		&.performance{
 			color: $green;
 			img{
 				mask-image: url(./short.svg);
@@ -385,7 +385,7 @@ a{
 				background-color: $lgreen;
 			}
 		}
-		&.long-performance{
+		&.zwermen{
 			color: $dgreen;
 			img{
 				mask-image: url(./long.svg);
@@ -485,7 +485,7 @@ a{
 				color: $mustard;
 			}
 		}
-		&.short-performance{
+		&.performance{
 			background-color: $green;
 			&:after{
 				background-color: $lgreen;
@@ -494,7 +494,7 @@ a{
 				color: $green;
 			}
 		}
-		&.long-performance{
+		&.zwermen{
 			background-color: $dgreen;
 			&:after{
 				background-color: $blue;
@@ -633,7 +633,7 @@ iframe{
 				color: $mustard;
 			}
 		}
-		&.short-performance{
+		&.performance{
 			.mask{
 				background-color: $green;
 				mask-image: url(./short-small.svg);
@@ -646,7 +646,7 @@ iframe{
 				color: $green;
 			}
 		}
-		&.long-performance{
+		&.zwermen{
 			.mask{
 				mask-image: url(./long-small.svg);
 				background-color: $dgreen;
