@@ -1,43 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PrismicImage, PrismicLink } from '@prismicio/react';
+import Isotope from 'isotope-layout';
 
 const PanCatwalkItems = ({items, page, labels}) => {
 
+  console.log(labels)
+
   function func(a, b) {  
-    return 0.5 - Math.random();
+    // return 0.5 - Math.random();
   } 
 
+  const isotope = useRef()
+  const [filterKey, setFilterKey] = useState('*')
+
+  // initialize an Isotope object with configs
+  useEffect(() => {
+    isotope.current = new Isotope('.pan-catwalk-items', {
+      itemSelector: '.pan-catwalk-item',
+      layoutMode: 'fitRows',
+    })
+    // cleanup
+    return () => isotope.current.destroy()
+  }, [])
+
+  // handling filter key change
+  useEffect(() => {
+    filterKey === '*'
+      ? isotope.current.arrange({filter: `*`})
+      : isotope.current.arrange({filter: `.${filterKey}`})
+  }, [filterKey])
+
+  const handleFilterKeyChange = key => () => setFilterKey(key)
+
   return (
-    <div className='pan-catwalk-items'>
-      {labels.sort(func).map((label, i) => {
-        const filtered = items.map((element) => {
-          return {
-            label: element.data.labels.filter((subElement) => subElement.label.uid === label.uid),
-            image: element.data.image
+    <div className='pan-catwalk-page'>
+      <div className='filter'>
+        <div className='label' onClick={handleFilterKeyChange('*')}>Show all</div>
+        {labels.map((label, i) => {
+          let active = false;
+          if (label.uid == filterKey){
+            active = true;
           }
-        }).filter((item) => item.label.length > 0)
-      
-        let number;
-        if (filtered.length > 10 ){
-          number = 10;
-        } else {
-          number = filtered.length;
-        }
-        return(
-          <>
-            {filtered[0]?.image && filtered.length > 1 &&
-              <div key={`pcil${i}`} className={`pan-catwalk-item stapels${number}`} style={{'marginRight': number * 5 + 'px', 'marginBottom': number * 4 + 'px'}}>
-                {filtered.map((item,i) => (
-                    <div key={`stapel${i}`} className='stapel'></div>
-                ))}
-                <a href={`/pan-catwalk/${label.uid}`}>
-                  <PrismicImage field={filtered[Math.floor(Math.random() * filtered.length)]?.image} style={{'marginLeft': number * 5 + 'px', 'marginTop': number * 4 + 'px'}}/>  
-                </a>              
-              </div>
-            }
-          </>
-        );
-      })}
+          return(
+            <div key={`label${i}`} className={`label ${label.data.category} ${active}`} onClick={handleFilterKeyChange(label.uid)}>{label.uid.replaceAll('-', ' ')}</div>
+          )
+        })}
+      </div>
+      <div className='pan-catwalk-items'>
+        {items.sort(func).map((item, i) => {  
+          let labelsclasses = [];
+          for (let i = 0; i < item.data.labels.length; i++) {
+            labelsclasses += item.data.labels[i].label.uid + ' '
+          }
+          return(
+            <div key={`pci${i}`} className={`pan-catwalk-item ${labelsclasses}`}>
+              <PrismicImage field={item.data.image}/>               
+            </div>
+          );
+        })}
+      </div>
     </div>
   )
  }

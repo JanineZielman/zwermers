@@ -502,6 +502,10 @@ a{
 			margin: 24px 0 0 0;
 			font-weight: 300;
 			font-size: $h4;
+			max-width: 80%;
+		}
+		.extra-info{
+			max-width: 80%;
 		}
 		.main-image{
 			margin-top: 14px;
@@ -678,6 +682,66 @@ footer{
 	}
 }
 
+.pan-catwalk-page{
+	.filter{
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.label{
+		text-transform: capitalize;
+		margin: 5px;
+		padding: 10px 20px;
+		border: 2px solid $yellow;
+		cursor: pointer;
+		transition: all 0.4s ease;
+		&.true, &:hover{
+			background-color: $yellow;;
+		}
+		&.persoon{
+			border-color: $mustard;
+			&.true, &:hover{
+				background-color: $mustard;;
+			}
+		}
+		&.textiel{
+			border-color: $dgreen;
+			&.true, &:hover{
+				background-color: $dgreen;
+			}
+		}
+		&.basics{
+			border-color: $green;
+			&.true, &:hover{
+				background-color: $green;
+			}
+		}
+		&.attributen{
+			border-color: $orange;
+			&.true, &:hover{
+				background-color: $orange;
+			}
+		}
+		&.locatie{
+			border-color: $brown;
+			&.true, &:hover{
+				background-color: $brown;
+			}
+		}
+		&.kledingcategorie{
+			border-color: $purple;
+			&.true, &:hover{
+				background-color: $purple;
+			}
+		}
+		&.kleur{
+			border-color: $blue;
+			&.true, &:hover{
+				background-color: $blue;
+			}
+		}
+	}
+}
+
 .pan-catwalk-items{
 	display: flex;
 	flex-wrap: wrap;
@@ -695,18 +759,7 @@ footer{
 			display: block;
 		}
 
-		@for $i from 1 through 10 {
-			:nth-child(#{$i}).stapel{
-				width: 100%;
-				height: 100%;
-				top: 0px + $i * 4;
-				left: 0px + $i * 5;
-				position: absolute;
-				background-color: white;
-				border: 1px solid black;
-				z-index: 0;
-			}
-		}
+		
 		.item-wrapper{
 			width: 100%;
 			height: 100%;
@@ -715,10 +768,9 @@ footer{
 		img{
 			width: 100%;
 			height: 100%;
-			// aspect-ratio: 3/4;
+			aspect-ratio: 3/4;
 			object-fit: cover;
 			position: relative;
-			border: 1px solid black;
 		}
 	}
 }
