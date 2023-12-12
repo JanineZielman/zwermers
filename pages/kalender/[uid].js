@@ -12,8 +12,9 @@ const AgendaItem = ({ page, menu }) => {
     <Layout navItems={menu.data.slices} item={page}>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
-          <h1>{page.data.title}</h1>
           <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
+          <h1>{page.data.title}</h1>
+          
           <h2>
             {page.data.location}<br/>
             {Moment(page.data.date).format("DD.MM.Y")}

@@ -375,23 +375,23 @@ a{
 			}
 		}
 		&.performance{
-			color: $green;
+			color: $dgreen;
 			img{
 				mask-image: url(./short.svg);
 			}
 			&:after{
 				mask-image: url(./short-flaps.svg);
-				background-color: $lgreen;
+				background-color: $blue;
 			}
 		}
 		&.zwermen{
-			color: $dgreen;
+			color: $green;
 			img{
 				mask-image: url(./long.svg);
 			}
 			&:after{
 				mask-image: url(./long-flaps.svg);
-				background-color: $blue;
+				background-color: $lgreen;
 			}
 		}
 	}
@@ -475,21 +475,21 @@ a{
 			}
 		}
 		&.performance{
-			background-color: $green;
-			&:after{
-				background-color: $lgreen;
-			}
-			.category{
-				color: $lgreen;
-			}
-		}
-		&.zwermen{
 			background-color: $dgreen;
 			&:after{
 				background-color: $blue;
 			}
 			.category{
 				color: $blue;
+			}
+		}
+		&.zwermen{
+			background-color: $green;
+			&:after{
+				background-color: $lgreen;
+			}
+			.category{
+				color: $lgreen;
 			}
 		}
 		h1{
@@ -621,28 +621,28 @@ iframe{
 		}
 		&.performance{
 			.mask{
-				background-color: $green;
+				background-color: $dgreen;
 				mask-image: url(./short-small.svg);
 			}
 			&:after{
 				mask-image: url(./short-flaps-small.svg);
-				background-color: $lgreen;
+				background-color: $blue;
 			}
 			.category{
-				color: $green;
+				color: $dgreen;
 			}
 		}
 		&.zwermen{
 			.mask{
 				mask-image: url(./long-small.svg);
-				background-color: $dgreen;
+				background-color: $green;
 			}
 			&:after{
 				mask-image: url(./long-flaps-small.svg);
-				background-color: $blue;
+				background-color: $lgreen;
 			}
 			.category{
-				color: $dgreen;
+				color: $green;
 			}
 		}
 	}
