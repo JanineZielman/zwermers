@@ -252,7 +252,7 @@ a{
 		// margin-bottom: 1.5vw;
 		position: relative;
 		height: 100%;
-		img, .news-item{
+		img, .news-item, .no-img{
 			width: 100%;
 			height: 100%;
 			mask-size: 100%;
@@ -294,12 +294,21 @@ a{
 				}
 			}
 			&.co-creation, &.installation, &.workshop, &.performance, &.zwermen {
-				img{
+				img, .no-img{
 					mask-image: none;
 				}
 				&:after{
 					opacity: 0;
 				}
+			}
+		}
+		.no-img{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 14px;
+			span{
+				font-weight: 300;
 			}
 		}
 		&.news{
@@ -327,6 +336,7 @@ a{
 				flex-direction: column;
 				justify-content: end;
 				mask-image: url(./long.svg);
+				padding-right: 14px;
 			}
 			&:after{
 				mask-image: url(./long-flaps.svg);
@@ -335,7 +345,7 @@ a{
 			}
 		}
 		&.co-creation{
-			img{
+			img, .no-img{
 				mask-image: url(./installation.svg);
 				background-color: $brown;
 			}
@@ -483,13 +493,13 @@ a{
 			}
 		}
 		h1{
-			margin: 1vw 0;
+			margin: 0 0;
 			font-weight: 300;
 			max-width: 80%;
 			padding-bottom: 10px;
 		}
 		h2{
-			margin: 1px 0;
+			margin: 24px 0 0 0;
 			font-weight: 300;
 			font-size: $h4;
 		}

@@ -12,15 +12,28 @@ const ArchiefItem = ({items}) => {
             {item.data.category?.uid == 'news' ?
               <div className="news-item">
                 <h2>
-                  {item.data.title} <br/>
-                  <span>{item.data.category?.uid.replaceAll('-', ' ')}</span>
+                  <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
+                  {item.data.title}
+                  
                 </h2>
                 <p>
-                  {Moment(item.data.date).format("DD.MM.Y")}
+                  {item.data.date && Moment(item.data.date).format("DD.MM.Y")}
                 </p>
               </div>
             :
-              <img src={item.data.image.url} />
+              <>
+                
+                {item.data.image.url ?
+                  <img src={item.data.image.url} />
+                  :
+                  <div className='no-img'>
+                    <h2>
+                      <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
+                      {item.data.title}
+                    </h2>
+                  </div>
+                }
+              </>
             }
           </div>
           </a>
