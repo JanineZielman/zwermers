@@ -1,5 +1,4 @@
 import React from 'react';
-import { PrismicImage, PrismicLink } from '@prismicio/react'
 import Moment from "moment";
 
 const ArchiefItem = ({items}) => {
@@ -24,7 +23,15 @@ const ArchiefItem = ({items}) => {
               <>
                 
                 {item.data.image.url ?
-                  <img src={item.data.image.url} />
+                  <>
+                    <img src={item.data.image.url} />
+                    <div className='overlay'>
+                      <h2>
+                        <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
+                        {item.data.title}
+                      </h2>
+                    </div>
+                  </>
                   :
                   <div className='no-img'>
                     <h2>

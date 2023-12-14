@@ -3,8 +3,6 @@ import { components } from "../slices";
 
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
-import Link from "next/link";
-import { PrismicRichText } from "@prismicio/react";
 
 import Type from "../components/type"
 import ArchiefItem from "../components/archiefItem"
