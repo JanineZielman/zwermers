@@ -5,7 +5,7 @@ import type * as prismicClient from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type AgendaitemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice
+type AgendaitemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice | ButtonSlice
 
 /**
  * Content for Kalender Item documents
@@ -23,7 +23,7 @@ interface AgendaitemDocumentData {
 	title: prismic.KeyTextField;
 	
 	/**
-	 * Date field in *Kalender Item*
+	 * Start Date (for order) field in *Kalender Item*
 	 *
 	 * - **Field Type**: Timestamp
 	 * - **Placeholder**: *None*
@@ -32,6 +32,17 @@ interface AgendaitemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#timestamp
 	 */
 	date: prismic.TimestampField;
+	
+	/**
+	 * Date(s)  field in *Kalender Item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: 18.05 – 29.05.2023
+	 * - **API ID Path**: agendaitem.dates
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	dates: prismic.KeyTextField;
 	
 	/**
 	 * Location field in *Kalender Item*
@@ -100,7 +111,7 @@ interface AgendaitemDocumentData {
  */
 export type AgendaitemDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<Simplify<AgendaitemDocumentData>, "agendaitem", Lang>;
 
-type ArchiefItemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice
+type ArchiefItemDocumentDataSlicesSlice = RichTextSlice | EmbedSlice | ImageSlice | ButtonSlice
 
 /**
  * Content for Portfolio Item documents
@@ -116,6 +127,17 @@ interface ArchiefItemDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	title: prismic.KeyTextField;
+	
+	/**
+	 * Date(s) field in *Portfolio Item*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: 18.05 – 29.05.2023
+	 * - **API ID Path**: archief_item.dates
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	dates: prismic.KeyTextField;
 	
 	/**
 	 * Image field in *Portfolio Item*
@@ -151,7 +173,7 @@ interface ArchiefItemDocumentData {
 	category: prismic.ContentRelationshipField<"category">;
 	
 	/**
-	 * Date field in *Portfolio Item*
+	 * Date (for order) field in *Portfolio Item*
 	 *
 	 * - **Field Type**: Date
 	 * - **Placeholder**: *None*
@@ -298,7 +320,7 @@ interface MenuDocumentData {
  */
 export type MenuDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
-type PageDocumentDataSlicesSlice = RichTextSlice | CollapsibleSlice
+type PageDocumentDataSlicesSlice = RichTextSlice | CollapsibleSlice | LogoSectionSlice
 
 /**
  * Content for Page documents
@@ -496,6 +518,54 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 export type AllDocumentTypes = AgendaitemDocument | ArchiefItemDocument | CategoryDocument | LabelDocument | MenuDocument | PageDocument | PanCatwalkItemDocument | SettingsDocument;
 
 /**
+ * Primary content in *Button → Items*
+ */
+export interface ButtonSliceDefaultItem {
+	/**
+	 * Label field in *Button → Items*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: button.items[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+	
+	/**
+	 * Link field in *Button → Items*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: button.items[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+}
+
+/**
+ * Default variation for Button Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Button
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonSliceDefault = prismic.SharedSliceVariation<"default", Record<string, never>, Simplify<ButtonSliceDefaultItem>>;
+
+/**
+ * Slice variation for *Button*
+ */
+type ButtonSliceVariation = ButtonSliceDefault
+
+/**
+ * Button Shared Slice
+ *
+ * - **API ID**: `button`
+ * - **Description**: Button
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonSlice = prismic.SharedSlice<"button", ButtonSliceVariation>;
+
+/**
  * Primary content in *Collapsible → Primary*
  */
 export interface CollapsibleSliceDefaultPrimary {
@@ -685,6 +755,69 @@ type ImageSliceVariation = ImageSliceDefault
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
 
 /**
+ * Primary content in *LogoSection → Primary*
+ */
+export interface LogoSectionSliceDefaultPrimary {
+	/**
+	 * Title field in *LogoSection → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: logo_section.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
+	 * Text field in *LogoSection → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: logo_section.primary.text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *LogoSection → Items*
+ */
+export interface LogoSectionSliceDefaultItem {
+	/**
+	 * Image field in *LogoSection → Items*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: logo_section.items[].image
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for LogoSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: LogoSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LogoSectionSliceDefault = prismic.SharedSliceVariation<"default", Simplify<LogoSectionSliceDefaultPrimary>, Simplify<LogoSectionSliceDefaultItem>>;
+
+/**
+ * Slice variation for *LogoSection*
+ */
+type LogoSectionSliceVariation = LogoSectionSliceDefault
+
+/**
+ * LogoSection Shared Slice
+ *
+ * - **API ID**: `logo_section`
+ * - **Description**: LogoSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type LogoSectionSlice = prismic.SharedSlice<"logo_section", LogoSectionSliceVariation>;
+
+/**
  * Primary content in *NavItem → Primary*
  */
 export interface NavItemSliceDefaultPrimary {
@@ -799,6 +932,10 @@ declare module "@prismicio/client" {
 			SettingsDocument,
 			SettingsDocumentData,
 			AllDocumentTypes,
+			ButtonSlice,
+			ButtonSliceDefaultItem,
+			ButtonSliceVariation,
+			ButtonSliceDefault,
 			CollapsibleSlice,
 			CollapsibleSliceDefaultPrimary,
 			CollapsibleSliceDefaultItem,
@@ -812,6 +949,11 @@ declare module "@prismicio/client" {
 			ImageSliceDefaultPrimary,
 			ImageSliceVariation,
 			ImageSliceDefault,
+			LogoSectionSlice,
+			LogoSectionSliceDefaultPrimary,
+			LogoSectionSliceDefaultItem,
+			LogoSectionSliceVariation,
+			LogoSectionSliceDefault,
 			NavItemSlice,
 			NavItemSliceDefaultPrimary,
 			NavItemSliceVariation,

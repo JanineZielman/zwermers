@@ -18,6 +18,13 @@
           "placeholder": ""
         }
       },
+      "dates": {
+        "type": "Text",
+        "config": {
+          "label": "Date(s)",
+          "placeholder": "18.05 – 29.05.2023"
+        }
+      },
       "image": {
         "type": "Image",
         "config": {
@@ -48,7 +55,7 @@
       "date": {
         "type": "Date",
         "config": {
-          "label": "Date",
+          "label": "Date (for order)",
           "placeholder": ""
         }
       },
@@ -64,6 +71,9 @@
               "type": "SharedSlice"
             },
             "image": {
+              "type": "SharedSlice"
+            },
+            "button": {
               "type": "SharedSlice"
             }
           }

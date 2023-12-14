@@ -6,11 +6,6 @@
 
 $black: #000;
 
-// $bg1: #bfbfbf;
-// $bg2: #a5acb0;
-// $bg3: #989f9a;
-// $bg4: #97938f;
-
 $bg1: #bfbfbf;
 $bg2: #a5acb0;
 $bg3: #989f9a;
@@ -38,7 +33,7 @@ $yellow: #F0F8CA;
 $h1: 64px;
 $h2: 48px;
 $h3: 36px;
-$h4: 24px;
+$h4: 28px;
 $pbig: 24px;
 $pmed: 18px;
 $psmall: 14px;
@@ -504,11 +499,15 @@ a{
 			font-size: $h4;
 			max-width: 80%;
 		}
+		.location-date{
+			margin: 0;
+		}
 		.extra-info{
 			max-width: 80%;
 		}
 		.main-image{
 			margin-top: 14px;
+			min-height: 200px;
 			img{
 				width: 100%;
 			}
@@ -784,5 +783,66 @@ footer{
 	p{
 		margin-top: 5px;
 		font-size: $psmall;
+	}
+}
+
+.buttons{
+	display: flex;
+	margin-top: 24px;
+}
+
+.button{
+	margin-right: 14px;
+	text-decoration: none;
+	background-color: $grey;
+	padding: 5px 20px;
+	border-radius: 25px;
+	border: 1px solid black;
+	transition: opacity 0.4s ease;
+	&:hover{
+		opacity: 0.8;
+	}
+}
+
+.performance .button{
+	background-color: $blue;
+}
+
+.co-creation .button{
+	background-color: $red;
+}
+
+.installation .button{
+	background-color: $lila;
+}
+
+.workshop .button{
+	background-color: $purple;
+}
+
+.zwermen .button{
+	background-color: $lgreen;
+}
+
+.news .button{
+	background-color: $yellow;
+}
+
+.logo-section{
+	position: relative;
+	h2{
+		font-weight: 400;
+	}
+	.logos{
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		margin-top: 30px;
+		img{
+			width: auto;
+			height: 120px;
+			object-fit: contain;
+			margin-right: 14px;
+		}
 	}
 }

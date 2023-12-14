@@ -22,8 +22,15 @@
       "date": {
         "type": "Timestamp",
         "config": {
-          "label": "Date",
+          "label": "Start Date (for order)",
           "placeholder": ""
+        }
+      },
+      "dates": {
+        "type": "Text",
+        "config": {
+          "label": "Date(s) ",
+          "placeholder": "18.05 – 29.05.2023"
         }
       },
       "location": {
@@ -74,6 +81,9 @@
               "type": "SharedSlice"
             },
             "image": {
+              "type": "SharedSlice"
+            },
+            "button": {
               "type": "SharedSlice"
             }
           }

@@ -25,6 +25,16 @@
       "default": {
         "primary": {}
       }
+    },
+    "Button": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "LogoSection": {
+      "default": {
+        "primary": {}
+      }
     }
   }
 }

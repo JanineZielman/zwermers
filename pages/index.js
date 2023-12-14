@@ -31,7 +31,7 @@ export async function getStaticProps({ locale, previewData }) {
   const items = await client.getAllByType("archief_item", { 
     orderings: {
 			field: 'my.archief_item.date',
-			direction: 'asc',
+			direction: 'desc',
 		},
     fetchLinks: 'category.title',
     lang: locale

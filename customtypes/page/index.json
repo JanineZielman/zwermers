@@ -31,6 +31,9 @@
             },
             "collapsible": {
               "type": "SharedSlice"
+            },
+            "logo_section": {
+              "type": "SharedSlice"
             }
           }
         }

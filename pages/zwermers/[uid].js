@@ -4,7 +4,6 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
-import Moment from "moment";
 
 const ArchiveItem = ({ page, menu }) => {
   return (
@@ -12,12 +11,8 @@ const ArchiveItem = ({ page, menu }) => {
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
           <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
-          <h1>
-            {page.data.title}
-            {page.data.date &&  
-              <><br/> {Moment(page.data.date).format("DD.MM.Y")}</>
-            }
-          </h1>
+          <h1>{page.data.title}</h1>
+          <h2 className="location-date">{page.data.dates &&  page.data.dates}</h2>
           
           <div className="main-image">
             {page.data.embed.embed_url ?
