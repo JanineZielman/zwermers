@@ -248,7 +248,7 @@ a{
 		height: 100%;
 		.img{
 			// filter: grayscale(1);
-			// mix-blend-mode: multiply;
+			mix-blend-mode: multiply;
 			transition: opacity 0.4s ease;
 			&:before{
 				transition: opacity 0.4s ease;
@@ -395,6 +395,7 @@ a{
 				left: 0;
 				top: 0;
 				z-index: 9;
+				opacity: 0;
 				mix-blend-mode:soft-light;
 			}
 		}
@@ -789,41 +790,41 @@ footer{
 		border-radius: 25px;
 		cursor: pointer;
 		transition: all 0.4s ease;
-		&.true, &:hover{
+		&.active, &:hover{
 			background-color: $yellow;;
 		}
 		&.persoon{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $mustard;;
 			}
 		}
 		&.textiel{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $dgreen;
 			}
 		}
 		&.basics{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $green;
 			}
 		}
 		&.attributen{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $orange;
 			}
 		}
 		&.locatie{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $brown;
 			}
 		}
 		&.kledingcategorie{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $purple;
 			}
 		}
 		&.kleur{
-			&.true, &:hover{
+			&.active, &:hover{
 				background-color: $blue;
 			}
 		}
