@@ -75,9 +75,9 @@ const PanCatwalkItems = ({items, page, labels}) => {
           console.log(label.uid)
           return(
             <>
-            {match?.includes(label.uid) || matchItems == null &&
+            {/* {match?.includes(label.uid) || matchItems == null && */}
               <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.uid.replaceAll('-', ' ')}</div>
-            }
+            {/* } */}
             </>
           )
         })}
