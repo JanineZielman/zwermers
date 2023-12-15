@@ -247,7 +247,23 @@ a{
 		// margin-bottom: 1.5vw;
 		position: relative;
 		height: 100%;
-		img, .news-item, .no-img{
+		.img{
+			// filter: grayscale(1);
+			// mix-blend-mode: multiply;
+			transition: opacity 0.4s ease;
+			&:before{
+				transition: opacity 0.4s ease;
+			}
+			&:after{
+				transition: opacity 0.4s ease;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.img, .news-item, .no-img{
 			width: 100%;
 			height: 100%;
 			mask-size: 100%;
@@ -318,8 +334,11 @@ a{
 				}
 			}
 			&.co-creation, &.installation, &.workshop, &.performance, &.zwermen {
-				img, .no-img{
+				.img, .no-img{
 					mask-image: none;
+					&:before{
+						opacity: 0;
+					}
 				}
 				&:after{
 					opacity: 0;
@@ -369,20 +388,46 @@ a{
 				opacity: 1;
 			}
 		}
+		.img{
+			&:before{
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				z-index: 9;
+				mix-blend-mode:soft-light;
+			}
+		}
 		&.co-creation{
-			img, .no-img{
-				mask-image: url(./installation.svg);
+			// color: $red;
+			.img, .no-img{
+				mask-image: url(./co-creation.svg);
 				background-color: $brown;
 			}
+			.img{
+				&:before{
+					mask-image: url(./co-creation.svg);
+					background-color: $brown;
+				}
+			}
 			&:after{
-				mask-image: url(./installation-flaps.svg);
+				mask-image: url(./co-creation-flaps.svg);
 				background-color: $red;
 			}
 		}
 		&.installation{
-			color:  $orange;
-			img{
+			// color:  $orange;
+			.img, .no-img{
 				mask-image: url(./installation.svg);
+				background-color: $orange;
+			}
+			.img{
+				&:before{
+					mask-image: url(./installation.svg);
+					background-color: $orange;
+				}
 			}
 			&:after{
 				mask-image: url(./installation-flaps.svg);
@@ -390,9 +435,16 @@ a{
 			}
 		}
 		&.workshop{
-			color: $mustard;
-			img{
+			// color: $mustard;
+			.img, .no-img{
 				mask-image: url(./workshop.svg);
+				background-color: $mustard;
+			}
+			.img{
+				&:before{
+					mask-image: url(./workshop.svg);
+					background-color: $mustard;
+				}
 			}
 			&:after{
 				mask-image: url(./workshop-flaps.svg);
@@ -400,9 +452,16 @@ a{
 			}
 		}
 		&.performance{
-			color: $dgreen;
-			img{
+			// color: $dgreen;
+			.img, .no-img{
 				mask-image: url(./short.svg);
+				background-color: $dgreen;
+			}
+			.img{
+				&:before{
+					mask-image: url(./short.svg);
+					background-color: $dgreen;
+				}
 			}
 			&:after{
 				mask-image: url(./short-flaps.svg);
@@ -410,9 +469,16 @@ a{
 			}
 		}
 		&.zwermen{
-			color: $green;
-			img{
+			// color: $green;
+			.img, .no-img{
 				mask-image: url(./long.svg);
+				background-color: $green;
+			}
+			.img{
+				&:before{
+					mask-image: url(./long.svg);
+					background-color: $green;
+				}
 			}
 			&:after{
 				mask-image: url(./long-flaps.svg);
@@ -432,7 +498,7 @@ a{
 	.content{
 		max-width: 900px;
 		margin: 0px auto 0 auto;
-		padding: 1px 2vw 14px 2vw;
+		padding: 1px 2vw 30px 2vw;
 		position: relative;
 		min-height: 500px;
 		&:before{
@@ -715,55 +781,50 @@ footer{
 	.filter{
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 	.label{
 		text-transform: capitalize;
 		margin: 5px;
 		padding: 10px 20px;
-		border: 2px solid $yellow;
+		border: 2px solid black;
+		border-radius: 25px;
 		cursor: pointer;
 		transition: all 0.4s ease;
 		&.true, &:hover{
 			background-color: $yellow;;
 		}
 		&.persoon{
-			border-color: $mustard;
 			&.true, &:hover{
 				background-color: $mustard;;
 			}
 		}
 		&.textiel{
-			border-color: $dgreen;
 			&.true, &:hover{
 				background-color: $dgreen;
 			}
 		}
 		&.basics{
-			border-color: $green;
 			&.true, &:hover{
 				background-color: $green;
 			}
 		}
 		&.attributen{
-			border-color: $orange;
 			&.true, &:hover{
 				background-color: $orange;
 			}
 		}
 		&.locatie{
-			border-color: $brown;
 			&.true, &:hover{
 				background-color: $brown;
 			}
 		}
 		&.kledingcategorie{
-			border-color: $purple;
 			&.true, &:hover{
 				background-color: $purple;
 			}
 		}
 		&.kleur{
-			border-color: $blue;
 			&.true, &:hover{
 				background-color: $blue;
 			}
@@ -776,7 +837,8 @@ footer{
 	flex-wrap: wrap;
 	box-sizing: border-box;
 	padding-bottom: 48px;
-	max-width: calc(100% - 14px);
+	width: 100%;
+	justify-content: center;
 	.pan-catwalk-item{
 		width: 15vw;
 		// height: 100%;
@@ -873,6 +935,7 @@ footer{
 			height: 120px;
 			object-fit: contain;
 			margin-right: 14px;
+			filter: grayscale(1) contrast(1.5);
 		}
 	}
 }

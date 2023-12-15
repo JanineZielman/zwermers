@@ -36,7 +36,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
     <div className='pan-catwalk-page'>
       <div className='filter'>
         <div className='label' onClick={handleFilterKeyChange('*')}>Show all</div>
-        {labels.map((label, i) => {
+        {labels.slice(0,25).map((label, i) => {
           let active = false;
           if (label.uid == filterKey){
             active = true;

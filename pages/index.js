@@ -9,6 +9,7 @@ import ArchiefItem from "../components/archiefItem"
 
 const Index = ({ items, menu, page}) => {
   const letters = page.data.title?.[0]?.text.split('');
+  console.log(items)
 
   return (
     <Layout navItems={menu.data.slices} item={page}>

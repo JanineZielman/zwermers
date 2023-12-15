@@ -24,7 +24,9 @@ const ArchiefItem = ({items}) => {
                 
                 {item.data.image.url ?
                   <>
-                    <img src={item.data.image.url} />
+                    <div className="img">
+                      <img src={item.data.image.url} />
+                    </div>
                     <div className='overlay'>
                       <h2>
                         <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
