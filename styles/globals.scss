@@ -202,16 +202,24 @@ a{
 
 .Collapsible{
 	margin: 10px 0;
-	// padding-bottom: 5px;
-	// border-bottom: 2px solid black;
 	overflow: hidden;
 	border-bottom: 2px solid black;
+	width: 100%;
 	span{
 		font-size: $h3;
 		cursor: pointer;
 		width: 100%;
 		display: block;
 		height: 25px;
+	}
+	span.Collapsible__trigger{
+		height: auto;
+		margin: 0 14px;
+	}
+	.Collapsible__contentInner{
+		display: flex;
+		flex-wrap: wrap;
+		margin: 24px 0;
 	}
 	.collapsible-slices{
 		margin-top: 24px;
@@ -975,4 +983,9 @@ footer{
 			background-color: $purple;
 		}
 	}
+}
+
+.old{
+	margin-top: 48px;
+	width: 100%;
 }
