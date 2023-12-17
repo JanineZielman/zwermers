@@ -35,19 +35,25 @@ const PanCatwalkItems = ({items, page, labels}) => {
 
     if(filterKey != '*'){
       setMatchItems(document.querySelectorAll(filterKey));
-      // console.log(match)
-      for (let i = 0; i < document.querySelectorAll(filterKey).length; i++) {
-        if(document.querySelectorAll(filterKey)[i].classList.value.includes(filterKey.replace('*', '').replaceAll('.', ' '))){
-          setMatch(match + document.querySelectorAll(filterKey)[i].classList.value.replaceAll('.', ' '));
+      for (let i = 0; i < labels.length; i++) {
+        document.getElementById('.' + labels[i].uid).classList.add('hide');
+        for (let j = 0; j < document.querySelectorAll(filterKey).length; j++){
+          if(document.querySelectorAll(filterKey)[j].classList.value.includes(labels[i].uid)){
+            document.getElementById('.' + labels[i].uid).classList.remove('hide');
+          } else {
+            document.getElementById('.' + labels[i].uid).classList.add('hide');
+          }
         }
       }
     } else {
-      setMatch(null);
-      setMatchItems(null);
+      for (let i = 0; i < labels.length; i++) {
+        document.getElementById('.' + labels[i].uid).classList.remove('hide');
+      }
     }
+
   }, [filterKey])
 
-  console.log(match)
+
 
 
 
@@ -71,11 +77,9 @@ const PanCatwalkItems = ({items, page, labels}) => {
       <div className='filter'>
         <div className='label' onClick={handleFilterKeyChange('*')}>Show all</div>
         {labels.map((label, i) => {
-          
-          console.log(label.uid)
           return(
             <>
-            {/* {match?.includes(label.uid) || matchItems == null && */}
+            {/* {match.length > 0  && */}
               <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.uid.replaceAll('-', ' ')}</div>
             {/* } */}
             </>
