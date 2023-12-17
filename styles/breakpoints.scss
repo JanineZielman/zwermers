@@ -77,8 +77,16 @@
       width: 100%;
     }
   }
+  .pan-catwalk-page{
+    .label{
+      font-size: 14px;
+      padding: 5px 10px;
+      border-width: 1px;
+      margin: 4px;
+    }
+  }
   .pan-catwalk-items .pan-catwalk-item{
-    width: 35vw;
+    width: 49vw;
   }
   .page-wrapper {
     .content:before{

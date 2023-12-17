@@ -5,11 +5,11 @@ import Isotope from 'isotope-layout';
 const PanCatwalkItems = ({items, page, labels}) => {
 
   const isotope = useRef()
-  const [filterKey, setFilterKey] = useState('*')
+  const [filterKey, setFilterKey] = useState('*')  
 
-  const [matchItems, setMatchItems] = useState(null);
-  const [match, setMatch] = useState(null);
-  
+  function func(a, b) {  
+    return 0.5 - Math.random();
+  } 
 
   // initialize an Isotope object with configs
   useEffect(() => {
@@ -28,20 +28,23 @@ const PanCatwalkItems = ({items, page, labels}) => {
       : isotope.current.arrange({filter: `${filterKey.replace('*', '')}`})
 
     if(filterKey != '*'){
-      setMatchItems(document.querySelectorAll(filterKey));
       for (let i = 0; i < labels.length; i++) {
         document.getElementById('.' + labels[i].uid).classList.add('hide');
+        document.getElementById('.' + labels[i].uid).classList.remove('show');
         for (let j = 0; j < document.querySelectorAll(filterKey).length; j++){
           if(document.querySelectorAll(filterKey)[j].classList.value.includes(labels[i].uid)){
             document.getElementById('.' + labels[i].uid).classList.remove('hide');
+            document.getElementById('.' + labels[i].uid).classList.add('show');
           } else {
             document.getElementById('.' + labels[i].uid).classList.add('hide');
+            document.getElementById('.' + labels[i].uid).classList.remove('show');
           }
         }
       }
     } else {
       for (let i = 0; i < labels.length; i++) {
         document.getElementById('.' + labels[i].uid).classList.remove('hide');
+        document.getElementById('.' + labels[i].uid).classList.remove('show');
         document.getElementById('.' + labels[i].uid).classList.remove('active');
       }
     }
@@ -52,6 +55,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
   const handleFilterKeyChange = key => () => {
     if(key === '*'){
       setFilterKey(key);
+      labels.sort(func);
     } else{
       if(filterKey.includes(key)){
         setFilterKey(filterKey.replace(key, ''));
@@ -61,7 +65,6 @@ const PanCatwalkItems = ({items, page, labels}) => {
         document.getElementById(key).classList.add('active');
       }
     }
-    
   }
 
   return (

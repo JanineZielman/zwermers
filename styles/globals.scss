@@ -790,6 +790,13 @@ footer{
 		border-radius: 25px;
 		cursor: pointer;
 		transition: all 0.4s ease;
+		font-size: 1.8vw;
+		&:nth-child(n+18){
+			display: none;
+			&.show{
+				display: block;
+			}
+		}
 		&.hide{
 			display: none;
 		}
