@@ -97,7 +97,7 @@
     }
   }
   .Collapsible{
-    .Collapsible__trigger{
+    span{
       font-size: 24px;
     }
     .collapsible-slices{
@@ -109,5 +109,8 @@
         font-size: 16px;
       }
     }
+  }
+  .logo-section .logos img{
+    height: 75px;
   }
 }

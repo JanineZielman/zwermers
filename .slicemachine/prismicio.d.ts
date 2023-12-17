@@ -320,7 +320,7 @@ interface MenuDocumentData {
  */
 export type MenuDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<MenuDocumentData>, "menu", Lang>;
 
-type PageDocumentDataSlicesSlice = RichTextSlice | CollapsibleSlice | LogoSectionSlice
+type PageDocumentDataSlicesSlice = RichTextSlice | CollapsibleSlice | LogoSectionSlice | ButtonSlice | ImageSlice
 
 /**
  * Content for Page documents

@@ -34,6 +34,12 @@
             },
             "logo_section": {
               "type": "SharedSlice"
+            },
+            "button": {
+              "type": "SharedSlice"
+            },
+            "image": {
+              "type": "SharedSlice"
             }
           }
         }

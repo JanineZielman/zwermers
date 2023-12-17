@@ -201,12 +201,17 @@ a{
 }
 
 .Collapsible{
-	margin: 14px 0;
-	padding-bottom: 5px;
+	margin: 10px 0;
+	// padding-bottom: 5px;
+	// border-bottom: 2px solid black;
+	overflow: hidden;
 	border-bottom: 2px solid black;
-	.Collapsible__trigger{
+	span{
 		font-size: $h3;
 		cursor: pointer;
+		width: 100%;
+		display: block;
+		height: 25px;
 	}
 	.collapsible-slices{
 		margin-top: 24px;
@@ -884,11 +889,13 @@ footer{
 
 .buttons{
 	display: flex;
+	flex-wrap: wrap;
 	margin-top: 24px;
 }
 
 .button{
-	margin-right: 14px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	text-decoration: none;
 	background-color: $grey;
 	padding: 5px 20px;
@@ -940,6 +947,32 @@ footer{
 			object-fit: contain;
 			margin-right: 14px;
 			filter: grayscale(1) contrast(1.5);
+		}
+	}
+}
+
+.wrapper-over-ons{
+	.buttons{
+		.button{
+			// white-space: nowrap;
+		}
+		.button:nth-child(6n - 5){
+			background-color: $blue;
+		}
+		.button:nth-child(6n - 4){
+			background-color: $lgreen;
+		}
+		.button:nth-child(6n - 3){
+			background-color: $lila;
+		}
+		.button:nth-child(6n - 2){
+			background-color: $red;
+		}
+		.button:nth-child(6n - 1){
+			background-color: $yellow;
+		}
+		.button:nth-child(6n){
+			background-color: $purple;
 		}
 	}
 }
