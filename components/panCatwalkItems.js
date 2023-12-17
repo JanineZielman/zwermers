@@ -4,12 +4,6 @@ import Isotope from 'isotope-layout';
 
 const PanCatwalkItems = ({items, page, labels}) => {
 
-  // console.log(labels)
-
-  // function func(a, b) {  
-  //   return 0.5 - Math.random();
-  // } 
-
   const isotope = useRef()
   const [filterKey, setFilterKey] = useState('*')
 
@@ -48,13 +42,11 @@ const PanCatwalkItems = ({items, page, labels}) => {
     } else {
       for (let i = 0; i < labels.length; i++) {
         document.getElementById('.' + labels[i].uid).classList.remove('hide');
+        document.getElementById('.' + labels[i].uid).classList.remove('active');
       }
     }
 
   }, [filterKey])
-
-
-
 
 
   const handleFilterKeyChange = key => () => {
@@ -78,11 +70,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
         <div className='label' onClick={handleFilterKeyChange('*')}>Show all</div>
         {labels.map((label, i) => {
           return(
-            <>
-            {/* {match.length > 0  && */}
-              <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.uid.replaceAll('-', ' ')}</div>
-            {/* } */}
-            </>
+            <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.uid.replaceAll('-', ' ')}</div>
           )
         })}
       </div>
