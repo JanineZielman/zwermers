@@ -38,7 +38,7 @@ const AgendaItem = ({items}) => {
       <div className='old'>
         {years.slice(0,dif).reverse().map((year, j) => {
           return(
-            <CollapsibleComp trigger={year}>
+            <CollapsibleComp trigger={year} key={`year${j}`}>
               {items.filter((item) => (Moment(item.data.date).format("Y") == year)).map((item, i) => {
                 return(
                   <a href={`/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
