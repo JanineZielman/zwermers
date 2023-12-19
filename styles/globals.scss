@@ -876,7 +876,7 @@ footer{
 	padding-left: 1vw;
 	margin-top: 24px;
 	.pan-catwalk-item{
-		width: 9.7vw;
+		width: 9.7%;
 		// height: 100%;
 		position: relative;
 		box-sizing: border-box;
@@ -895,24 +895,29 @@ footer{
 			position: relative;
 		}
 	}
-	&#length1{
+	&#length1, &#length2{
 		.pan-catwalk-item{
-			width: 50%;
+			width: 49%;
 		}
 	}
-	&#length2{
+	&#length3, &#length4, &#length5, &#length6{
 		.pan-catwalk-item{
-			width: 45%;
+			width: 32.5%;
 		}
 	}
-	&#length3{
+	&#length7, &#length8{
 		.pan-catwalk-item{
-			width: 32%;
+			width: 24%;
 		}
 	}
-	&#length6{
+	&#length9, &#length10{
 		.pan-catwalk-item{
-			width: 32%;
+			width: 19%;
+		}
+	}
+	&#length11, &#length12{
+		.pan-catwalk-item{
+			width: 16.2%;
 		}
 	}
 }

@@ -36,7 +36,7 @@
     padding: 10px;
   }
   .logo{
-    top: 37px;
+    top: 35px;
     padding: 10px 0;
   }
   .wrapper{
@@ -82,7 +82,7 @@
       font-size: 14px;
       padding: 5px 10px;
       border-width: 1px;
-      margin: 4px;
+      margin: 2px;
       &.active{
         padding-right: 25px;
         &:after{
@@ -97,8 +97,36 @@
       }
     }
   }
-  .pan-catwalk-items .pan-catwalk-item{
-    width: 49vw;
+  .pan-catwalk-items {
+    margin-top: 10px;
+    .pan-catwalk-item{
+      width: 32.5%;
+    }
+    &#length1, &#length2{
+      .pan-catwalk-item{
+        width: 98%;
+      }
+    }
+    &#length3, &#length4, &#length5, &#length6{
+      .pan-catwalk-item{
+        width: 49%;
+      }
+    }
+    &#length7, &#length8{
+      .pan-catwalk-item{
+        width: 32.5%;
+      }
+    }
+    &#length9, &#length10{
+      .pan-catwalk-item{
+        width: 32.5%;
+      }
+    }
+    &#length11, &#length12{
+      .pan-catwalk-item{
+        width: 32.5%;
+      }
+    }
   }
   .page-wrapper {
     .content:before{
