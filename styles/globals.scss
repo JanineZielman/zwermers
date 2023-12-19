@@ -874,12 +874,13 @@ footer{
 	padding-bottom: 48px;
 	width: 100%;
 	padding-left: 1vw;
+	margin-top: 24px;
 	.pan-catwalk-item{
-		width: 19.3vw;
+		width: 9.7vw;
 		// height: 100%;
 		position: relative;
 		box-sizing: border-box;
-		padding: 10px 10px;
+		padding: 5px 5px;
 		
 		.item-wrapper{
 			width: 100%;
@@ -892,6 +893,26 @@ footer{
 			aspect-ratio: 3/4;
 			object-fit: cover;
 			position: relative;
+		}
+	}
+	&#length1{
+		.pan-catwalk-item{
+			width: 50%;
+		}
+	}
+	&#length2{
+		.pan-catwalk-item{
+			width: 45%;
+		}
+	}
+	&#length3{
+		.pan-catwalk-item{
+			width: 32%;
+		}
+	}
+	&#length6{
+		.pan-catwalk-item{
+			width: 32%;
 		}
 	}
 }
@@ -1001,4 +1022,10 @@ footer{
 .old{
 	margin-top: 48px;
 	width: 100%;
+}
+
+.page-wrapper{
+	.content.co-creation{
+		color: $grey;
+	}
 }

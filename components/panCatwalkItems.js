@@ -56,13 +56,16 @@ const PanCatwalkItems = ({items, page, labels}) => {
     if(key === '*'){
       setFilterKey(key);
       labels.sort(func);
+      document.getElementsByClassName('pan-catwalk-items')[0].setAttribute(`id`,`lengthAll`);
     } else{
       if(filterKey.includes(key)){
         setFilterKey(filterKey.replace(key, ''));
         document.getElementById(key).classList.remove('active');
+        document.getElementsByClassName('pan-catwalk-items')[0].setAttribute(`id`,`length${document.querySelectorAll(filterKey.replace(key, '')).length}`);
       } else {
         setFilterKey(filterKey + key);
         document.getElementById(key).classList.add('active');
+        document.getElementsByClassName('pan-catwalk-items')[0].setAttribute(`id`,`length${document.querySelectorAll(filterKey + key).length}`);
       }
     }
   }
