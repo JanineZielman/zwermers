@@ -390,11 +390,11 @@ a{
 				display: flex;
 				flex-direction: column;
 				justify-content: end;
-				mask-image: url(./long.svg);
+				mask-image: url(./news.svg);
 				padding-right: 14px;
 			}
 			&:after{
-				mask-image: url(./long-flaps.svg);
+				mask-image: url(./news-flaps.svg);
 				background-color: $yellow;
 				opacity: 1;
 			}
