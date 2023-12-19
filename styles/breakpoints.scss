@@ -39,6 +39,14 @@
     top: 35px;
     padding: 10px 0;
   }
+  .wrapper-over-ons{
+    .buttons{
+      margin-top: 0;
+      .button{
+        margin: 3px;
+      }
+    }
+  }
   .wrapper{
     padding-top: calc(11.5vw + 37px);
     .content{
