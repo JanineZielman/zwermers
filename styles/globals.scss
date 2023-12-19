@@ -800,10 +800,11 @@ footer{
 		margin: 5px;
 		padding: 10px 20px;
 		border: 2px solid black;
-		border-radius: 25px;
+		border-radius: 50px;
 		cursor: pointer;
 		transition: all 0.4s ease;
 		font-size: 1.8vw;
+		position: relative;
 		&:nth-child(n+18){
 			display: none;
 			&.show{
@@ -812,6 +813,18 @@ footer{
 		}
 		&.hide{
 			display: none;
+		}
+		&.active{
+			padding-right: 65px;
+			&:after{
+				content: '✕';
+				font-size: 80%;
+				text-transform: lowercase;
+				position: absolute;
+				top: 53%;
+				transform: translateY(-50%);
+				right: 20px;
+			}
 		}
 		&.active, &:hover{
 			background-color: $yellow;;
