@@ -38,7 +38,7 @@ export const Layout = ({
       <footer>
         {settings.data.footerlinks.map((item,i) => {
           return(
-            <PrismicLink field={item.link}>{item.label}</PrismicLink>
+            <PrismicLink key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
           )
         })}
       </footer>
