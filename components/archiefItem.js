@@ -2,7 +2,6 @@ import React from 'react';
 import Moment from "moment";
 
 const ArchiefItem = ({items, locale}) => {
-  console.log(locale)
   return (
     <div className='archief'>
       {items.map((item, i) => {
