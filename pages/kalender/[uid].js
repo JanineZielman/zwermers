@@ -50,12 +50,13 @@ export async function getStaticProps({ params, previewData, locale }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("agendaitem");
+  const pages = await client.getAllByType("agendaitem", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
+        locale: page.lang,
       };
     }),
     fallback: false,

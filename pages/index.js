@@ -7,7 +7,7 @@ import { Layout } from "../components/Layout";
 import Type from "../components/type"
 import ArchiefItem from "../components/archiefItem"
 
-const Index = ({ items, menu, page}) => {
+const Index = ({ items, menu, page, locale}) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
@@ -15,7 +15,7 @@ const Index = ({ items, menu, page}) => {
       <div className="wrapper-zwermers wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
-        <ArchiefItem items={items}/>
+        <ArchiefItem items={items} locale={locale}/>
       </div>
     </Layout>
   );
@@ -43,6 +43,7 @@ export async function getStaticProps({ locale, previewData }) {
       items,
       menu,
       page,
+      locale
     },
   };
 }

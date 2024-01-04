@@ -39,7 +39,7 @@ export const linkResolver = (doc) => {
     return `/${doc.lang}/kalender/${doc.uid}`;
   }
   if (doc.type === "label") {
-    return `/${doc.lang}/pan-catwalk/${doc.uid}`;
+    return `/pan-catwalk/${doc.uid}`;
   }
   return `/${doc.lang}`;
 };

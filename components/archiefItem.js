@@ -1,50 +1,51 @@
 import React from 'react';
 import Moment from "moment";
 
-const ArchiefItem = ({items}) => {
+const ArchiefItem = ({items, locale}) => {
+  console.log(locale)
   return (
     <div className='archief'>
       {items.map((item, i) => {
         return(
-          <a href={`zwermers/${item.uid}`} key={`archief${i}`}>
-          <div className={`archief-item ${item.data.category?.uid}`}>
-            {item.data.category?.uid == 'news' ?
-              <div className="news-item">
-                <h2>
-                  <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
-                  {item.data.title}
+          <a href={`/${locale}/zwermers/${item.uid}`} key={`archief${i}`}>
+            <div className={`archief-item ${item.data.category?.uid}`}>
+              {item.data.category?.uid == 'news' ?
+                <div className="news-item">
+                  <h2>
+                    <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
+                    {item.data.title}
+                    
+                  </h2>
+                  <p>
+                    {item.data.date && Moment(item.data.date).format("DD.MM.Y")}
+                  </p>
+                </div>
+              :
+                <>
                   
-                </h2>
-                <p>
-                  {item.data.date && Moment(item.data.date).format("DD.MM.Y")}
-                </p>
-              </div>
-            :
-              <>
-                
-                {item.data.image.url ?
-                  <>
-                    <div className="img">
-                      <img src={item.data.image.url} />
-                    </div>
-                    <div className='overlay'>
+                  {item.data.image.url ?
+                    <>
+                      <div className="img">
+                        <img src={item.data.image.url} />
+                      </div>
+                      <div className='overlay'>
+                        <h2>
+                          <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
+                          {item.data.title}
+                        </h2>
+                      </div>
+                    </>
+                    :
+                    <div className='no-img'>
                       <h2>
                         <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
                         {item.data.title}
                       </h2>
                     </div>
-                  </>
-                  :
-                  <div className='no-img'>
-                    <h2>
-                      <span>{item.data.category?.uid.replaceAll('-', ' ')}</span><br/>
-                      {item.data.title}
-                    </h2>
-                  </div>
-                }
-              </>
-            }
-          </div>
+                  }
+                </>
+              }
+            </div>
           </a>
         )
       })}

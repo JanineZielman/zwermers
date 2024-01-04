@@ -7,7 +7,7 @@ import { Layout } from "../components/Layout";
 import Type from "../components/type"
 import AgendaItems from "../components/agendaItems"
 
-const Kalender = ({ items, menu, page }) => {
+const Kalender = ({ items, menu, page, locale }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
@@ -15,7 +15,7 @@ const Kalender = ({ items, menu, page }) => {
       <div className="wrapper-kalender wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
-        <AgendaItems items={items}/>
+        <AgendaItems items={items} locale={locale}/>
       </div>
     </Layout>
   );
@@ -42,7 +42,8 @@ export async function getStaticProps({ locale, previewData }) {
     props: {
       items,
       menu,
-      page
+      page,
+      locale
     },
   };
 }

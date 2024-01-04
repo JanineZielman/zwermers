@@ -47,12 +47,13 @@ export async function getStaticProps({ locale, params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("archief_item");
+  const pages = await client.getAllByType("archief_item", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
       return {
         params: { uid: page.uid },
+        locale: page.lang,
       };
     }),
     fallback: false,

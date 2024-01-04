@@ -4,7 +4,7 @@ import Moment from "moment";
 
 import CollapsibleComp from 'react-collapsible';
 
-const AgendaItem = ({items}) => {
+const AgendaItem = ({items, locale}) => {
   const [years, setYears] = useState([]);
   const [dif, setDif] = useState();
   var startYear = 2019;
@@ -22,7 +22,7 @@ const AgendaItem = ({items}) => {
     <div className='agenda'>
       {items.filter((item) => (Moment(item.data.date).format("Y") == currentYear)).map((item, i) => {
         return(
-          <a href={`/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
+          <a href={`/${locale}/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
             <div className='mask'>
               <h2>{item.data.title}</h2>
               <p>
@@ -41,7 +41,7 @@ const AgendaItem = ({items}) => {
             <CollapsibleComp trigger={year} key={`year${j}`}>
               {items.filter((item) => (Moment(item.data.date).format("Y") == year)).map((item, i) => {
                 return(
-                  <a href={`/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
+                  <a href={`/${locale}/kalender/${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} key={`agenda${i}`}>
                     <div className='mask'>
                       <h2>{item.data.title}</h2>
                       <p>

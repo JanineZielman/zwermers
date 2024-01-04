@@ -40,7 +40,7 @@ export async function getStaticProps({ params, previewData, locale }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("page");
+  const pages = await client.getAllByType("page", { lang: "*" });
 
   return {
     paths: pages.map((page) => {
