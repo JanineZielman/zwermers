@@ -15,6 +15,7 @@ export default function Document() {
             `,
           }}
         />
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
       </Head>
       <body className="overflow-x-hidden antialiased">
         <Main />

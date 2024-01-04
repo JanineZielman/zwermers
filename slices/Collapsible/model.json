@@ -28,6 +28,13 @@
             "allowTargetBlank": true,
             "multi": "paragraph,hyperlink,em,strong,list-item,o-list-item"
           }
+        },
+        "code": {
+          "type": "Text",
+          "config": {
+            "label": "Code",
+            "placeholder": ""
+          }
         }
       },
       "items": {

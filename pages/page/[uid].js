@@ -7,10 +7,10 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import Type from "../../components/type"
 
-const Page = ({ page, menu }) => {
+const Page = ({ page, menu, settings }) => {
   const letters = page.data.title?.[0]?.text.split('');
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className={`wrapper-${page.uid} wrapper`}>
         <Type letters={letters}/>
         <div className="content">
@@ -28,11 +28,13 @@ export async function getStaticProps({ params, previewData, locale }) {
 
   const page = await client.getByUID("page", params.uid, { lang: locale });
   const menu = await client.getSingle("menu", { lang: locale });
+  const settings = await client.getSingle("settings");
 
   return {
     props: {
       page,
       menu,
+      settings
     },
   };
 }

@@ -9,12 +9,12 @@ import { Layout } from "../../components/Layout";
 import dynamic from 'next/dynamic'
 
 
-const LabelItem = ({ page, menu, items, labels }) => {
+const LabelItem = ({ page, menu, items, labels, settings }) => {
   const PanCatwalkItems = dynamic(() => import('../../components/panCatwalkItems'), { ssr: false })
   const catwalk = "Pan~// catwalk";
   const letters = catwalk.split('');
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -40,6 +40,7 @@ export async function getStaticProps({ params, previewData, locale }) {
       ),
     ],
   });
+  const settings = await client.getSingle("settings");
 
   const items = await client.getAllByType('pan_catwalk_item', {
     predicates: [
@@ -55,7 +56,8 @@ export async function getStaticProps({ params, previewData, locale }) {
       page,
       menu,
       items,
-      labels
+      labels,
+      settings
     },
   };
 }

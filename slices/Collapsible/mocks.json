@@ -24,6 +24,11 @@
             }
           }
         ]
+      },
+      "code": {
+        "__TYPE__": "FieldContent",
+        "value": "third",
+        "type": "Text"
       }
     },
     "items": [

@@ -445,6 +445,31 @@ interface PanCatwalkItemDocumentData {
 export type PanCatwalkItemDocument<Lang extends string = string> = prismic.PrismicDocumentWithoutUID<Simplify<PanCatwalkItemDocumentData>, "pan_catwalk_item", Lang>;
 
 /**
+ * Item in *Settings → FooterLinks*
+ */
+export interface SettingsDocumentDataFooterlinksItem {
+	/**
+	 * Link field in *Settings → FooterLinks*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.footerlinks[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+	
+	/**
+	 * Label field in *Settings → FooterLinks*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.footerlinks[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -502,6 +527,17 @@ interface SettingsDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#color
 	 */
 	logo_background: prismic.ColorField;
+	
+	/**
+	 * FooterLinks field in *Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.footerlinks[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	footerlinks: prismic.GroupField<Simplify<SettingsDocumentDataFooterlinksItem>>;
 }
 
 /**
@@ -588,6 +624,16 @@ export interface CollapsibleSliceDefaultPrimary {
 	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
 	 */
 	description: prismic.RichTextField;
+	
+	/**
+	 * Code field in *Collapsible → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: collapsible.primary.code
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	code: prismic.KeyTextField;
 }
 
 /**
@@ -931,6 +977,7 @@ declare module "@prismicio/client" {
 			PanCatwalkItemDocumentDataLabelsItem,
 			SettingsDocument,
 			SettingsDocumentData,
+			SettingsDocumentDataFooterlinksItem,
 			AllDocumentTypes,
 			ButtonSlice,
 			ButtonSliceDefaultItem,

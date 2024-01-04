@@ -15,7 +15,7 @@ const Collapsible = ({slice}) => {
   const [openDiv, setOPenDiv] = useState(false);
 	const contentRef = useRef();
 
-  const trigger = slice.primary.title[0].text.replaceAll(' ', '-').toLowerCase();
+  const trigger = slice.primary.title[0]?.text.replaceAll(' ', '-').toLowerCase();
 
 	useEffect(() => {
 		setTimeout(function() {
@@ -40,56 +40,35 @@ const Collapsible = ({slice}) => {
 	};
 
   return (
-    <div className="Collapsible" id={trigger}>
-			<span onClick={toggle} id={`${trigger}-closed`}>{slice.primary.title[0].text}</span>
-			<div className='content-parent' id={`${trigger}-content`} ref={contentRef} style={openDiv ? { height: contentRef.current?.scrollHeight +
-  "px" } : { height: "0px" }}>
-				<div className='collapsible-content'>
-          <PrismicRichText field={slice.primary.description}/>
-          <div className='collapsible-slices'>
-            {slice.items.map((item, i) => {
-              return(
-                <div className='collapsible-slice'>
-                  {item.image && <PrismicImage field={item.image}/>}
-                  {item.title &&<h3>{item.title}</h3>}
-                  <p>
-                    <PrismicRichText field={item.text}/>
-                  </p>
-                  <PrismicLink target="_blank" field={item.file}>{item.file_title}</PrismicLink>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+		<>
+			{trigger &&
+			<div className="Collapsible" id={trigger}>
+				<span onClick={toggle} id={`${trigger}-closed`}>{slice.primary.title[0].text}</span>
+				<div className='content-parent' id={`${trigger}-content`} ref={contentRef} style={openDiv ? { height: contentRef.current?.scrollHeight +
+		"px" } : { height: "0px" }}>
+					<div className='collapsible-content'>
+						<PrismicRichText field={slice.primary.description}/>
+						{slice.primary.code &&<div className="code" dangerouslySetInnerHTML={{__html: slice.primary.code}}></div>}
+						<div className='collapsible-slices'>
+							{slice.items.map((item, i) => {
+								return(
+									<div className='collapsible-slice'>
+										{item.image && <PrismicImage field={item.image}/>}
+										{item.title &&<h3>{item.title}</h3>}
+										<p>
+											<PrismicRichText field={item.text}/>
+										</p>
+										<PrismicLink target="_blank" field={item.file}>{item.file_title}</PrismicLink>
+									</div>
+								)
+							})}
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
+			}
+		</>
   );
 };
 
 export default Collapsible
-
-// const Collapsible = ({ slice }) => {
-//   return(
-//     <div id={slice.primary.title[0].text.replaceAll(' ', '-').toLowerCase()}>
-//       <CollapsibleComp trigger={slice.primary.title[0].text}>
-//         <PrismicRichText field={slice.primary.description}/>
-//         <div className='collapsible-slices'>
-//           {slice.items.map((item, i) => {
-//             return(
-//               <div className='collapsible-slice'>
-//                 {item.image && <PrismicImage field={item.image}/>}
-//                 {item.title &&<h3>{item.title}</h3>}
-//                 <p>
-//                   <PrismicRichText field={item.text}/>
-//                 </p>
-//                 <PrismicLink target="_blank" field={item.file}>{item.file_title}</PrismicLink>
-//               </div>
-//             )
-//           })}
-//         </div>
-//       </CollapsibleComp>
-//     </div>
-//   )
-// }
-
-// export default Collapsible

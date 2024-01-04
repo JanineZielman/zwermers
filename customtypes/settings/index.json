@@ -40,6 +40,29 @@
           "label": "Logo Background",
           "placeholder": ""
         }
+      },
+      "footerlinks": {
+        "type": "Group",
+        "config": {
+          "label": "FooterLinks",
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     }
   }

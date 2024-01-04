@@ -16,11 +16,11 @@ export default Logo;
 export async function getStaticProps({ previewData }) {
   const client = createClient({ previewData });
 
-  const settings = await client.getByType("settings");
+  const settings = await client.getSingle("settings");
 
   return {
     props: {
-      settings: settings.results[0]
+      settings: settings
     },
   };
 }

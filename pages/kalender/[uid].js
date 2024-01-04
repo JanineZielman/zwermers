@@ -5,10 +5,10 @@ import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 
-const AgendaItem = ({ page, menu }) => {
+const AgendaItem = ({ page, menu, settings }) => {
 
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
           <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
@@ -38,11 +38,13 @@ export async function getStaticProps({ params, previewData, locale }) {
 
   const page = await client.getByUID("agendaitem", params.uid, { lang: locale });
   const menu = await client.getSingle("menu", { lang: locale });
+  const settings = await client.getSingle("settings");
 
   return {
     props: {
       page,
       menu,
+      settings
     },
   };
 }

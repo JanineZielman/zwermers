@@ -6,11 +6,11 @@ import { Layout } from "../components/Layout";
 
 import Type from "../components/type"
 
-const OverOns = ({ menu, page }) => {
+const OverOns = ({ menu, page, settings }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="wrapper-over-ons wrapper">
         <Type letters={letters}/>
         <div className="content">
@@ -28,12 +28,14 @@ export async function getStaticProps({ locale, previewData }) {
 
   const menu = await client.getSingle("menu", { lang: locale });
   const page = await client.getByUID("page", "over-ons", { lang: locale });
+  const settings = await client.getSingle("settings");
 
 
   return {
     props: {
       menu,
-      page
+      page,
+      settings
     },
   };
 }

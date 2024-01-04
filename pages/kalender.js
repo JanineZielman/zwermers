@@ -7,11 +7,11 @@ import { Layout } from "../components/Layout";
 import Type from "../components/type"
 import AgendaItems from "../components/agendaItems"
 
-const Kalender = ({ items, menu, page, locale }) => {
+const Kalender = ({ items, menu, page, locale, settings }) => {
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="wrapper-kalender wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -36,6 +36,7 @@ export async function getStaticProps({ locale, previewData }) {
   });
   const menu = await client.getSingle("menu", { lang: locale });
   const page = await client.getByUID("page", "kalender", { lang: locale });
+  const settings = await client.getSingle("settings");
 
 
   return {
@@ -43,7 +44,8 @@ export async function getStaticProps({ locale, previewData }) {
       items,
       menu,
       page,
-      locale
+      locale,
+      settings
     },
   };
 }

@@ -5,8 +5,10 @@ import { linkResolver } from "../prismicio";
 export const Layout = ({
   navItems,
   children,
-  item
+  item,
+  settings
 }) => {
+  console.log(settings)
   return (
     <>
       <div className='menu'>
@@ -34,9 +36,11 @@ export const Layout = ({
         </div>
       </main>
       <footer>
-        <Link href="#">contact</Link>
-        <Link href="#">newsletter</Link>
-        <Link href="#">privacy statement</Link>
+        {settings.data.footerlinks.map((item,i) => {
+          return(
+            <PrismicLink field={item.link}>{item.label}</PrismicLink>
+          )
+        })}
       </footer>
     </>
   );

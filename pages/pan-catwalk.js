@@ -8,12 +8,12 @@ import React, { useEffect } from 'react';
 import Type from "../components/type"
 import dynamic from 'next/dynamic'
 
-const PanCatwalk = ({ menu, page, items, labels }) => {
+const PanCatwalk = ({ menu, page, items, labels, settings }) => {
   const PanCatwalkItems = dynamic(() => import('../components/panCatwalkItems'), { ssr: false })
   const letters = page.data.title?.[0]?.text.split('');
 
   return (
-    <Layout navItems={menu.data.slices} item={page}>
+    <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="wrapper-pan-catwalk wrapper">
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
@@ -33,6 +33,7 @@ export async function getStaticProps({ locale, previewData }) {
 
   const menu = await client.getSingle("menu", { lang: locale });
   const page = await client.getByUID("page", "pan-catwalk", { lang: locale });
+  const settings = await client.getSingle("settings");
 
 
   return {
@@ -40,7 +41,8 @@ export async function getStaticProps({ locale, previewData }) {
       menu,
       page,
       items,
-      labels
+      labels,
+      settings
     },
   };
 }
