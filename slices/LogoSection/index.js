@@ -1,5 +1,5 @@
 import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicLink, PrismicRichText } from '@prismicio/react'
 import { PrismicNextImage } from '@prismicio/next'
 
 
@@ -16,7 +16,9 @@ const LogoSection = ({ slice }) => {
       <div className='logos'>
         {slice.items.map((item, i) => {
           return(
-            <PrismicNextImage field={item.image}/>
+            <PrismicLink field={item.link}>
+              <PrismicNextImage field={item.image}/>
+            </PrismicLink>
           )
         })}
       </div>

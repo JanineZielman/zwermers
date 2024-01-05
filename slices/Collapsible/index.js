@@ -49,6 +49,7 @@ const Collapsible = ({slice}) => {
 					<div className='collapsible-content'>
 						<PrismicRichText field={slice.primary.description}/>
 						{slice.primary.code &&<div className="code" dangerouslySetInnerHTML={{__html: slice.primary.code}}></div>}
+						{slice.primary.image && <PrismicImage className="full-width-img" field={slice.primary.image}/>}
 						<div className='collapsible-slices'>
 							{slice.items.map((item, i) => {
 								return(
@@ -58,7 +59,7 @@ const Collapsible = ({slice}) => {
 										<p>
 											<PrismicRichText field={item.text}/>
 										</p>
-										<PrismicLink target="_blank" field={item.file}>{item.file_title}</PrismicLink>
+										<PrismicLink className="button" target="_blank" field={item.file}>{item.file_title}</PrismicLink>
 									</div>
 								)
 							})}

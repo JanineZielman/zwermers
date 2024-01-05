@@ -949,6 +949,7 @@ footer{
 	border-radius: 25px;
 	border: 1px solid black;
 	transition: opacity 0.4s ease;
+	white-space: nowrap;
 	&:hover{
 		opacity: 0.8;
 	}
@@ -1038,4 +1039,14 @@ footer{
 
 .code{
 	min-height: 250px;
+}
+
+.full-width-img{
+	width: 100%;
+}
+
+.Collapsible .button{
+	text-align: center;
+	display: block;
+	margin: auto;
 }

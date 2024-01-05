@@ -35,6 +35,16 @@
             "label": "Code",
             "placeholder": ""
           }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {
+              "width": 1080
+            },
+            "thumbnails": []
+          }
         }
       },
       "items": {
