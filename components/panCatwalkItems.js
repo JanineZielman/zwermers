@@ -76,7 +76,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
         <div className='label' onClick={handleFilterKeyChange('*')}>Show all</div>
         {labels.map((label, i) => {
           return(
-            <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.title ? label.title : label.uid.replaceAll('-', ' ')}</div>
+            <div id={`.${label.uid}`} key={`label${i}`} className={`label ${label.data.category}`} onClick={handleFilterKeyChange('.' + label.uid)}>{label.data.title ? label.data.title : label.uid.replaceAll('-', ' ')}</div>
           )
         })}
       </div>
