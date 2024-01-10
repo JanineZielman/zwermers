@@ -269,6 +269,17 @@ export type CategoryDocument<Lang extends string = string> = prismic.PrismicDocu
  */
 interface LabelDocumentData {
 	/**
+	 * Title field in *Label*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: label.title
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	title: prismic.KeyTextField;
+	
+	/**
 	 * Category field in *Label*
 	 *
 	 * - **Field Type**: Select

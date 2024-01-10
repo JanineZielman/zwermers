@@ -1,11 +1,16 @@
 {
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "five"
+    "value": "earth"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "sometime",
+    "type": "Text"
   },
   "category": {
     "__TYPE__": "FieldContent",
-    "value": "kledingcategorie",
+    "value": "locatie",
     "type": "Select"
   }
 }

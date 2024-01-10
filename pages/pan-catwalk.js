@@ -29,7 +29,7 @@ export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
   const items = await client.getAllByType("pan_catwalk_item");
-  const labels = await client.getAllByType("label");
+  const labels = await client.getAllByType("label", { lang: locale });
 
   const menu = await client.getSingle("menu", { lang: locale });
   const page = await client.getByUID("page", "pan-catwalk", { lang: locale });
