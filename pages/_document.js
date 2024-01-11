@@ -16,6 +16,7 @@ export default function Document() {
           }}
         />
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <script async src="https://eocampaign1.com/form/579d6956-b0c8-11ee-a43a-a320057deaf3.js" data-form="579d6956-b0c8-11ee-a43a-a320057deaf3"></script>
       </Head>
       <body className="overflow-x-hidden antialiased">
         <Main />

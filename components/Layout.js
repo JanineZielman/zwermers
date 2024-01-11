@@ -38,7 +38,13 @@ export const Layout = ({
       <footer>
         {settings.data.footerlinks.map((item,i) => {
           return(
-            <PrismicLink key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
+            <>
+              {item.label == 'newsletter' ?
+                <PrismicLink data-eo-form-toggle-id="579d6956-b0c8-11ee-a43a-a320057deaf3" key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
+                :
+                <PrismicLink key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
+              }
+            </>
           )
         })}
       </footer>
