@@ -161,4 +161,14 @@
   .logo-section .logos img{
     height: 75px;
   }
+
+  #player-container{
+    top: auto;
+    bottom: 0px;
+  }
+  #player-container #play-pause {
+    height: 40px;
+    width: 40px;
+    background-size:20px;
+  }
 }

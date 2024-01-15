@@ -12,9 +12,28 @@ const PanCatwalk = ({ menu, page, items, labels, settings }) => {
   const PanCatwalkItems = dynamic(() => import('../components/panCatwalkItems'), { ssr: false })
   const letters = page.data.title?.[0]?.text.split('');
 
+  function playPause() {
+    var track = document.getElementById('track');
+    var controlBtn = document.getElementById('play-pause');
+    if (track.paused) {
+        track.play();
+        controlBtn.className = "pause";
+    } else { 
+        track.pause();
+        controlBtn.className = "play";
+    }
+  }
+
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <div className="wrapper-pan-catwalk wrapper">
+        <audio id="track" loop>
+          <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+
+        <div id="player-container">
+          <div id="play-pause" onClick={playPause} className="play"></div>
+        </div>
         <Type letters={letters}/>
         <SliceZone slices={page.data.slices} components={components} />
         <PanCatwalkItems items={items} page={page} labels={labels}/>
