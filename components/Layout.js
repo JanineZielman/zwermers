@@ -1,6 +1,7 @@
 import { PrismicImage, PrismicLink } from '@prismicio/react'
 import Link from 'next/link';
 import { linkResolver } from "../prismicio";
+import Head from 'next/head';
 
 export const Layout = ({
   navItems,
@@ -8,9 +9,12 @@ export const Layout = ({
   item,
   settings
 }) => {
-  console.log(settings)
   return (
     <>
+       <Head>
+        <meta name="description" content={settings.data.site_description} />
+        <meta property="og:description" content={settings.data.site_description} />
+      </Head>
       <div className='menu'>
         {navItems.map((item, i) => {
           return(

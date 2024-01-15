@@ -1,6 +1,9 @@
 import { SliceZone } from "@prismicio/react";
 import { components } from "../slices";
 
+import * as prismicH from "@prismicio/helpers";
+import Head from "next/head";
+
 import { createClient } from "../prismicio";
 import { Layout } from "../components/Layout";
 
@@ -11,6 +14,15 @@ const OverOns = ({ menu, page, settings }) => {
 
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
+      <Head>
+        <title>
+        {prismicH.asText(page.data.title)} |{" "}
+          {settings.data.site_title}
+        </title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${prismicH.asText(page.data.title)} | ${settings.data.site_title}`} />
+        <meta property="og:image" content={settings.data.image.url} />
+      </Head>
       <div className="wrapper-over-ons wrapper">
         <Type letters={letters}/>
         <div className="content">

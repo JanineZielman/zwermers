@@ -52,7 +52,6 @@ const PanCatwalkItems = ({items, page, labels}) => {
 
 
   const handleFilterKeyChange = key => () => {
-    // console.log(document.querySelectorAll(key))
     if(key === '*'){
       setFilterKey(key);
       labels.sort(func);
@@ -72,8 +71,6 @@ const PanCatwalkItems = ({items, page, labels}) => {
       }
     }
   }
-
-  console.log(filterKey)
 
 
   return (

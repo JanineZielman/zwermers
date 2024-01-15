@@ -11,6 +11,15 @@ const Page = ({ page, menu, settings }) => {
   const letters = page.data.title?.[0]?.text.split('');
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
+      <Head>
+        <title>
+        {prismicH.asText(page.data.title)} |{" "}
+          {settings.data.site_title}
+        </title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${prismicH.asText(page.data.title)} | ${settings.data.site_title}`} />
+        <meta property="og:image" content={settings.data.image.url} />
+      </Head>
       <div className={`wrapper-${page.uid} wrapper`}>
         <Type letters={letters}/>
         <div className="content">

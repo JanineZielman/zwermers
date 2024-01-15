@@ -4,10 +4,20 @@ import * as prismicH from "@prismicio/helpers";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
+import Head from "next/head";
 
 const ArchiveItem = ({ page, menu, settings }) => {
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
+      <Head>
+        <title>
+          {page.data.title} |{" "}
+          {settings.data.site_title}
+        </title>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={`${page.data.title} | ${settings.data.site_title}`} />
+        <meta property="og:image" content={page.data.image.url} />
+      </Head>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
           <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
