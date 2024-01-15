@@ -28,8 +28,12 @@ export default PanCatwalk;
 export async function getStaticProps({ locale, previewData }) {
   const client = createClient({ previewData });
 
+  function func(a, b) {  
+    return 0.5 - Math.random();
+  } 
+
   const items = await client.getAllByType("pan_catwalk_item");
-  const labels = await client.getAllByType("label", { lang: locale });
+  const labels = (await client.getAllByType("label", { lang: locale })).sort(func);
 
   const menu = await client.getSingle("menu", { lang: locale });
   const page = await client.getByUID("page", "pan-catwalk", { lang: locale });

@@ -43,7 +43,7 @@ const Collapsible = ({slice}) => {
 		<>
 			{trigger &&
 			<div className="Collapsible" id={trigger}>
-				<span onClick={toggle} id={`${trigger}-closed`}>{slice.primary.title[0].text}</span>
+				<div onClick={toggle} id={`${trigger}-closed`} className="trigger">{slice.primary.title[0].text}</div>
 				<div className='content-parent' id={`${trigger}-content`} ref={contentRef} style={openDiv ? { height: contentRef.current?.scrollHeight +
 		"px" } : { height: "0px" }}>
 					<div className='collapsible-content'>
@@ -59,7 +59,7 @@ const Collapsible = ({slice}) => {
 										<p>
 											<PrismicRichText field={item.text}/>
 										</p>
-										<PrismicLink className="button" target="_blank" field={item.file}>{item.file_title}</PrismicLink>
+										{item.file_title && <PrismicLink className="button" target="_blank" field={item.file}>{item.file_title}</PrismicLink>}
 									</div>
 								)
 							})}

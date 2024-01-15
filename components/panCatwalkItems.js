@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { PrismicImage, PrismicLink } from '@prismicio/react';
+import { PrismicImage } from '@prismicio/react';
 import Isotope from 'isotope-layout';
 
 const PanCatwalkItems = ({items, page, labels}) => {
 
-  const isotope = useRef()
-  const [filterKey, setFilterKey] = useState('*')  
+  const isotope = useRef();
+  const [filterKey, setFilterKey] = useState('.show7');
 
   function func(a, b) {  
     return 0.5 - Math.random();
@@ -18,7 +18,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
       layoutMode: 'fitRows',
     })
     // cleanup
-    return () => isotope.current.destroy()
+    return () => isotope.current.destroy();
   }, [])
 
   // handling filter key change
@@ -27,17 +27,17 @@ const PanCatwalkItems = ({items, page, labels}) => {
       ? isotope.current.arrange({filter: `*`})
       : isotope.current.arrange({filter: `${filterKey.replace('*', '')}`})
 
-    if(filterKey != '*'){
+    if(filterKey != '*' && filterKey != '.show7'){
       for (let i = 0; i < labels.length; i++) {
         document.getElementById('.' + labels[i].uid).classList.add('hide');
         document.getElementById('.' + labels[i].uid).classList.remove('show');
-        for (let j = 0; j < document.querySelectorAll(filterKey).length; j++){
-          if(document.querySelectorAll(filterKey)[j].classList.value.includes(labels[i].uid)){
+        for (let j = 0; j < document.querySelectorAll(filterKey.replaceAll('*', '')).length; j++){
+          if(document.querySelectorAll(filterKey.replaceAll('*', ''))[j].classList.value.includes(labels[i].uid + ' ')){
             document.getElementById('.' + labels[i].uid).classList.remove('hide');
             document.getElementById('.' + labels[i].uid).classList.add('show');
           } else {
-            document.getElementById('.' + labels[i].uid).classList.add('hide');
-            document.getElementById('.' + labels[i].uid).classList.remove('show');
+            // document.getElementById('.' + labels[i].uid).classList.add('hide');
+            // document.getElementById('.' + labels[i].uid).classList.remove('show');
           }
         }
       }
@@ -48,11 +48,11 @@ const PanCatwalkItems = ({items, page, labels}) => {
         document.getElementById('.' + labels[i].uid).classList.remove('active');
       }
     }
-
   }, [filterKey])
 
 
   const handleFilterKeyChange = key => () => {
+    // console.log(document.querySelectorAll(key))
     if(key === '*'){
       setFilterKey(key);
       labels.sort(func);
@@ -62,6 +62,9 @@ const PanCatwalkItems = ({items, page, labels}) => {
         setFilterKey(filterKey.replace(key, ''));
         document.getElementById(key).classList.remove('active');
         document.getElementsByClassName('pan-catwalk-items')[0].setAttribute(`id`,`length${document.querySelectorAll(filterKey.replace(key, '')).length}`);
+        if (filterKey.match(/\./g).length == 1){
+          labels.sort(func);
+        }
       } else {
         setFilterKey(filterKey + key);
         document.getElementById(key).classList.add('active');
@@ -69,6 +72,9 @@ const PanCatwalkItems = ({items, page, labels}) => {
       }
     }
   }
+
+  console.log(filterKey)
+
 
   return (
     <div className='pan-catwalk-page'>
@@ -81,19 +87,19 @@ const PanCatwalkItems = ({items, page, labels}) => {
         })}
       </div>
       <div className='pan-catwalk-items'>
-        {items.map((item, i) => {  
+        {items.sort(func).map((item, i) => {  
           let labelsclasses = [];
           for (let i = 0; i < item.data.labels.length; i++) {
-            labelsclasses += item.data.labels[i].label.uid + ' '
+            labelsclasses += item.data.labels[i].label?.uid + ' '
           }
           return(
-            <div key={`pci${i}`} className={`pan-catwalk-item ${labelsclasses}`}>
-              <PrismicImage field={item.data.image}/>               
+            <div key={`pci${i}`} className={`pan-catwalk-item ${labelsclasses} show${Math.floor(Math.random() * 10)}`}>
+              <PrismicImage field={item.data.image}/>           
             </div>
           );
         })}
       </div>
-    </div>
+  </div>
   )
  }
  
