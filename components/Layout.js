@@ -39,17 +39,26 @@ export const Layout = ({
         </div>
       </main>
       <footer>
-        {settings.data.footerlinks.map((item,i) => {
-          return(
-            <>
-              {item.label == 'newsletter' ?
-                <PrismicLink data-eo-form-toggle-id="579d6956-b0c8-11ee-a43a-a320057deaf3" key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
-                :
-                <PrismicLink key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
-              }
-            </>
-          )
-        })}
+        <div className='social-links'>
+          {settings.data.social_links.map((item,i) => {
+            return(
+              <PrismicLink className={`social-icon ${item.label}`} key={`sociallink${i}`} field={item.link}></PrismicLink>
+            )
+          })}
+        </div>
+        <div className='footer-links'>
+          {settings.data.footerlinks.map((item,i) => {
+            return(
+              <>
+                {item.label == 'newsletter' ?
+                  <PrismicLink data-eo-form-toggle-id="579d6956-b0c8-11ee-a43a-a320057deaf3" key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
+                  :
+                  <PrismicLink key={`footerlink${i}`} field={item.link}>{item.label}</PrismicLink>
+                }
+              </>
+            )
+          })}
+        </div>
       </footer>
     </>
   );

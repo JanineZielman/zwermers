@@ -419,6 +419,31 @@ export interface SettingsDocumentDataFooterlinksItem {
 }
 
 /**
+ * Item in *Settings → SocialLinks*
+ */
+export interface SettingsDocumentDataSocialLinksItem {
+	/**
+	 * Link field in *Settings → SocialLinks*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.social_links[].link
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	link: prismic.LinkField;
+	
+	/**
+	 * Label field in *Settings → SocialLinks*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.social_links[].label
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	label: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -487,6 +512,17 @@ interface SettingsDocumentData {
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
 	footerlinks: prismic.GroupField<Simplify<SettingsDocumentDataFooterlinksItem>>;
+	
+	/**
+	 * SocialLinks field in *Settings*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.social_links[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	social_links: prismic.GroupField<Simplify<SettingsDocumentDataSocialLinksItem>>;
 }
 
 /**
@@ -947,6 +983,7 @@ declare module "@prismicio/client" {
 			SettingsDocument,
 			SettingsDocumentData,
 			SettingsDocumentDataFooterlinksItem,
+			SettingsDocumentDataSocialLinksItem,
 			AllDocumentTypes,
 			ButtonSlice,
 			ButtonSliceDefaultItem,

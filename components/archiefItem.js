@@ -5,7 +5,6 @@ const ArchiefItem = ({items, locale}) => {
   return (
     <div className='archief'>
       {items.map((item, i) => {
-        console.log(item.data)
         return(
           <a href={`/${locale}/zwermers/${item.uid}`} key={`archief${i}`}>
             <div className={`archief-item ${item.data.category?.uid}`}>

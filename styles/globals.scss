@@ -1086,3 +1086,27 @@ footer{
 		 background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTAgMjRoLTZ2LTI0aDZ2MjR6bTEwLTI0aC02djI0aDZ2LTI0eiIvPjwvc3ZnPg==)!important;
 	}
 }
+
+footer{
+	.social-links{
+		display: flex;
+		align-items: center;
+		.social-icon{
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			margin-right: 5px;
+			margin-top: 3px;
+			margin-left: 0;
+			&.instagram{
+				background-image: url(./instagram.svg);
+			}
+			&.facebook{
+				background-image: url(./facebook.svg);
+			}
+			&.linkedin{
+				background-image: url(./linkedin.svg);
+			}
+		}
+	}
+}
