@@ -1,5 +1,4 @@
 import { PrismicImage, PrismicLink } from '@prismicio/react'
-import Link from 'next/link';
 import { linkResolver } from "../prismicio";
 import Head from 'next/head';
 

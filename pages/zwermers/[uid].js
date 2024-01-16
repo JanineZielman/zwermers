@@ -20,7 +20,7 @@ const ArchiveItem = ({ page, menu, settings }) => {
       </Head>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
-          <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
+          <h2 className="category">{page.data.category?.data.title}</h2>
           <h1>{page.data.title}</h1>
           <h2 className="location-date">{page.data.dates &&  page.data.dates}</h2>
           
@@ -43,7 +43,10 @@ export default ArchiveItem;
 export async function getStaticProps({ locale, params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("archief_item", params.uid, { lang: locale });
+  const page = await client.getByUID("archief_item", params.uid, { 
+    fetchLinks: 'category.title',
+    lang: locale 
+  });
   const menu = await client.getSingle("menu", { lang: locale });
   const settings = await client.getSingle("settings");
 

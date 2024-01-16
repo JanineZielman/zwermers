@@ -65,7 +65,7 @@ const PanCatwalkItems = ({items, page, labels}) => {
           labels.sort(func);
         }
       } else {
-        setFilterKey(filterKey + key);
+        setFilterKey(filterKey.replace('.show7','*') + key);
         document.getElementById(key).classList.add('active');
         document.getElementsByClassName('pan-catwalk-items')[0].setAttribute(`id`,`length${document.querySelectorAll(filterKey + key).length}`);
       }

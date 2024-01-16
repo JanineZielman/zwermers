@@ -801,6 +801,8 @@ footer{
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		max-height: calc(6.5vw + 90px);
+		overflow-y: hidden;
 	}
 	.label{
 		text-transform: capitalize;

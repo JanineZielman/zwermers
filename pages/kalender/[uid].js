@@ -21,7 +21,7 @@ const AgendaItem = ({ page, menu, settings }) => {
       </Head>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
-          <h2 className="category">{page.data.category?.uid.replaceAll('-', ' ')}</h2>
+          <h2 className="category">{page.data.category?.data.title}</h2>
           <h1>{page.data.title}</h1>
           
           <h2 className="location-date">
@@ -46,7 +46,10 @@ export default AgendaItem;
 export async function getStaticProps({ params, previewData, locale }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("agendaitem", params.uid, { lang: locale });
+  const page = await client.getByUID("agendaitem", params.uid, { 
+    fetchLinks: 'category.title',
+    lang: locale 
+  });
   const menu = await client.getSingle("menu", { lang: locale });
   const settings = await client.getSingle("settings");
 
