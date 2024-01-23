@@ -7,6 +7,11 @@ import { Layout } from "../../components/Layout";
 import Head from "next/head";
 
 const ArchiveItem = ({ page, menu, settings }) => {
+
+  function goBack(){
+    history.back();
+  }
+  
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
       <Head>
@@ -20,6 +25,9 @@ const ArchiveItem = ({ page, menu, settings }) => {
       </Head>
       <div className="page-wrapper">
         <div className={`content ${page.data.category?.uid}`}>
+          <div className="back">
+            <div onClick={goBack}>←</div>
+          </div>
           <h2 className="category">{page.data.category?.data.title}</h2>
           <h1>{page.data.title}</h1>
           <h2 className="location-date">{page.data.dates &&  page.data.dates}</h2>

@@ -38,6 +38,11 @@ $pbig: 24px;
 $pmed: 18px;
 $psmall: 14px;
 
+body,html{
+	scroll-behavior: smooth;
+	scroll-padding-top: 100px;
+}
+
 body{
 	margin: 0;
 	padding: 0;
@@ -94,6 +99,17 @@ a{
 
 .category{
 	text-transform: capitalize;
+}
+
+.back{
+	margin-top: 14px;
+	margin-bottom: -10px;
+	font-size: $pbig;
+	cursor: pointer;
+	a{
+		text-decoration: none;
+		font-size: $pbig;
+	}
 }
 
 .menu{

@@ -5,8 +5,10 @@ import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import Head from "next/head";
+import { useRouter } from 'next/router';
 
-const AgendaItem = ({ page, menu, settings }) => {
+const AgendaItem = ({ page, menu, settings, locale }) => {
+  const router = useRouter();
 
   return (
     <Layout navItems={menu.data.slices} item={page} settings={settings}>
@@ -21,6 +23,9 @@ const AgendaItem = ({ page, menu, settings }) => {
       </Head>
       <div className="page-wrapper wrapper-kalender">
         <div className={`content ${page.data.category?.uid}`}>
+          <div className="back">
+            <a href={`/${locale}/kalender?item=${router.query.item}`}>←</a>
+          </div>
           <h2 className="category">{page.data.category?.data.title}</h2>
           <h1>{page.data.title}</h1>
           
@@ -57,7 +62,8 @@ export async function getStaticProps({ params, previewData, locale }) {
     props: {
       page,
       menu,
-      settings
+      settings, 
+      locale
     },
   };
 }
