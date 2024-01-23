@@ -6,8 +6,7 @@ const ArchiefItem = ({items, locale}) => {
     <div className='archief'>
       {items.map((item, i) => {
         return(
-          <a href={`/${locale}/zwermers/${item.uid}`} key={`archief${i}`}>
-            <div className={`archief-item ${item.data.category?.uid}`}>
+          <a className={`archief-item ${item.data.category?.uid}`} href={`/${locale}/zwermers/${item.uid}`} key={`archief${i}`}>
               {item.data.category?.uid == 'news' ?
                 <div className="news-item">
                   <h2>
@@ -44,7 +43,6 @@ const ArchiefItem = ({items, locale}) => {
                   }
                 </>
               }
-            </div>
           </a>
         )
       })}
