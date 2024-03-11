@@ -41,7 +41,7 @@ export async function getStaticProps({ locale, previewData }) {
   const items = await client.getAllByType("agendaitem", { 
     orderings: {
 			field: 'my.agendaitem.date',
-			direction: 'desc',
+			direction: 'asc',
 		},
     fetchLinks: 'category.title',
     lang: locale
