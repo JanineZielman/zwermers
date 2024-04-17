@@ -34,6 +34,13 @@
           "placeholder": ""
         }
       },
+      "logo_color": {
+        "type": "Color",
+        "config": {
+          "label": "Logo Color",
+          "placeholder": ""
+        }
+      },
       "logo_background": {
         "type": "Color",
         "config": {

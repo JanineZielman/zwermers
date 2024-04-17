@@ -492,6 +492,17 @@ interface SettingsDocumentData {
 	logo_text: prismic.KeyTextField;
 	
 	/**
+	 * Logo Color field in *Settings*
+	 *
+	 * - **Field Type**: Color
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: settings.logo_color
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#color
+	 */
+	logo_color: prismic.ColorField;
+	
+	/**
 	 * Logo Background field in *Settings*
 	 *
 	 * - **Field Type**: Color

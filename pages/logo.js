@@ -5,7 +5,7 @@ import Type from "../components/type"
 const Logo = ({ settings }) => {
   const letters = settings.data.logo_text.split('');
   return (
-    <div className="logo-center" style={{'backgroundColor': settings.data.logo_background}}>
+    <div className="logo-center" style={{'backgroundColor': settings.data.logo_background, 'color': settings.data.logo_color}}>
       <Type letters={letters}/>
     </div>
   );

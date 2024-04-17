@@ -1,25 +1,25 @@
 {
   "site_title": {
     "__TYPE__": "FieldContent",
-    "value": "joined",
+    "value": "diameter",
     "type": "Text"
   },
   "site_description": {
     "__TYPE__": "FieldContent",
-    "value": "fire",
+    "value": "every",
     "type": "Text"
   },
   "image": {
     "__TYPE__": "ImageContent",
     "origin": {
       "id": "main",
-      "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-      "width": 4480,
-      "height": 4480
+      "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+      "width": 4172,
+      "height": 4000
     },
-    "url": "https://images.unsplash.com/photo-1587840171670-8b850147754e",
-    "width": 4480,
-    "height": 4480,
+    "url": "https://images.unsplash.com/photo-1586952518485-11b180e92764",
+    "width": 4172,
+    "height": 4000,
     "edit": {
       "zoom": 1,
       "crop": {
@@ -32,12 +32,17 @@
   },
   "logo_text": {
     "__TYPE__": "FieldContent",
-    "value": "together",
+    "value": "shown",
     "type": "Text"
+  },
+  "logo_color": {
+    "__TYPE__": "FieldContent",
+    "value": "#8d7362",
+    "type": "Color"
   },
   "logo_background": {
     "__TYPE__": "FieldContent",
-    "value": "#058852",
+    "value": "#90ab58",
     "type": "Color"
   },
   "footerlinks": {
@@ -52,7 +57,7 @@
               "__TYPE__": "LinkContent",
               "value": {
                 "__TYPE__": "ExternalLink",
-                "url": "https://slicemachine.dev"
+                "url": "http://google.com"
               }
             }
           ],
@@ -60,7 +65,7 @@
             "label",
             {
               "__TYPE__": "FieldContent",
-              "value": "rain",
+              "value": "wire",
               "type": "Text"
             }
           ]
@@ -88,7 +93,7 @@
             "label",
             {
               "__TYPE__": "FieldContent",
-              "value": "lying",
+              "value": "alone",
               "type": "Text"
             }
           ]
