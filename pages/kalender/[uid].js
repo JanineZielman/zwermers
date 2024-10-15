@@ -26,7 +26,7 @@ const AgendaItem = ({ page, menu, settings, locale }) => {
           <div className="back">
             <a href={`/${locale}/kalender?item=${router.query.item}`}>←</a>
           </div>
-          <h2 className="category">{page.data.category?.data.title}</h2>
+          {page.data.category.data &&<h2 className="category">{page.data.category?.data.title}</h2>}
           <h1>{page.data.title}</h1>
           
           <h2 className="location-date">

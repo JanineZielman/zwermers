@@ -27,6 +27,20 @@ const AgendaItem = ({items, locale}) => {
 
   return (
     <div className='agenda'>
+       {items.filter((item) => (Moment(item.data.date).format("Y") > currentYear)).map((item, i) => {
+        return(
+          <a href={`/${locale}/kalender/${item.uid}?item=${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} id={item.uid} key={`agenda${i}`}>
+            <div className='mask'>
+              <h2>{item.data.title}</h2>
+              <p>
+                {item.data.location}<br/>
+                {item.data.dates}
+              </p>
+            </div>
+            
+          </a>
+        )
+      })}
       {items.filter((item) => (Moment(item.data.date).format("Y") == currentYear)).map((item, i) => {
         return(
           <a href={`/${locale}/kalender/${item.uid}?item=${item.uid}`} className={`agenda-item ${item.data.category?.uid}`} id={item.uid} key={`agenda${i}`}>
