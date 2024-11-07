@@ -10,7 +10,7 @@ const ArchiefItem = ({items, locale}) => {
               {item.data.category?.uid == 'news' ?
                 <div className="news-item">
                   <h2>
-                    <span>{item.data.category?.data.title}</span><br/>
+                    <span>{item.data.category?.data?.title}</span><br/>
                     {item.data.title}
                     
                   </h2>
@@ -28,7 +28,7 @@ const ArchiefItem = ({items, locale}) => {
                       </div>
                       <div className='overlay'>
                         <h2>
-                          <span>{item.data.category?.data.title}</span><br/>
+                          <span>{item.data.category?.data?.title}</span><br/>
                           {item.data.title}
                         </h2>
                       </div>
@@ -36,7 +36,7 @@ const ArchiefItem = ({items, locale}) => {
                     :
                     <div className='no-img'>
                       <h2>
-                        <span>{item.data.category?.data.title}</span><br/>
+                        <span>{item.data.category?.data?.title}</span><br/>
                         {item.data.title}
                       </h2>
                     </div>

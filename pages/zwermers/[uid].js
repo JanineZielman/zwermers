@@ -28,7 +28,7 @@ const ArchiveItem = ({ page, menu, settings }) => {
           <div className="back">
             <div onClick={goBack}>←</div>
           </div>
-          <h2 className="category">{page.data.category?.data.title}</h2>
+          <h2 className="category">{page.data.category?.data?.title}</h2>
           <h1>{page.data.title}</h1>
           <h2 className="location-date">{page.data.dates &&  page.data.dates}</h2>
           
